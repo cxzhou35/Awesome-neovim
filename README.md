@@ -14,10 +14,11 @@ The files under config will be **automatically loaded at the appropriate time**,
 
 ```sh
 ~/.config/nvim/
-├── README.md
-├── after
-│   └── plugin              # plugin configs
 ├── init.lua                # import neovim modules
+├── after/plugin            # plugin configs
+│   ├── plugin_1
+│   ├── **
+│   └── plugin_n
 ├── lua                     # core neovim configs
 │   ├── colorscheme.lua
 │   ├── highlights.lua
@@ -29,6 +30,7 @@ The files under config will be **automatically loaded at the appropriate time**,
 │   ├── file_1
 │   ├── **
 │   └── file_n
+├── README.md
 └── snippets                # snippets
     └── friendly-snippets
 ```
