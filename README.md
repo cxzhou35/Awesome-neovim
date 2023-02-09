@@ -2,7 +2,7 @@
 
 Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐️.
 
-## Screenshot
+## Screenshots
 
 <div align=center><img src="https://gitee.com/vercent_zhou/picgo-md/raw/master/image/20230209171015.png" style="zoom:50%" alt="fig"></div> 
 
@@ -15,9 +15,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 - [`res`](./res/): Include all files modified by Zicx.
 - [`snippets`](./snippets/friendly-snippets/): Include all code snippets.(Python, C/C++, Go, Lua etc.)
 
-## Setup Tutorial
-
-### Requirements
+## Requirements
 
 - [Neovim 0.8+](https://github.com/neovim/neovim/releases)
 - [Packer.nvim](https://github.com/wbthomason/packer.nvim): A use-package inspired plugin manager for Neovim.
@@ -46,7 +44,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 - [Lazygit](https://github.com/jesseduffield/lazygit): Simple terminal UI for git commands.
 - [Ranger](https://github.com/ranger/ranger): A VIM-inspired filemanager for the console.
 
-### Setup
+## Setup
 
 ```bash
 cd ~ # or any path you like
@@ -60,22 +58,23 @@ cd ~/.config/nvim
 cp -r ~/neovim/* .
 ```
 
-#### Install Plugins
+1. Install **Plugins**: Relaunch Neovim and type `:PackerInstall` to install all plugins.
 
-Relaunch Neovim and type `:PackerInstall` to install all plugins.
+2. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding lsp server.
 
-#### Install LSP Server
+    > You can get more detailed information [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
 
-Relaunch Neovim and type `:LspInstall [server]` to install corresponding lsp server, you can get more detailed information [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
-
-#### Install Treesitter
-
-Relaunch Neovim and type `:TSInstall [language]` to install corresponding language, you can get more detailed information [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
+3. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding language.
+ 
+    > You can get more detailed information [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
 ## Features
 
+📝 TODO
 
 ## Keymaps
+
+📝 TODO
 
 ---
 

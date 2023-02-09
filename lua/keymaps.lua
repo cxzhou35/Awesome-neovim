@@ -88,7 +88,7 @@ keymap.set('n', 'yw', 'yaw')
 keymap.set('', '<C-u>', ':UploadClipboard<CR>')
 
 -- Markdown Preview
-keymap.set('', '<C-p>', '<Plug>MarkdownPreviewToggle')
+keymap.set('', '<C-m>', '<Plug>MarkdownPreviewToggle')
 
 -- Undotree
 keymap.set('n', '<leader>ut', ':UndotreeToggle<CR>')
