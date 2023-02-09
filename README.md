@@ -1,6 +1,7 @@
 # Awesome-neovim
 
-Here is my personal Neovim configuration. If this is helpful to you, please give me a star.   <iframe src="https://ghbtns.com/github-btn.html?user=Xuer04&repo=Awesome-neovim&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20" title="GitHub"></iframe>
+Here is my personal Neovim configuration. If this is helpful to you, please give me a star.
+<iframe src="https://ghbtns.com/github-btn.html?user=Xuer04&repo=Awesome-neovim&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
 
 ## Screenshots
 
