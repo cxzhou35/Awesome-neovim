@@ -1,7 +1,8 @@
 # Awesome-neovim
 
-Here is my personal Neovim configuration. If this is helpful to you, please give me a star.
-<iframe src="https://ghbtns.com/github-btn.html?user=Xuer04&repo=Awesome-neovim&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐.
+
+[![Stars](https://img.shields.io/github/stars/Xuer04/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/Xuer04/Awesome-neovim)
 
 ## Screenshots
 
@@ -45,7 +46,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 - [Lazygit](https://github.com/jesseduffield/lazygit): Simple terminal UI for git commands.
 - [Ranger](https://github.com/ranger/ranger): A VIM-inspired filemanager for the console.
 
-## Setup
+## Installation
 
 1. Clone repo:
     ```bash
@@ -84,7 +85,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 ---
 
-If you meet some problems, please contact [Zicx](https://github.com/Xuer04) or raise an [issue](https://github.com/Xuer04/Awesome-neovim/issues).
+Suggestions are always welcome! If you meet some problems, please contact [Zicx](https://github.com/Xuer04) or raise an [issue](https://github.com/Xuer04/Awesome-neovim/issues).
 
 Neovim is worth a try! 😺
 
