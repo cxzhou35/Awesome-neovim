@@ -61,13 +61,13 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 2. Install **Plugins**: Relaunch Neovim and type `:PackerInstall` to install all plugins.
 
-3. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding lsp server.
+3. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding LSP server.
 
-    > You can get more detailed information [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
+    > To learn more about LSP servers, you can click [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
 
-4. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding language.
+4. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding Treesitter supported-language.
  
-    > You can get more detailed information [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
+    > To learn more about Treesitter supported-languages, You can click [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
 ## Features
 
