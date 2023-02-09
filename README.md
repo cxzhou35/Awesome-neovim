@@ -46,25 +46,26 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 ## Setup
 
-```bash
-cd ~ # or any path you like
+1. Clone repo
+    ```bash
+    cd ~ # or any path you like
 
-git clone https://github.com/Xuer04/Awesome-neovim.git neovim
+    git clone https://github.com/Xuer04/Awesome-neovim.git neovim
 
-mkdir -p ~/.config/nvim
+    mkdir -p ~/.config/nvim
 
-cd ~/.config/nvim
+    cd ~/.config/nvim
 
-cp -r ~/neovim/* .
-```
+    cp -r ~/neovim/* .
+    ```
 
-1. Install **Plugins**: Relaunch Neovim and type `:PackerInstall` to install all plugins.
+2. Install **Plugins**: Relaunch Neovim and type `:PackerInstall` to install all plugins.
 
-2. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding lsp server.
+3. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding lsp server.
 
     > You can get more detailed information [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
 
-3. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding language.
+4. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding language.
  
     > You can get more detailed information [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
