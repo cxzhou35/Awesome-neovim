@@ -30,7 +30,7 @@ The files under config will be **automatically loaded at the appropriate time**,
 │   ├── file_1
 │   ├── **
 │   └── file_n
-└── snippets                # snippets
+└── snippets                # code snippets
     └── friendly-snippets
 ```
 
