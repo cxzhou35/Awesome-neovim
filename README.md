@@ -2,6 +2,8 @@
 
 Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐️
 
+<div align=center><img src="https://gitee.com/vercent_zhou/picgo-md/raw/master/image/20230209171015.png" style="zoom:50%" alt="fig"></div> 
+
 ### Table of contents
 
 - [`init.lua`](./init.lua): Import all configuration modules for Neovim.

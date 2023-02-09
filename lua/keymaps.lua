@@ -179,6 +179,10 @@ keymap.set("n", "[t", function() require("todo-comments").jump_prev() end,
            {desc = "Previous todo comment"})
 keymap.set("n", "td", ":TodoLocList<cr>")
 
+-- Picgo
+keymap.set("n", "<leader>uc",
+           "<cmd>lua require'nvim-picgo'.upload_clipboard()<cr>")
+
 -- Maximize
 keymap.set('n', 'sm', ':MaximizerToggle<CR>')
 
