@@ -46,7 +46,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 ## Setup
 
-1. Clone repo
+1. Clone repo:
     ```bash
     cd ~ # or any path you like
 
