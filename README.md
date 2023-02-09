@@ -4,25 +4,41 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 [![Stars](https://img.shields.io/github/stars/Xuer04/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/Xuer04/Awesome-neovim)
 
-## Screenshots
+## 🏞️ Screenshots
 
 <div align=center><img src="./images/screenshot.png" style="zoom:40%" alt="fig"></div> 
 
-## Table of contents
+## 📂 File Structure
 
-- [`init.lua`](./init.lua): Import all configuration modules for Neovim.
-- [`lua`](./lua/): Include basic Neovim configurations.
-- [`after`](./after/plugin/): Include all plugin configurations.
-- [`plugin`](./plugin/packer_compiled.lua): Include files automatically created by Packer.
-- [`res`](./res/): Include all files modified by Zicx.
-- [`snippets`](./snippets/friendly-snippets/): Include all code snippets.(Python, C/C++, Go, Lua etc.)
+The files under config will be **automatically loaded at the appropriate time**, so you don't need to require those files manually.
 
-## Requirements
+```sh
+~/.config/nvim/
+├── README.md
+├── after
+│   └── plugin              # plugin configs
+├── init.lua                # import neovim modules
+├── lua                     # core neovim configs
+│   ├── colorscheme.lua
+│   ├── highlights.lua
+│   ├── keymaps.lua
+│   ├── options.lua
+│   ├── plugins.lua
+│   └── utils.lua
+├── res                     # user modified files
+│   ├── file_1
+│   ├── **
+│   └── file_n
+└── snippets                # snippets
+    └── friendly-snippets
+```
 
-- [Neovim 0.8+](https://github.com/neovim/neovim/releases)
+## ⚡️ Requirements
+
+- [Neovim](https://github.com/neovim/neovim/releases): Neovim >= 0.8.0 (needs to be built with LuaJIT).
+- [Git](https://git-scm.com/): Git >= 2.19.0 (for partial clones support).
 - [Packer.nvim](https://github.com/wbthomason/packer.nvim): A use-package inspired plugin manager for Neovim.
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads): Iconic font aggregator, collection, and patcher.
-- [Ripgrep](https://github.com/BurntSushi/ripgrep): A line-oriented search tool.
 - [Python integration](https://neovim.io/doc/user/provider.html#provider-nodejs): To use python remote-plugins with Neovim.
 
     ```python
@@ -32,7 +48,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 - [Node.js integration](https://neovim.io/doc/user/provider.html#provider-python): To use javascript remote-plugins with Neovim.
 
-    ```shell
+    ```sh
     npm install -g neovim
     ```
 
@@ -45,41 +61,54 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 - [Btop](https://github.com/aristocratos/btop): A monitor of resources.
 - [Lazygit](https://github.com/jesseduffield/lazygit): Simple terminal UI for git commands.
 - [Ranger](https://github.com/ranger/ranger): A VIM-inspired filemanager for the console.
+- [Ripgrep](https://github.com/BurntSushi/ripgrep): A line-oriented search tool.
 
-## Installation
+## 🛠️ Installation
 
-1. Clone repo:
-    ```bash
-    cd ~ # or any path you like
+1. Make a backup of your current Neovim files:
 
-    git clone https://github.com/Xuer04/Awesome-neovim.git neovim
-
-    mkdir -p ~/.config/nvim
-
-    cd ~/.config/nvim
-
-    cp -r ~/neovim/* .
+    ```sh
+    # required
+    mv ~/.config/nvim ~/.config/nvim.bak
+    # optional but recommended
+    mv ~/.local/share/nvim ~/.local/share/nvim.bak
+    mv ~/.local/state/nvim ~/.local/state/nvim.bak
+    mv ~/.cache/nvim ~/.cache/nvim.bak
     ```
 
-2. Install **Plugins**: Relaunch Neovim and type `:PackerInstall` to install all plugins.
+2. Clone the repo:
 
-3. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding LSP server.
+    ```sh
+    git clone https://github.com/Xuer04/Awesome-neovim.git ~/.config/nvim
+    # remove git folder
+    rm -rf ~/.config/nvim/.git
+    ```
+
+3. Install **Plugins**: Relaunch Neovim and type `:PackerInstall` to install all plugins.
+
+4. Install **LSP Server**: Relaunch Neovim and type `:LspInstall [server]` to install corresponding LSP server.
 
     > To learn more about LSP servers, you can click [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
 
-4. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding Treesitter supported-language.
+5. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding Treesitter supported-language.
  
     > To learn more about Treesitter supported-languages, you can click [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
-## Features
+6. Start Neovim!
+
+## ✨ Features
+
+- Transform your Neovim into a full-fledged IDE
+- Easily customize and extend your config by yourself
+- Blazingly fast
+- Sane default settings for options, autocmds, and keymaps
+- Comes with a wealth of plugins pre-configured and ready to use
+
+## ⌨️  Keymaps
 
 📝 TODO
 
-## Keymaps
-
-📝 TODO
-
-## Wiki
+## 📖 Wiki
 
 📝 TODO
 
