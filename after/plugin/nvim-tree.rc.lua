@@ -10,7 +10,7 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 nvim_tree.setup({
     view = {
         adaptive_size = true,
-        width = 25,
+        width = 22,
         mappings = {list = {{key = "u", action = "dir_up"}}}
     },
     diagnostics = {
@@ -58,7 +58,7 @@ nvim_tree.setup({
             }
         }
     },
-    actions = {open_file = {quit_on_open = true}},
+    -- actions = {open_file = {quit_on_open = true}}, -- auto close nvim-tree when open file
     update_focused_file = {enable = true, update_cwd = true},
     filters = {
         dotfiles = false,
