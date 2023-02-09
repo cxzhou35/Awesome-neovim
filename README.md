@@ -1,6 +1,6 @@
 # Awesome-neovim
 
-Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐️.
+Here is my personal Neovim configuration. If this is helpful to you, please give me a star. <a class="github-button" href="https://github.com/Xuer04/Awesome-neovim" data-color-scheme="no-preference: dark_dimmed; light: light; dark: dark;" data-icon="octicon-star" data-show-count="true" aria-label="Star Xuer04/Awesome-neovim on GitHub">Star</a>
 
 ## Screenshots
 
