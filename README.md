@@ -30,7 +30,6 @@ The files under config will be **automatically loaded at the appropriate time**,
 │   ├── file_1
 │   ├── **
 │   └── file_n
-├── README.md
 └── snippets                # snippets
     └── friendly-snippets
 ```
