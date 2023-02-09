@@ -1,6 +1,6 @@
 # Awesome-neovim
 
-My personal Neovim configuration.
+Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐️
 
 ### Table of contents
 
