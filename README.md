@@ -36,7 +36,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
     npm install -g neovim
     ```
 
-> **Info**
+> **Note**
 >
 > After you have installed all requirements, you can relaunch Neovim and type `:checkhealth` to see if your Neovim system is up-to-date.
 
@@ -70,7 +70,7 @@ Relaunch Neovim and type `:LspInstall [server]` to install corresponding lsp ser
 
 #### Install Treesitter
 
-Relaunch Neovim and type `:TSInstall [server]` to install corresponding languages, you can get more detailed information [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
+Relaunch Neovim and type `:TSInstall [language]` to install corresponding language, you can get more detailed information [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
 ## Features
 
