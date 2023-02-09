@@ -67,7 +67,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 4. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding Treesitter supported-language.
  
-    > To learn more about Treesitter supported-languages, You can click [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
+    > To learn more about Treesitter supported-languages, you can click [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
 ## Features
 
