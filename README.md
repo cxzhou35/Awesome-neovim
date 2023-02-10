@@ -16,9 +16,9 @@ The files under config will be **automatically loaded at the appropriate time**,
 ~/.config/nvim/
 ├── init.lua                # import neovim modules
 ├── after/plugin            # plugin configs
-│   ├── plugin_1
-│   ├── **
-│   └── plugin_n
+│   ├── alpha.rc.lua
+│   ├── autopairs.rc.lua
+│   └── ...
 ├── lua                     # core neovim configs
 │   ├── colorscheme.lua
 │   ├── highlights.lua
@@ -27,9 +27,9 @@ The files under config will be **automatically loaded at the appropriate time**,
 │   ├── plugins.lua
 │   └── utils.lua
 ├── res                     # user modified files
-│   ├── file_1
-│   ├── **
-│   └── file_n
+│   ├── battery
+│   ├── vim-airline
+│   └── ...
 └── snippets                # code snippets
     └── friendly-snippets
 ```
