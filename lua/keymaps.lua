@@ -49,13 +49,15 @@ keymap.set('v', '<S-l>', 'g_')
 -- Number
 keymap.set('v', '+', 'g<C-a>')
 keymap.set('v', '-', 'g<C-x>')
+keymap.set('n', '<leader>+', '<C-a>')
+keymap.set('n', '<leader>-', '<C-x>')
 
 -- Sort
 keymap.set('v', '<leader>s', ':sort<CR>')
 keymap.set('v', '<leader>i', ':sort!<CR>')
 
 -- No highlight
-keymap.set('', '<C-h>', ':noh<CR>')
+keymap.set('', '<C-h>', ':nohl<CR>')
 
 -- Undo
 keymap.set('n', '<S-u>', ':u<CR>')
@@ -83,9 +85,6 @@ keymap.set('n', 'vb', 'vab')
 -- Yank
 keymap.set('n', 'yp', 'yyp')
 keymap.set('n', 'yw', 'yaw')
-
--- Picgo
-keymap.set('', '<C-u>', ':UploadClipboard<CR>')
 
 -- Markdown Preview
 keymap.set('', '<C-m>', '<Plug>MarkdownPreviewToggle')

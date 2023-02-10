@@ -30,7 +30,7 @@ lualine.setup {
             {
                 'filename',
                 file_status = true, -- displays file status (readonly status, modified status)
-                path = 2, -- 0 = just filename, 1 = relative path, 2 = absolute path
+                path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
                 symbols = {
                     modified = '[+]', -- Text to show when the file is modified.
                     readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.

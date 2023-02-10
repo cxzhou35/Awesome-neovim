@@ -1,10 +1,10 @@
 vim.cmd("autocmd!")
 local opt = vim.opt
 local api = vim.api
-local wo = vim.wo
 
 -- General
-wo.number = true
+opt.number = true
+-- opt.relativenumber = true
 opt.title = true
 opt.title = true
 opt.hlsearch = true
@@ -41,6 +41,10 @@ opt.smarttab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.signcolumn = "yes"
+
+-- Window
+opt.splitright = true
+opt.splitbelow = true
 
 -- Clipboard
 opt.clipboard = {'unnamed', 'unnamedplus'}
