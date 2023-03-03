@@ -94,15 +94,25 @@ _G.packer_plugins = {
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["battery.vim"] = {
+  ["alternate-toggler"] = {
     loaded = true,
-    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/battery.vim",
-    url = "https://github.com/lambdalisue/battery.vim"
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/alternate-toggler",
+    url = "https://github.com/rmagatti/alternate-toggler"
+  },
+  ["battery.nvim"] = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/battery.nvim",
+    url = "https://github.com/justinhj/battery.nvim"
   },
   ["bullets.vim"] = {
     loaded = true,
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/bullets.vim",
     url = "https://github.com/dkarter/bullets.vim"
+  },
+  ["clipboard-image.nvim"] = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/clipboard-image.nvim",
+    url = "https://github.com/ekickx/clipboard-image.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -134,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  everforest = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -154,15 +169,15 @@ _G.packer_plugins = {
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/headlines.nvim",
     url = "https://github.com/lukas-reineke/headlines.nvim"
   },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["lightspeed.nvim"] = {
-    loaded = true,
-    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
-    url = "https://github.com/ggandor/lightspeed.nvim"
   },
   ["lsp-colors.nvim"] = {
     loaded = true,
@@ -178,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = false,
@@ -313,6 +333,14 @@ _G.packer_plugins = {
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/scrollbar.nvim",
     url = "https://github.com/Xuyuanp/scrollbar.nvim"
   },
+  ["tabout.nvim"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/opt/tabout.nvim",
+    url = "https://github.com/abecodes/tabout.nvim",
+    wants = { "nvim-treesitter" }
+  },
   tabular = {
     loaded = true,
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/tabular",
@@ -323,10 +351,20 @@ _G.packer_plugins = {
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+  ["telescope-vim-bookmarks.nvim"] = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/telescope-vim-bookmarks.nvim",
+    url = "https://github.com/tom-anders/telescope-vim-bookmarks.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,
@@ -343,20 +381,10 @@ _G.packer_plugins = {
     path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-airline"] = {
+  ["vim-bookmarks"] = {
     loaded = true,
-    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
-  },
-  ["vim-highlightedyank"] = {
-    loaded = true,
-    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
-    url = "https://github.com/machakann/vim-highlightedyank"
+    path = "/Users/vercent/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
+    url = "https://github.com/MattesGroeger/vim-bookmarks"
   },
   ["vim-markdown"] = {
     loaded = false,
@@ -378,11 +406,16 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-cmp ]]
+vim.cmd [[ packadd tabout.nvim ]]
+time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown', 'markdown-preview.nvim', 'nvim-picgo'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'nvim-picgo', 'vim-markdown', 'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
