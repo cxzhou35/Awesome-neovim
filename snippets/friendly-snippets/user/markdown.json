@@ -49,10 +49,30 @@
     "body": ["<div align=center><img src=\"${1}\" style=\"zoom:${2}%\" alt=\"${3}\"></div> ${0}"],
     "description": "Add images with html format"
   },
+  "Images with mkdocs support": {
+    "prefix": "imgmk",
+    "body": ["<figure markdown>",
+             "![${1}](${2}){width=\"${3}\"}",
+             "<figcaption>${4}</figcaption>",
+             "</figure>",
+             "${0}"
+            ],
+    "description": "Add images with mkdocs format"
+  },
   "Insert strikethrough": {
     "prefix": "del",
     "body": ["<del>${1}</del> ${0}"],
     "description": "Insert strikethrough"
+  },
+  "Center text": {
+    "prefix": "ct",
+    "body": ["<div style=\"text-align: center\" markdown=\"1\">${1}</div> ${0}"],
+    "description": "Center text"
+  },
+  "Insert button": {
+    "prefix": "bt",
+    "body": ["[${1}](#){ .md-button } ${0}"],
+    "description": "Insert button"
   },
   "Insert bold text": {
     "prefix": ["bold", "b"],

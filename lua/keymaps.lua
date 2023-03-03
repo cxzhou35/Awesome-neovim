@@ -72,7 +72,7 @@ keymap.set('n', 'fwq', ':wqa<CR>')
 keymap.set('n', '<F2>', ':NvimTreeFindFileToggle<CR>')
 
 -- Match
-keymap.set('', 'm', '%')
+keymap.set('', '<leader>m', '%')
 
 -- Wildfire
 keymap.set('', '<Space>', '<Plug>(wildfire-fuel)')
@@ -152,12 +152,12 @@ keymap.set("n", "tl", "<cmd>TroubleToggle loclist<CR>", opts)
 keymap.set("n", "tq", "<cmd>TroubleToggle quickfix<CR>", opts)
 keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<CR>", opts)
 
--- Lightspeed jump
-keymap.set('n', 'q', '<nop>')
-keymap.set('n', '<leader>h', '<Plug>Lightspeed_s')
-keymap.set('n', '<leader>l', '<Plug>Lightspeed_S')
-keymap.set('n', '<leader>j', '<Plug>Lightspeed_f')
-keymap.set('n', '<leader>k', '<Plug>Lightspeed_F')
+keymap.set("n", "<leader>w", ":HopWord<CR>", opts)
+keymap.set("n", "<leader>1", ":HopChar1<CR>", opts)
+keymap.set("n", "<leader>2", ":HopChar2<CR>", opts)
+keymap.set("n", "<leader>p", ":HopPattern<CR>", opts)
+keymap.set("n", "<leader>l", ":HopLineStart<CR>", opts)
+keymap.set("n", "<leader>v", ":HopVertical<CR>", opts)
 
 -- Bookmark
 keymap.set('n', 'mm', '<Plug>BookmarkToggle')

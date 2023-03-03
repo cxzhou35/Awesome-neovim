@@ -4,7 +4,7 @@ local api = vim.api
 
 -- General
 opt.number = true
--- opt.relativenumber = true
+opt.relativenumber = true
 opt.title = true
 opt.title = true
 opt.hlsearch = true
@@ -30,6 +30,7 @@ opt.listchars = {extends = '❯', precedes = '❮', trail = '·', tab = '▸ '}
 opt.mouse = 'a'
 opt.iskeyword:append("-")
 opt.laststatus = 2
+-- opt.wrap = true
 
 -- Tab & Indent
 opt.autoindent = true
@@ -38,8 +39,8 @@ opt.breakindent = true
 opt.softtabstop = 0
 opt.expandtab = true
 opt.smarttab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.signcolumn = "yes"
 
 -- Window

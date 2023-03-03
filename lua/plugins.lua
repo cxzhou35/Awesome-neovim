@@ -66,8 +66,15 @@ packer.startup(function(use)
         tag = "*" -- Use for stability; omit to use `main` branch for the latest features
     })
     use 'Xuyuanp/scrollbar.nvim' -- Show Scrollbar
-    use 'ggandor/lightspeed.nvim' -- Quick Jump
-
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2' -- optional but strongly recommended
+    }
+    use {
+        'abecodes/tabout.nvim', -- Tab Jump
+        wants = {'nvim-treesitter'}, -- or require if not used so far
+        after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
+    }
     -- Notify UIs
     use({
         "folke/noice.nvim",
@@ -141,5 +148,4 @@ packer.startup(function(use)
         'kyazdani42/nvim-tree.lua', -- Nvim Tree
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
-
 end)

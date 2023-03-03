@@ -4,6 +4,20 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 [![Stars](https://img.shields.io/github/stars/Xuer04/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/Xuer04/Awesome-neovim)
 
+## Table of contents
+<!--toc:start-->
+- [Awesome-neovim](#awesome-neovim)
+  - [Table of contents](#table-of-contents)
+  - [🏞️ Screenshots](#🏞️-screenshots)
+  - [📂 File Structure](#📂-file-structure)
+  - [⚡️ Requirements](#️-requirements)
+    - [Optional Tools](#optional-tools)
+  - [🛠️ Installation](#🛠️-installation)
+  - [✨ Features](#features)
+  - [⌨️  Keymaps](#️-keymaps)
+  - [📖 Wiki](#📖-wiki)
+<!--toc:end-->
+
 ## 🏞️ Screenshots
 
 <div align=center><img src="./images/screenshot.png" style="zoom:40%" alt="fig"></div> 

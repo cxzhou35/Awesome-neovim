@@ -55,7 +55,9 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.offsetEncoding = {"utf-16"}
 
 -- Add language servers
-local servers = {'clangd', 'rust_analyzer', 'gopls', 'vimls', 'cmake'}
+local servers = {
+    'clangd', 'rust_analyzer', 'gopls', 'vimls', 'cmake', 'marksman'
+}
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {on_attach = on_attach, capabilities = capabilities}
