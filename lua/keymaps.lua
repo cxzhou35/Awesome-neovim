@@ -86,6 +86,9 @@ keymap.set('n', 'vb', 'vab')
 keymap.set('n', 'yp', 'yyp')
 keymap.set('n', 'yw', 'yaw')
 
+-- Carbon
+keymap.set("v", "<leader>cn", ":CarbonNow<CR>", {silent = true})
+
 -- Markdown Preview
 keymap.set('', '<C-m>', '<Plug>MarkdownPreviewToggle')
 
@@ -109,10 +112,11 @@ keymap.set('n', ';o', function() builtin.oldfiles() end)
 keymap.set('n', ';;', function() builtin.resume() end)
 keymap.set('n', ';e', function() builtin.diagnostics() end)
 keymap.set('n', ';c', function() builtin.colorscheme() end)
-keymap.set('n', ';k', function() builtin.keymaps() end)
+-- keymap.set('n', ';k', function() builtin.keymaps() end)
 keymap.set('n', ';l', function() builtin.reloader() end)
 keymap.set('n', ';g', function() builtin.git_commits() end)
 keymap.set('n', ';t', ":TodoTelescope<CR>")
+keymap.set('n', ';u', ":Telescope undo<CR>")
 
 -- Lspsaga
 local opts = {silent = true, noremap = true}
@@ -192,6 +196,9 @@ keymap.set('n', 'sm', ':MaximizerToggle<CR>')
 
 -- Alternate toggler
 keymap.set('n', '<leader>at', ':ToggleAlternate<CR>')
+
+-- Which-key
+keymap.set('n', ';k', ":WhichKey<CR>")
 
 -- Noice history
 keymap.set("n", "<leader>nh", function() require("noice").cmd("history") end)

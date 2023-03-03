@@ -42,6 +42,7 @@ packer.startup(function(use)
     use 'kyazdani42/nvim-web-devicons' -- File Icons
     use {'akinsho/toggleterm.nvim', tag = 'v2.*'}
     use 'lukas-reineke/indent-blankline.nvim'
+    use 'ellisonleao/carbon-now.nvim' -- Carbon api for neovim
 
     -- Airline
     -- use 'vim-airline/vim-airline'
@@ -60,12 +61,14 @@ packer.startup(function(use)
     use 'Pocco81/HighStr.nvim'
     use 'p00f/nvim-ts-rainbow' -- Rainbow Parentheses
     use 'folke/todo-comments.nvim' -- VScode like todo highlights
+    use 'nacro90/numb.nvim' -- Better numline preview
     use 'rmagatti/alternate-toggler' -- Toggling alternate "boolean" values.
     use({
         "kylechui/nvim-surround",
         tag = "*" -- Use for stability; omit to use `main` branch for the latest features
     })
     use 'Xuyuanp/scrollbar.nvim' -- Show Scrollbar
+    use 'mawkler/modicator.nvim' -- Highlight cursor line number
     use {
         'phaazon/hop.nvim',
         branch = 'v2' -- optional but strongly recommended
@@ -75,6 +78,8 @@ packer.startup(function(use)
         wants = {'nvim-treesitter'}, -- or require if not used so far
         after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     }
+    use "folke/which-key.nvim" -- whick-key support for neovim
+
     -- Notify UIs
     use({
         "folke/noice.nvim",
@@ -127,6 +132,7 @@ packer.startup(function(use)
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'debugloop/telescope-undo.nvim'
 
     -- Markdown
     use 'godlygeek/tabular'

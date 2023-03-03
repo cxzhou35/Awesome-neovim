@@ -12,11 +12,17 @@ telescope.setup {
         mappings = {
             i = {["<c-t>"] = trouble.open_with_trouble},
             n = {["<c-t>"] = trouble.open_with_trouble, ["q"] = actions.close}
-
         },
         layout_config = {horizontal = {width = 100}}
     },
     extensions = {
+        undo = {
+            use_delta = true,
+            side_by_side = false,
+            layout_strategy = "vertical",
+            layout_config = {preview_height = 0.8},
+            diff_context_lines = vim.o.scrolloff
+        },
         file_browser = {
             theme = "dropdown",
             -- disables netrw and use telescope-file-browser in its place
@@ -56,3 +62,5 @@ vim.keymap.set("n", "<C-f>", function()
 end)
 
 telescope.load_extension('vim_bookmarks')
+
+telescope.load_extension('undo')

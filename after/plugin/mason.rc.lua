@@ -23,7 +23,7 @@ mason.setup({
 
 lspconfig.setup {
     ensure_installed = {
-        "clangd", "gopls", "sumneko_lua", "vimls", "jsonls", "pyright"
+        "clangd", "gopls", "lua_ls", "vimls", "jsonls", "pyright"
     },
     automatic_installation = true
 }
