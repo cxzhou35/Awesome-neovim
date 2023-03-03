@@ -20,7 +20,7 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 
 ## 🏞️ Screenshots
 
-<div align=center><img src="./images/screenshot.png" style="zoom:40%" alt="fig"></div> 
+<div align=center><img src="./images/screenshot.png" style="zoom:40%" alt="fig"></div>
 
 ## 📂 File Structure
 

@@ -44,8 +44,8 @@ opt.shiftwidth = 2
 opt.signcolumn = "yes"
 
 -- Window
-opt.splitright = true
-opt.splitbelow = true
+opt.splitright = false
+opt.splitbelow = false
 
 -- Clipboard
 opt.clipboard = {'unnamed', 'unnamedplus'}

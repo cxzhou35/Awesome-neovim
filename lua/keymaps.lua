@@ -182,6 +182,9 @@ keymap.set("n", "td", ":TodoLocList<cr>")
 keymap.set("n", "<leader>uc",
            "<cmd>lua require'nvim-picgo'.upload_clipboard()<cr>")
 
+-- Paste image
+keymap.set("n", "<leader>pi", ":PasteImg<CR>")
+
 -- Maximize
 keymap.set('n', 'sm', ':MaximizerToggle<CR>')
 

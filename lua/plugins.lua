@@ -132,6 +132,7 @@ packer.startup(function(use)
     use 'godlygeek/tabular'
     use {'plasticboy/vim-markdown', ft = "markdown"} -- Markdown Support
     use {'askfiy/nvim-picgo', ft = "markdown"} -- Picgo
+    use 'ekickx/clipboard-image.nvim' -- Paste image from clipboard
     use 'dkarter/bullets.vim' -- Better list
     use 'dhruvasagar/vim-table-mode' -- Better Table
     use 'lukas-reineke/headlines.nvim' -- Headlines Highlight
