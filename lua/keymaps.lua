@@ -181,6 +181,8 @@ keymap.set("n", "td", ":TodoLocList<cr>")
 -- Picgo
 keymap.set("n", "<leader>uc",
            "<cmd>lua require'nvim-picgo'.upload_clipboard()<cr>")
+keymap.set("n", "<leader>ui",
+           "<cmd>lua require'nvim-picgo'.upload_imagefile()<cr>")
 
 -- Paste image
 keymap.set("n", "<leader>pi", ":PasteImg<CR>")
