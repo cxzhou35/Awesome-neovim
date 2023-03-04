@@ -62,6 +62,7 @@ packer.startup(function(use)
     use 'p00f/nvim-ts-rainbow' -- Rainbow Parentheses
     use 'folke/todo-comments.nvim' -- VScode like todo highlights
     use 'nacro90/numb.nvim' -- Better numline preview
+    use 'gbprod/yanky.nvim' -- Better yank and put functionalities
     use 'rmagatti/alternate-toggler' -- Toggling alternate "boolean" values.
     use({
         "kylechui/nvim-surround",
@@ -147,6 +148,9 @@ packer.startup(function(use)
         ft = "markdown",
         run = function() vim.fn["mkdp#util#install"]() end
     })
+
+    -- Code runner
+    use {'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim'}
 
     -- Git
     use 'lewis6991/gitsigns.nvim'

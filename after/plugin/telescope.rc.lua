@@ -9,6 +9,7 @@ local fb_actions = require"telescope".extensions.file_browser.actions
 
 telescope.setup {
     defaults = {
+        dynamic_preview_title = true,
         mappings = {
             i = {["<c-t>"] = trouble.open_with_trouble},
             n = {["<c-t>"] = trouble.open_with_trouble, ["q"] = actions.close}
@@ -64,3 +65,5 @@ end)
 telescope.load_extension('vim_bookmarks')
 
 telescope.load_extension('undo')
+
+telescope.load_extension('yank_history')

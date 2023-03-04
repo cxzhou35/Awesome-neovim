@@ -117,6 +117,7 @@ keymap.set('n', ';l', function() builtin.reloader() end)
 keymap.set('n', ';g', function() builtin.git_commits() end)
 keymap.set('n', ';t', ":TodoTelescope<CR>")
 keymap.set('n', ';u', ":Telescope undo<CR>")
+keymap.set('n', ';y', ":Telescope yank_history<CR>")
 
 -- Lspsaga
 local opts = {silent = true, noremap = true}
@@ -162,6 +163,11 @@ keymap.set("n", "<leader>2", ":HopChar2<CR>", opts)
 keymap.set("n", "<leader>p", ":HopPattern<CR>", opts)
 keymap.set("n", "<leader>l", ":HopLineStart<CR>", opts)
 keymap.set("n", "<leader>v", ":HopVertical<CR>", opts)
+
+-- Code runner
+keymap.set('n', '<leader>rc', ':RunCode<CR>', opts)
+keymap.set('n', '<leader>rf', ':RunFile<CR>', opts)
+keymap.set('n', '<leader>rt', ':RunFile term<CR>', opts)
 
 -- Bookmark
 keymap.set('n', 'mm', '<Plug>BookmarkToggle')

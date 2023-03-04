@@ -30,6 +30,7 @@ opt.listchars = {extends = '❯', precedes = '❮', trail = '·', tab = '▸ '}
 opt.mouse = 'a'
 opt.iskeyword:append("-")
 opt.laststatus = 2
+opt.syntax = "on"
 -- opt.wrap = true
 
 -- Tab & Indent
