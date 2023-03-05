@@ -90,6 +90,7 @@ packer.startup(function(use)
     -- Bookmarks
     use 'MattesGroeger/vim-bookmarks'
     use 'tom-anders/telescope-vim-bookmarks.nvim'
+    use {'dhruvmanila/telescope-bookmarks.nvim', tag = '*'} -- Open browser bookmarks right from neovim
 
     -- LSP
     use 'neovim/nvim-lspconfig' -- LSP

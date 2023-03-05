@@ -91,6 +91,7 @@ keymap.set("v", "<leader>cn", ":CarbonNow<CR>", {silent = true})
 
 -- Markdown Preview
 keymap.set('', '<C-m>', '<Plug>MarkdownPreviewToggle')
+keymap.set('', '<leader>tm', ':TableFormat<CR>')
 
 -- Undotree
 keymap.set('n', '<leader>ut', ':UndotreeToggle<CR>')
@@ -112,12 +113,11 @@ keymap.set('n', ';o', function() builtin.oldfiles() end)
 keymap.set('n', ';;', function() builtin.resume() end)
 keymap.set('n', ';e', function() builtin.diagnostics() end)
 keymap.set('n', ';c', function() builtin.colorscheme() end)
--- keymap.set('n', ';k', function() builtin.keymaps() end)
 keymap.set('n', ';l', function() builtin.reloader() end)
-keymap.set('n', ';g', function() builtin.git_commits() end)
 keymap.set('n', ';t', ":TodoTelescope<CR>")
 keymap.set('n', ';u', ":Telescope undo<CR>")
 keymap.set('n', ';y', ":Telescope yank_history<CR>")
+keymap.set('n', ';m', ":Telescope bookmarks<CR>")
 
 -- Lspsaga
 local opts = {silent = true, noremap = true}

@@ -10,11 +10,11 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
   - [Table of contents](#table-of-contents)
   - [🏞️ Screenshots](#🏞️-screenshots)
   - [📂 File Structure](#📂-file-structure)
-  - [⚡️ Requirements](#️-requirements)
+  - [⚡️ Requirements](#⚡️-requirements)
     - [Optional Tools](#optional-tools)
   - [🛠️ Installation](#🛠️-installation)
-  - [✨ Features](#features)
-  - [⌨️  Keymaps](#️-keymaps)
+  - [✨ Features](#✨-features)
+  - [⌨️  Keymaps](#⌨️-keymaps)
   - [📖 Wiki](#📖-wiki)
 <!--toc:end-->
 

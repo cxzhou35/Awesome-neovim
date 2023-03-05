@@ -17,6 +17,10 @@ telescope.setup {
         layout_config = {horizontal = {width = 100}}
     },
     extensions = {
+        bookmarks = {
+            -- Provide the options here to override the default values.
+            selected_browser = "chrome"
+        },
         undo = {
             use_delta = true,
             side_by_side = false,
@@ -63,7 +67,6 @@ vim.keymap.set("n", "<C-f>", function()
 end)
 
 telescope.load_extension('vim_bookmarks')
-
 telescope.load_extension('undo')
-
 telescope.load_extension('yank_history')
+telescope.load_extension('bookmarks')
