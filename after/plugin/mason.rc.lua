@@ -25,14 +25,14 @@ lspconfig.setup {
     ensure_installed = {
         "clangd", "gopls", "lua_ls", "vimls", "jsonls", "pyright"
     },
-    automatic_installation = true
+    automatic_installation = false
 }
 
 null_ls.setup({
     -- list of formatters & linters for mason to install
     ensure_installed = {
         "cmake_format", -- cmake formatting
-        -- "astyle", -- c/cpp formatting
+        "astyle", -- c/cpp formatting
         -- "clang_format", -- c/cpp formatting
         "gofumpt", -- go formatting
         "autopep8", -- python formatting

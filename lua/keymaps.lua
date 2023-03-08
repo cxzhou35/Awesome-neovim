@@ -168,6 +168,7 @@ keymap.set("n", "<leader>v", ":HopVertical<CR>", opts)
 keymap.set('n', '<leader>rc', ':RunCode<CR>', opts)
 keymap.set('n', '<leader>rf', ':RunFile<CR>', opts)
 keymap.set('n', '<leader>rt', ':RunFile term<CR>', opts)
+keymap.set('n', '<leader>rd', ':RunClose<CR>', opts)
 
 -- Bookmark
 keymap.set('n', 'mm', '<Plug>BookmarkToggle')

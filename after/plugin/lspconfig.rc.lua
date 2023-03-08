@@ -56,7 +56,7 @@ capabilities.offsetEncoding = {"utf-16"}
 
 -- Add language servers
 local servers = {
-    'clangd', 'rust_analyzer', 'gopls', 'vimls', 'cmake', 'marksman'
+    'clangd', 'rust_analyzer', 'gopls', 'vimls', 'cmake', 'marksman', 'texlab'
 }
 
 for _, lsp in ipairs(servers) do

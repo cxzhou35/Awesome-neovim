@@ -11,13 +11,12 @@ dashboard.section.header.val = {
     [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]]
 }
 dashboard.section.buttons.val = {
-    dashboard.button("<C-n>", "  New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button(";o", "  Recently used files",
-                     ":Telescope oldfiles <CR>"),
-    dashboard.button(";f", "  Find file", ":Telescope find_files <CR>"),
-    dashboard.button(";r", "  Find text", ":Telescope live_grep <CR>"),
-    dashboard.button(";v", "  Configuration", ":e $MYVIMRC <CR>"),
-    dashboard.button("fq", "  Quit Neovim", ":qa<CR>")
+    dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+    dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+    dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
+    dashboard.button("s", "  Find text", ":Telescope live_grep <CR>"),
+    dashboard.button("v", "  Configuration", ":e $MYVIMRC <CR>"),
+    dashboard.button("q", "  Quit Neovim", ":qa<CR>")
 }
 
 local function footer() return "https://zicx.top/" end
@@ -27,7 +26,10 @@ dashboard.section.footer.val = footer()
 dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
-
 dashboard.opts.opts.noautocmd = true
--- vim.cmd([[autocmd User AlphaReady echo 'ready']])
+
+-- Default theme
+-- alpha.setup(require'alpha.themes.startify'.config)
+
+-- My theme
 alpha.setup(dashboard.opts)

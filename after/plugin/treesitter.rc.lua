@@ -10,7 +10,7 @@ ts.setup {
     indent = {enable = true, disable = {"python"}},
     ensure_installed = { -- add language server you want here
         "cpp", "rust", "json", "yaml", "markdown", "bash", "lua", "vim", "go",
-        "c", "dockerfile", "gitignore"
+        "c", "dockerfile", "gitignore", "latex"
     },
     autotag = {enable = true},
     auto_install = true,

@@ -18,9 +18,10 @@ null_ls.setup {
         formatting.clang_format, -- c/cpp formatting
         -- formatting.astyle, -- c/cpp formatting
         formatting.gofumpt, -- go formatting
-        formatting.autopep8, -- python formatting
+        -- formatting.autopep8, -- python formatting
         formatting.rustfmt, -- rust formatting
-        formatting.lua_format -- lua formatting
+        formatting.lua_format, -- lua formatting
+        formatting.latexindent -- latex formatting
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

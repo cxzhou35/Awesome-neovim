@@ -136,6 +136,9 @@ packer.startup(function(use)
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'debugloop/telescope-undo.nvim'
 
+    -- LaTeX
+    use 'lervag/vimtex'
+
     -- Markdown
     use 'godlygeek/tabular'
     use {'plasticboy/vim-markdown', ft = "markdown"} -- Markdown Support
