@@ -44,3 +44,5 @@ luac.out
 *.hex
 
 sync.sh
+
+plugin/*
