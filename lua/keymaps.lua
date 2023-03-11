@@ -91,7 +91,7 @@ keymap.set("v", "<leader>cn", ":CarbonNow<CR>", {silent = true})
 
 -- Markdown Preview
 keymap.set('', '<C-m>', '<Plug>MarkdownPreviewToggle')
-keymap.set('', '<leader>tm', ':TableFormat<CR>')
+keymap.set('', '<leader>tf', ':TableFormat<CR>')
 
 -- Undotree
 keymap.set('n', '<leader>ut', ':UndotreeToggle<CR>')

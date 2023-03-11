@@ -56,7 +56,8 @@ capabilities.offsetEncoding = {"utf-16"}
 
 -- Add language servers
 local servers = {
-    'clangd', 'rust_analyzer', 'gopls', 'vimls', 'cmake', 'marksman', 'texlab'
+    'clangd', 'rust_analyzer', 'gopls', 'vimls', 'cmake', 'marksman', 'texlab',
+    'jsonlsp'
 }
 
 for _, lsp in ipairs(servers) do
@@ -100,13 +101,3 @@ nvim_lsp.pyright.setup {
         }
     }
 }
-
--- nvim_lsp.pylsp.setup {
---     capabilities = capabilities,
---     on_attach = on_attach,
---     settings = {
---         pylsp = {
---             plugins = {pyflakes = {enabled = false}, pylint = {enabled = false}}
---         }
---     }
--- }

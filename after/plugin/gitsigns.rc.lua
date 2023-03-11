@@ -12,8 +12,8 @@ gitsigns.setup({
         untracked = {text = "┆"}
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-    numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-    linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+    numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
     watch_gitdir = {interval = 1000, follow_files = true},
     attach_to_untracked = true,

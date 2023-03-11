@@ -14,6 +14,7 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup {
     sources = {
+        -- null_ls.builtins.code_actions.gitsigns, -- code actions
         formatting.cmake_format, -- cmake formatting
         formatting.clang_format, -- c/cpp formatting
         -- formatting.astyle, -- c/cpp formatting
@@ -21,7 +22,9 @@ null_ls.setup {
         -- formatting.autopep8, -- python formatting
         formatting.rustfmt, -- rust formatting
         formatting.lua_format, -- lua formatting
-        formatting.latexindent -- latex formatting
+        formatting.latexindent, -- latex formatting
+        formatting.jq, -- json formatting
+        formatting.markdownlint -- json formatting
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
