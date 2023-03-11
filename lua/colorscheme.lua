@@ -9,12 +9,12 @@ local g = vim.g
 g.everforest_diagnostic_line_highlight = 1
 g.everforest_diagnostic_text_highlight = 1
 g.everforest_better_performance = 1
-g.everforest_background = 'soft'
+g.everforest_background = "soft"
 g.everforest_dim_inactive_windows = 1
 g.everforest_transparent_background = 1
-g.everforest_ui_contrast = 'high'
+g.everforest_ui_contrast = "high"
 g.everforest_disable_terminal_colors = 1
-vim.cmd('colorscheme everforest')
+vim.cmd("colorscheme everforest")
 
 -- Nord
 -- g.nord_contrast = true

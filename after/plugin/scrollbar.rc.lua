@@ -1,5 +1,7 @@
-local status, scrollbar = pcall(require, 'scrollbar')
-if (not status) then return end
+local status, scrollbar = pcall(require, "scrollbar")
+if not status then
+  return
+end
 
 local set = vim.g
 set.scrollbar_max_size = 5
