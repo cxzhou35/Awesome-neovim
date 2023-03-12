@@ -61,7 +61,6 @@ local servers = {
   "rust_analyzer",
   "gopls",
   "vimls",
-  "cmake",
   "marksman",
   "texlab",
   "jsonlsp",

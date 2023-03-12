@@ -42,7 +42,6 @@ lspconfig.setup({
 null_ls.setup({
   -- list of formatters & linters for mason to install
   ensure_installed = {
-    "cmake_format", -- cmake formatting
     "astyle", -- c/cpp formatting
     -- "clang_format", -- c/cpp formatting
     "gofumpt", -- go formatting
