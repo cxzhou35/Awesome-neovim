@@ -28,7 +28,7 @@ local lazygit = Terminal:new({
   float_opts = { border = "single" },
 })
 
-local function _lazygit_toggle()
+function _lazygit_toggle()
   lazygit:toggle()
 end
 
@@ -42,7 +42,7 @@ local btop = Terminal:new({
   float_opts = { border = "single" },
 })
 
-local function _btop_toggle()
+function _btop_toggle()
   btop:toggle()
 end
 
@@ -56,7 +56,7 @@ local ranger = Terminal:new({
   float_opts = { border = "single" },
 })
 
-local function _ranger_toggle()
+function _ranger_toggle()
   ranger:toggle()
 end
 
