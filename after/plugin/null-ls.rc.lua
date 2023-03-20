@@ -27,7 +27,7 @@ null_ls.setup({
     formatting.stylua, -- lua formatting
     formatting.latexindent, -- latex formatting
     formatting.jq, -- json formatting
-    formatting.markdownlint, -- json formatting
+    formatting.markdownlint, -- markdown formatting
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

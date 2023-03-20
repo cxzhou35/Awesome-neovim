@@ -171,7 +171,8 @@ keymap.set("n", "tl", "<cmd>TroubleToggle loclist<CR>", opts)
 keymap.set("n", "tq", "<cmd>TroubleToggle quickfix<CR>", opts)
 keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<CR>", opts)
 
-keymap.set("n", "<leader>w", ":HopWord<CR>", opts)
+-- Hop
+keymap.set("n", "<leader>h", ":HopWord<CR>", opts)
 keymap.set("n", "<leader>1", ":HopChar1<CR>", opts)
 keymap.set("n", "<leader>2", ":HopChar2<CR>", opts)
 keymap.set("n", "<leader>p", ":HopPattern<CR>", opts)
@@ -218,6 +219,16 @@ keymap.set("n", "<leader>at", ":ToggleAlternate<CR>")
 
 -- Which-key
 keymap.set("n", ";k", ":WhichKey<CR>")
+
+-- Windows
+local function cmd(command)
+  return table.concat({ "<Cmd>", command, "<CR>" })
+end
+
+keymap.set("n", "<leader>wm", cmd("WindowsMaximize"))
+keymap.set("n", "<leader>wv", cmd("WindowsMaximizeVertically"))
+keymap.set("n", "<leader>wh", cmd("WindowsMaximizeHorizontally"))
+keymap.set("n", "<leader>we", cmd("WindowsEqualize"))
 
 -- Noice history
 keymap.set("n", "<leader>nh", function()

@@ -35,6 +35,15 @@ packer.startup(function(use)
   use("EdenEast/nightfox.nvim") -- Theme: Nightfox
   use("sainnhe/everforest") -- Theme: Everforest
 
+  -- Windows
+  use({
+    "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+  })
+
   -- Appearance
   use("yamatsum/nvim-cursorline") -- Cursor Line
   use("akinsho/nvim-bufferline.lua") -- Buffer Line
