@@ -5,7 +5,7 @@ end
 
 windows.setup({
   autowidth = {
-    enable = true,
+    enable = false,
     winwidth = 3,
     filetype = {
       help = 2,

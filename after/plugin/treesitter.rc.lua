@@ -10,6 +10,7 @@ ts.setup({
     additional_vim_regex_highlighting = false,
   },
   indent = { enable = true, disable = { "python" } },
+  context_commentstring = { enable = true, enable_autocmd = false },
   ensure_installed = { -- add language server you want here
     "c",
     "cpp",
@@ -27,5 +28,13 @@ ts.setup({
   autotag = { enable = true },
   auto_install = true,
   sync_install = false,
-  rainbow = { enable = true, extended_mode = true, max_file_lines = nil },
+  rainbow = {
+    enable = true,
+    -- list of languages you want to disable the plugin for
+    disable = { "jsx", "cpp" },
+    -- Which query to use for finding delimiters
+    query = "rainbow-parens",
+    -- Highlight the entire buffer all at once
+    extended_mode = true,
+  },
 })

@@ -164,6 +164,12 @@ packer.startup(function(use)
     end,
   })
 
+  -- Github Copilot
+  use("github/copilot.vim")
+
+  -- Tabnine
+  use({ "codota/tabnine-nvim", run = "./dl_binaries.sh" })
+
   -- Code runner
   use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
 
