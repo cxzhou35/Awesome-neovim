@@ -1,6 +1,6 @@
 # Awesome-neovim
 
-Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐.
+Here is my personal Neovim configuration based on [LazyVim](https://github.com/LazyVim/LazyVim) . If this is helpful to you, please give me a star ⭐.
 
 [![Stars](https://img.shields.io/github/stars/Xuer04/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/Xuer04/Awesome-neovim)
 
@@ -25,28 +25,6 @@ Here is my personal Neovim configuration. If this is helpful to you, please give
 ## 📂 File Structure
 
 The files under config will be **automatically loaded at the appropriate time**, so you don't need to require those files manually.
-
-```sh
-~/.config/nvim/
-├── init.lua                # import neovim modules
-├── after/plugin            # plugin configs
-│   ├── alpha.rc.lua
-│   ├── autopairs.rc.lua
-│   └── ...
-├── lua                     # core neovim configs
-│   ├── colorscheme.lua
-│   ├── highlights.lua
-│   ├── keymaps.lua
-│   ├── options.lua
-│   ├── plugins.lua
-│   └── utils.lua
-├── res                     # user modified files
-│   ├── battery
-│   ├── vim-airline
-│   └── ...
-└── snippets                # code snippets
-    └── friendly-snippets
-```
 
 ## ⚡️ Requirements
 
