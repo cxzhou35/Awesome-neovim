@@ -106,7 +106,7 @@ The files under config will be **automatically loaded at the appropriate time**,
     > To learn more about LSP servers, you can click [here](https://microsoft.github.io/language-server-protocol/implementors/servers/).
 
 5. Install **Treesitter**: Relaunch Neovim and type `:TSInstall [language]` to install corresponding Treesitter supported-language.
- 
+
     > To learn more about Treesitter supported-languages, you can click [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
 
 6. Start Neovim!
@@ -132,4 +132,3 @@ The files under config will be **automatically loaded at the appropriate time**,
 Suggestions are always welcome! If you meet some problems, please contact [Zicx](https://github.com/Xuer04) or raise an [issue](https://github.com/Xuer04/Awesome-neovim/issues).
 
 Neovim is worth a try! 😺
-
