@@ -29,11 +29,10 @@ return {
       },
     },
   },
-  { "windwp/nvim-autopairs", lazy = true },
+  { "windwp/nvim-autopairs" },
   { "gcmt/wildfire.vim" },
   {
     "Pocco81/HighStr.nvim",
-    lazy = true,
     opts = {
       verbosity = 0,
       saving_path = "/tmp/highstr/",

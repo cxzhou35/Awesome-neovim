@@ -1,5 +1,6 @@
 return {
   {
+    -- TODO: add btop/ranger supports
     "akinsho/toggleterm.nvim",
     version = "v2.*",
     config = true,

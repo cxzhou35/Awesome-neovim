@@ -1,7 +1,6 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
-    lazy = true,
     opts = {
       signs = {
         add = { text = "│" },
@@ -39,7 +38,6 @@ return {
   },
   {
     "dinhhuy258/git.nvim",
-    lazy = true,
     opts = {
       keymaps = {
         -- Open blame window

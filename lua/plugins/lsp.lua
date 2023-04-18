@@ -30,9 +30,6 @@ return {
       },
       -- Automatically format on save
       autoformat = true,
-      -- options for vim.lsp.buf.format
-      -- `bufnr` and `filter` is handled by the LazyVim formatter,
-      -- but can be also overridden when specified
       format = {
         formatting_options = nil,
         timeout_ms = nil,
@@ -76,11 +73,6 @@ return {
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
-        -- example to setup with typescript.nvim
-        -- tsserver = function(_, opts)
-        --   require("typescript").setup({ server = opts })
-        --   return true
-        -- end,
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
         end,
@@ -168,7 +160,6 @@ return {
         "clangd",
         "gopls",
         "pyright",
-        -- "flake8",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
@@ -234,7 +225,7 @@ return {
         enable = true,
         show_file = true,
         separator = "  ",
-        hide_keyword = true,
+        hide_keyword = false,
         folder_level = 3,
         respect_root = false,
         color_mode = true,
@@ -272,7 +263,7 @@ return {
       outline = {
         win_position = "right",
         win_with = "",
-        win_width = 25,
+        win_width = 30,
         auto_enter = true,
         auto_preview = false,
         virt_text = "┃",

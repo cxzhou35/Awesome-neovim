@@ -108,109 +108,84 @@ return {
 
   -- Telescope
   {
-    "telescope.nvim",
+    "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-lua/plenary.nvim",
       "debugloop/telescope-undo.nvim",
-
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-        require("telescope").load_extension("file_browser")
-        require("telescope").load_extension("undo")
-        require("telescope").load_extension("yank_history")
-      end,
-    },
-  },
-  {
-    "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    event = { "BufReadPost", "BufNewFile" },
-    config = true,
-  -- stylua: ignore
-  keys = {
-    { "<leader>tj", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-    { "<leader>tk", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-    { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-    { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-    { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-    { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
-  },
-  },
-  {
-    "folke/todo-comments.nvim",
-    opts = {
-      signs = true, -- show icons in the signs column
-      sign_priority = 8, -- sign priority
-      -- keywords recognized as todo comments
-      keywords = {
-        FIX = {
-          icon = " ", -- icon used for the sign, and in search results
-          color = "error", -- can be a hex color, or a named color (see below)
-          alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-          -- signs = false, -- configure signs for some keywords individually
+      "nvim-telescope/telescope-file-browser.nvim",
+      {
+        "gbprod/yanky.nvim",
+        opts = {
+          ring = {
+            history_length = 100,
+            storage = "shada",
+            sync_with_numbered_registers = true,
+            cancel_event = "update",
+          },
+          picker = {
+            select = {
+              action = nil, -- nil to use default put action
+            },
+            telescope = {
+              mappings = nil, -- nil to use default mappings
+            },
+          },
+          system_clipboard = { sync_with_ring = true },
+          highlight = { on_put = true, on_yank = true, timer = 500 },
+          preserve_cursor_position = { enabled = true },
         },
-        TODO = { icon = " ", color = "info" },
-        HACK = { icon = " ", color = "warning" },
-        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-        PERF = {
-          icon = " ",
-          color = "default",
-          alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" },
-        },
-        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-        TEST = {
-          icon = "⏲ ",
-          color = "test",
-          alt = { "TESTING", "PASSED", "FAILED" },
-        },
-      },
-      gui_style = {
-        fg = "NONE", -- The gui style to use for the fg highlight group.
-        bg = "BOLD", -- The gui style to use for the bg highlight group.
-      },
-      merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-      -- highlighting of the line containing the todo comment
-      -- * before: highlights before the keyword (typically comment characters)
-      -- * keyword: highlights of the keyword
-      -- * after: highlights after the keyword (todo text)
-      highlight = {
-        multiline = true, -- enable multine todo comments
-        multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
-        multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
-        before = "", -- "fg" or "bg" or empty
-        keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
-        after = "fg", -- "fg" or "bg" or empty
-        pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
-        comments_only = true, -- uses treesitter to match keywords in comments only
-        max_line_len = 400, -- ignore lines longer than this
-        exclude = {}, -- list of file types to exclude highlighting
-      },
-      -- list of named colors where we try to extract the guifg from the
-      -- list of highlight groups or use the hex color if hl not found as a fallback
-      colors = {
-        error = { "DiagnosticError", "ErrorMsg", "#9d2933" },
-        warning = { "DiagnosticWarn", "WarningMsg", "#f0c239" },
-        info = { "DiagnosticInfo", "#f09199" },
-        hint = { "DiagnosticHint", "#90EE90" },
-        default = { "Identifier", "#E6E6FA" },
-        test = { "Identifier", "#FF00FF" },
-      },
-      search = {
-        command = "rg",
-        args = {
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-        },
-        -- regex that will be used to match keywords.
-        -- don't replace the (KEYWORDS) placeholder
-        pattern = [[\b(KEYWORDS):]], -- ripgrep regex
-        -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
       },
     },
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          dynamic_preview_title = true,
+          mappings = {
+            i = { ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble },
+            n = {
+              ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble,
+              ["q"] = require("telescope.actions").close,
+            },
+          },
+          layout_config = { horizontal = { width = 100 } },
+        },
+        extensions = {
+          undo = {
+            use_delta = true,
+            side_by_side = false,
+            layout_strategy = "vertical",
+            layout_config = { preview_height = 0.8 },
+            diff_context_lines = vim.o.scrolloff,
+          },
+          file_browser = {
+            theme = "dropdown",
+            -- disables netrw and use telescope-file-browser in its place
+            hijack_netrw = true,
+            prompt_prefix = "Dirs> ",
+            mappings = {
+              -- your custom insert mode mappings
+              ["i"] = {
+                ["<C-w>"] = function()
+                  vim.cmd("normal vbd")
+                end,
+              },
+              ["n"] = {
+                -- your custom normal mode mappings
+                ["N"] = require("telescope").extensions.file_browser.actions.create,
+                ["H"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
+                ["D"] = require("telescope").extensions.file_browser.actions.remove,
+                ["R"] = require("telescope").extensions.file_browser.actions.rename,
+                ["/"] = function()
+                  vim.cmd("startinsert")
+                end,
+              },
+            },
+          },
+        },
+      })
+      require("telescope").load_extension("undo")
+      require("telescope").load_extension("file_browser")
+      require("telescope").load_extension("yank_history")
+    end,
   },
 }

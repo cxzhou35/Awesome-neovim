@@ -113,7 +113,7 @@ keymap.set("n", "<leader>p", ":HopPattern<CR>", opts)
 keymap.set("n", "<leader>l", ":HopLineStart<CR>", opts)
 keymap.set("n", "<leader>v", ":HopVertical<CR>", opts)
 
--- Resize window using <ctrl> arrow keys
+-- Resize window using arrow keys
 map("n", "<S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
@@ -160,6 +160,24 @@ end, { silent = true, desc = "Telescope Colorscheme" })
 keymap.set("n", ";l", function()
   builtin.reloader()
 end, { silent = true, desc = "Telescope Reloader" })
+
 keymap.set("n", ";t", ":TodoTelescope<CR>", { silent = true, desc = "Telescope Todos" })
 keymap.set("n", ";u", ":Telescope undo<CR>", { silent = true, desc = "Telescope Undo" })
 keymap.set("n", ";y", ":Telescope yank_history<CR>", { silent = true, desc = "Telescope Yank History" })
+
+local function telescope_buffer_dir()
+  return vim.fn.expand("%:p:h")
+end
+
+vim.keymap.set("n", "<C-f>", function()
+  require("telescope").extensions.file_browser.file_browser({
+    path = "%:p:h",
+    cwd = telescope_buffer_dir(),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40 },
+  })
+end, { desc = "Telescope File Browser" })
