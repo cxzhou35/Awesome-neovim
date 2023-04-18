@@ -61,6 +61,7 @@ return {
       case_insensitive = true,
     },
   },
-  { "tjdevries/colorbuddy.nvim", lazy = true },
-  { "norcalli/nvim-colorizer.lua", lazy = true },
+  {
+    "rmagatti/alternate-toggler",
+  },
 }

@@ -1,5 +1,9 @@
 return {
-  { "plasticboy/vim-markdown", ft = "markdown", lazy = true },
+  {
+    "plasticboy/vim-markdown",
+    ft = "markdown",
+    lazy = true,
+  },
   { "ekickx/clipboard-image.nvim", ft = "markdown" },
   opts = {
     default = {

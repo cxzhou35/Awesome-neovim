@@ -5,18 +5,26 @@ local opt = vim.opt
 local api = vim.api
 local g = vim.g
 
-g.mapleader = "\\"
-g.maplocalleader = "\\"
+g.mapleader = " "
+g.maplocalleader = " "
 
+-- General
+opt.relativenumber = true
+opt.autowrite = true
 opt.iskeyword:append("-")
 opt.swapfile = false
 opt.backspace = { "start", "eol", "indent" }
-opt.relativenumber = false
+opt.title = true
+opt.completeopt = "menu,menuone,noselect"
+opt.backup = false
+opt.ignorecase = true
+opt.undofile = true
 
 -- Clipboard
 opt.clipboard = { "unnamed", "unnamedplus" }
 
 -- Chars
+opt.list = true
 opt.listchars = { extends = "❯", precedes = "❮", trail = "·", tab = "▸ " }
 
 -- Tab & Indent
@@ -37,7 +45,7 @@ opt.fileencodings = { "utf-8", "gbk", "gb2312" }
 opt.termencoding = "utf-8"
 
 -- Turn off paste mode when leaving insert
-api.nvim_create_autocmd("InsertLeave", { pattern = "*", command = "set nopaste" })
+api.nvim_create_autocmd("InsertLeave", { pattern = "***", command = "set nopaste" })
 
 -- Add asterisks in block comments
 opt.formatoptions:append({ "r" })
@@ -62,3 +70,10 @@ g.nord_disable_background = true
 g.nord_italic = false
 g.nord_uniform_diff_background = true
 g.nord_bold = true
+
+-- Vim-markdown
+g.vim_markdown_folding_disabled = 1
+g.vim_markdown_toc_autofit = 1
+g.vim_markdown_math = 1
+g.vim_markdown_json_frontmatter = 1
+g.vim_markdown_strikethrough = 1
