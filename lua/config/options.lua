@@ -19,6 +19,8 @@ opt.completeopt = "menu,menuone,noselect"
 opt.backup = false
 opt.ignorecase = true
 opt.undofile = true
+opt.wildmenu = true
+opt.wildmode = "longest:list,full"
 
 -- Clipboard
 opt.clipboard = { "unnamed", "unnamedplus" }
@@ -43,6 +45,10 @@ vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
 opt.fileencodings = { "utf-8", "gbk", "gb2312" }
 opt.termencoding = "utf-8"
+
+-- Spell checking
+-- opt.spell = true
+-- opt.spelllang = { "en", "cjk" }
 
 -- Turn off paste mode when leaving insert
 api.nvim_create_autocmd("InsertLeave", { pattern = "***", command = "set nopaste" })
