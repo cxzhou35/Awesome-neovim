@@ -1,6 +1,6 @@
 # Awesome-neovim
 
-Here is my personal Neovim configuration. If this is helpful to you, please give me a star ⭐.
+Here is my personal Neovim config. If this is helpful to you, please give me a star ⭐.
 
 [![Stars](https://img.shields.io/github/stars/Xuer04/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/Xuer04/Awesome-neovim)
 
