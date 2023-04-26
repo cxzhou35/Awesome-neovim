@@ -5,4 +5,5 @@ return {
   {
     "rmagatti/alternate-toggler",
   },
+  { "tpope/vim-repeat", event = "VeryLazy" },
 }
