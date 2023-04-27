@@ -62,7 +62,7 @@ return {
         variables = {},
         -- Background styles. Can be "dark", "transparent" or "normal"
         sidebars = "transparent", -- style for sidebars, see below
-        floats = "transparent", -- style for floating windows
+        floats = "normal", -- style for floating windows
       },
       sidebars = { "qf", "vista_kind", "terminal", "packer" },
       lualine_bold = true,
