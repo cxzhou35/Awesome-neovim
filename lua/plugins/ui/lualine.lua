@@ -8,7 +8,6 @@ return {
       show_percent = true,
     },
   },
-
   event = "VeryLazy",
   opts = function()
     local icons = require("lazyvim.config").icons
@@ -36,8 +35,30 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
         lualine_c = {
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+          {
+            "filetype",
+            icon_only = true,
+            separator = "",
+            padding = { left = 1, right = 0 },
+            filetype_names = {
+              TelescopePrompt = "Telescope",
+              lazy = "Lazy",
+              packer = "Packer",
+              fzf = "FZF",
+            },
+          },
+          {
+            "filename",
+            path = 1,
+            symbols = {
+              added = "󱪞",
+              removed = "󱪜",
+              modified = "󰷉",
+              readonly = "󱪠",
+              unnamed = "󱪘",
+              directory = "",
+            },
+          },
           {
             "diagnostics",
             symbols = {
@@ -45,6 +66,7 @@ return {
               warn = icons.diagnostics.Warn,
               info = icons.diagnostics.Info,
               hint = icons.diagnostics.Hint,
+              bug = icons.diagnostics.Bug,
             },
           },
           -- stylua: ignore
@@ -81,10 +103,13 @@ return {
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
-          function()
-            return " " .. os.date("%R")
-          end,
-          nvim_battery,
+          {
+            function()
+              return " " .. os.date("%R")
+            end,
+          },
+          { nvim_battery },
+          { require("copilot_status").status_string },
         },
       },
       extensions = { "neo-tree", "lazy" },

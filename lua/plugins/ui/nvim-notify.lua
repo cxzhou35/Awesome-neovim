@@ -10,7 +10,7 @@ return {
     },
   },
   opts = {
-    background_colour = "#a6a5c4",
+    background_colour = "#000000",
     -- render = "minimal",
     fps = 30,
     icons = {

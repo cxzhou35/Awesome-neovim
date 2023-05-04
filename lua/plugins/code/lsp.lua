@@ -126,10 +126,12 @@ return {
 
       local ensure_installed = {
         "clangd",
-        "gopls",
         "vimls",
         "marksman",
         "texlab",
+        "gopls",
+        "lua_ls",
+        "pyright",
       } ---@type string[]
       for server, server_opts in pairs(servers) do
         if server_opts then
@@ -150,56 +152,6 @@ return {
     end,
   },
   {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    keys = { { "<leader>m", "<cmd>Mason<cr>", desc = "Mason" } },
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shfmt",
-        "clangd",
-        "gopls",
-        "pyright",
-      },
-    },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
-    config = function(_, opts)
-      require("mason").setup(opts)
-      local mr = require("mason-registry")
-      local function ensure_installed()
-        for _, tool in ipairs(opts.ensure_installed) do
-          local p = mr.get_package(tool)
-          if not p:is_installed() then
-            p:install()
-          end
-        end
-      end
-      if mr.refresh then
-        mr.refresh(ensure_installed)
-      else
-        ensure_installed()
-      end
-    end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "mason.nvim" },
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-        sources = {
-          nls.builtins.formatting.autopep8,
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.clang_format,
-          nls.builtins.formatting.shfmt,
-          nls.builtins.formatting.markdownlint,
-        },
-      }
-    end,
-  },
-  {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
     opts = {
@@ -216,10 +168,11 @@ return {
         preview = " ",
         code_action = "💡",
         diagnostic = "🐞",
-        incoming = " ",
-        outgoing = " ",
+        incoming = "󰏷 ",
+        outgoing = "󰏻 ",
         hover = " ",
-        kind = {},
+        colors = require("catppuccin.groups.integrations.lsp_saga").custom_colors(),
+        -- kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
       },
       -- winbar config
       symbol_in_winbar = {
@@ -227,17 +180,17 @@ return {
         show_file = true,
         separator = "  ",
         hide_keyword = false,
-        folder_level = 3,
+        folder_level = 2,
         respect_root = false,
         color_mode = true,
       },
       -- lightbulb config
       lightbulb = {
         enable = true,
-        enable_in_insert = true,
+        enable_in_insert = false,
         sign = true,
         sign_priority = 40,
-        virtual_text = true,
+        virtual_text = false,
       },
       -- diagnostic config
       diagnostic = {
@@ -252,7 +205,7 @@ return {
         keys = { exec_action = "o", quit = "q", go_action = "g" },
       },
       -- finder icons
-      finder_icons = { def = "  ", ref = "諭 ", link = "  " },
+      finder_icons = { def = "  ", ref = "󰵚 ", link = "󰴜 " },
       -- finder config
       finder = {
         jump_to = "p",

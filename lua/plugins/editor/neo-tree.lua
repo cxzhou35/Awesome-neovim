@@ -35,6 +35,15 @@ return {
     filesystem = {
       bind_to_cwd = false,
       follow_current_file = true,
+      -- hide_dotfiles = false,
+      hide_gitignored = false,
+      hide_by_name = {
+        "node_modules",
+      },
+      never_show = {
+        ".DS_Store",
+        "thumbs.db",
+      },
     },
     window = {
       position = "left",
@@ -61,16 +70,21 @@ return {
       },
     },
     popup_border_style = "rounded",
+    close_if_last_window = true,
     enable_git_status = true,
     enable_diagnostics = true,
+    enable_modified_markers = true,
     sort_case_insensitive = false,
     default_component_configs = {
+      modified = {
+        symbol = " ",
+        highlight = "NeoTreeModified",
+      },
       icon = {
-        folder_closed = "",
-        folder_open = "",
-        folder_empty = "ﰊ",
-        -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-        -- then these will never be used.
+        folder_closed = "",
+        folder_open = "",
+        folder_empty = "",
+        folder_empty_open = "",
         default = "*",
         highlight = "NeoTreeFileIcon",
       },
@@ -79,14 +93,14 @@ return {
           -- Change type
           added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
           modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-          deleted = "✖", -- this can only be used in the git_status source
-          renamed = "", -- this can only be used in the git_status source
+          deleted = "✖ ", -- this can only be used in the git_status source
+          renamed = "󰁕 ", -- this can only be used in the git_status source
           -- Status type
-          untracked = "",
-          ignored = "",
-          unstaged = "",
-          staged = "",
-          conflict = "",
+          untracked = " ",
+          ignored = " ",
+          unstaged = "󰄗 ",
+          staged = " ",
+          conflict = " ",
         },
       },
       indent = {
@@ -99,6 +113,31 @@ return {
         expander_collapsed = "",
         expander_expanded = "",
         expander_highlight = "NeoTreeExpander",
+      },
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function()
+            --auto close
+            require("neo-tree").close_all()
+          end,
+        },
+        {
+          event = "neo_tree_window_after_open",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
+            end
+          end,
+        },
+        {
+          event = "neo_tree_window_after_close",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
+            end
+          end,
+        },
       },
     },
   },

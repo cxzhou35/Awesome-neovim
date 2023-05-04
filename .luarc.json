@@ -1,0 +1,10 @@
+{
+    "diagnostics.disable": [
+        "undefined-field"
+    ],
+    "diagnostics.globals": [
+        "reineken",
+        "sds",
+        "repeat"
+    ]
+}

@@ -30,6 +30,10 @@ return {
   config = function()
     require("telescope").setup({
       defaults = {
+        prompt_prefix = string.format("%s ", ""),
+        selection_caret = string.format("%s ", ""),
+        path_display = { "truncate" },
+        sorting_strategy = "ascending",
         dynamic_preview_title = true,
         mappings = {
           i = { ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble },
@@ -38,7 +42,18 @@ return {
             ["q"] = require("telescope.actions").close,
           },
         },
-        layout_config = { horizontal = { width = 100 } },
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.52,
+          },
+          vertical = {
+            mirror = false,
+          },
+          width = 0.87,
+          height = 0.80,
+          -- preview_cutoff = 120,
+        },
       },
       extensions = {
         undo = {

@@ -19,11 +19,11 @@ return {
       dashboard.section.header.val = vim.split(logo, "\n")
       dashboard.section.buttons.val = {
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+        dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-        dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+        dashboard.button("r", "󰄉 " .. " Recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+        dashboard.button("s", "󰁯 " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
@@ -56,7 +56,7 @@ return {
         callback = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          local version = "   v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
+          local version = "  󰥱 v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
           local plugins = "⚡Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
           local footer = "\t" .. version .. "\t" .. plugins .. "\n"
           dashboard.section.footer.val = footer

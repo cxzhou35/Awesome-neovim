@@ -3,6 +3,13 @@ return {
     "plasticboy/vim-markdown",
     ft = "markdown",
     lazy = true,
+    config = function()
+      vim.g.vim_markdown_folding_disabled = 1
+      vim.g.vim_markdown_toc_autofit = 1
+      vim.g.vim_markdown_math = 1
+      vim.g.vim_markdown_json_frontmatter = 1
+      vim.g.vim_markdown_strikethrough = 1
+    end,
   },
   {
     "ekickx/clipboard-image.nvim",

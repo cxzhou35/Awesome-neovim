@@ -46,7 +46,7 @@ return {
         },
         filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
         lua = { pattern = "^:%s*lua%s+", icon = "", lang = "lua" },
-        help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+        help = { pattern = "^:%s*he?l?p?%s+", icon = "󰋖" },
         input = {}, -- Used by input()
       },
     },

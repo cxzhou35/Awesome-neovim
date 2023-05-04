@@ -41,3 +41,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = true
   end,
 })
+
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--   group = augroup("restore_cursor"),
+--   pattern = "*",
+--   cmd = "vim.opt.guicursor=a:block-blinkon0",
+-- })
+
+-- auto sync plugins on save
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = vim.fn.expand("~") .. "/.config/nvim/lua/plugins/",
+  callback = ":Lazy sync",
+})

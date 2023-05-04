@@ -25,4 +25,21 @@ return {
       end)
     end,
   },
+  {
+    "jonahgoldwastaken/copilot-status.nvim",
+    dependencies = { "copilot.lua" },
+    lazy = true,
+    event = "BufReadPost",
+    opts = {
+      icons = {
+        -- idle = " ",
+        idle = " ",
+        error = " ",
+        offline = " ",
+        warning = "󰗖 ",
+        loading = " ",
+      },
+      debug = false,
+    },
+  },
 }
