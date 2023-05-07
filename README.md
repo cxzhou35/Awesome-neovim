@@ -2,7 +2,7 @@
 
 Here is my personal Neovim config based on [LazyVim](https://github.com/LazyVim/LazyVim). If this is helpful to you, please give me a star ⭐.
 
-[![Stars](https://img.shields.io/github/stars/Xuer04/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/Xuer04/Awesome-neovim)
+[![Stars](https://img.shields.io/github/stars/cxzhou35/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/cxzhou35/Awesome-neovim)
 
 ## Table of contents
 <!--toc:start-->
@@ -72,7 +72,7 @@ The files under config will be **automatically loaded at the appropriate time**,
 2. Clone the repo:
 
     ```sh
-    git clone https://github.com/Xuer04/Awesome-neovim.git ~/.config/nvim
+    git clone https://github.com/cxzhou35/Awesome-neovim.git ~/.config/nvim
     # remove git folder
     rm -rf ~/.config/nvim/.git
     ```
@@ -107,6 +107,6 @@ The files under config will be **automatically loaded at the appropriate time**,
 
 ---
 
-Suggestions are always welcome! If you meet some problems, please contact [Zicx](https://github.com/Xuer04) or raise an [issue](https://github.com/Xuer04/Awesome-neovim/issues).
+Suggestions are always welcome! If you meet some problems, please contact [Zicx](https://github.com/cxzhou35) or raise an [issue](https://github.com/cxzhou35/Awesome-neovim/issues).
 
 Neovim is worth a try! 😺
