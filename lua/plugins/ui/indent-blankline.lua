@@ -3,7 +3,17 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   opts = {
     char = "│",
-    filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "terminal", "neogitstatus" },
+    filetype_exclude = {
+      "help",
+      "alpha",
+      "dashboard",
+      "neo-tree",
+      "Trouble",
+      "lazy",
+      "terminal",
+      "neogitstatus",
+      "mason",
+    },
     buftype_exclude = { "terminal", "nofile", "toggleterm" },
     context_patterns = {
       "class",

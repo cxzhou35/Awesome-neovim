@@ -55,6 +55,7 @@ return {
         },
       },
     })
+
     -- Buffers belong to tabs
     local cache = {}
     local last_tab = 0

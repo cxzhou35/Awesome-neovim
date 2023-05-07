@@ -25,6 +25,7 @@ return {
   init = function()
     vim.g.neo_tree_remove_legacy_commands = 1
     if vim.fn.argc() == 1 then
+      ---@diagnostic disable-next-line: param-type-mismatch
       local stat = vim.loop.fs_stat(vim.fn.argv(0))
       if stat and stat.type == "directory" then
         require("neo-tree")
