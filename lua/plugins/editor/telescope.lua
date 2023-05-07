@@ -36,7 +36,10 @@ return {
         sorting_strategy = "ascending",
         dynamic_preview_title = true,
         mappings = {
-          i = { ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble },
+          i = {
+            ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble,
+            ["esc"] = require("telescope.actions").close,
+          },
           n = {
             ["<c-t>"] = require("trouble.providers.telescope").open_with_trouble,
             ["q"] = require("telescope.actions").close,
