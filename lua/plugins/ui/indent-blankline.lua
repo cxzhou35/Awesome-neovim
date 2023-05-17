@@ -4,6 +4,9 @@ return {
   opts = {
     char = "│",
     filetype_exclude = {
+      "TelescopePrompt",
+      "txt",
+      "markdown",
       "help",
       "alpha",
       "dashboard",

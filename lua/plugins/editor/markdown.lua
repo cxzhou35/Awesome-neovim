@@ -30,8 +30,8 @@ return {
     -- If you're uncertain what to name your field to, you can run `lua print(vim.bo.filetype)`
     -- Missing options from `markdown` field will be replaced by options from `default` field
     markdown = {
-      img_dir = "assets", -- Use table for nested dir (New feature form PR #20)
-      img_dir_txt = "./assets",
+      img_dir = "asserts", -- Use table for nested dir (New feature form PR #20)
+      img_dir_txt = "./asserts",
       img_handler = function(img) -- New feature from PR #22
         local script = string.format('./image_compressor.sh "%s"', img.path)
         os.execute(script)
@@ -61,12 +61,28 @@ return {
     },
   },
   {
-    "iamcco/markdown-preview.nvim",
-    lazy = true,
+    "toppair/peek.nvim",
+    event = { "BufRead", "BufNewFile" },
+    build = "deno task --quiet build:fast",
     ft = "markdown",
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
+    keys = {
+      { "<C-m>", "<cmd>lua require'peek'.open()<cr>", desc = "Open peek preview" },
+    },
+    -- config = function()
+    --   require("peek").setup()
+    --   vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+    --   vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    -- end,
+    opts = {
+      auto_load = false, -- whether to automatically load preview when
+      close_on_bdelete = true, -- close preview window on buffer delete
+      syntax = true, -- enable syntax highlighting, affects performance
+      theme = "dark", -- 'dark' or 'light'
+      app = "browser",
+      update_on_change = true,
+      throttle_at = 200000, -- start throttling when file exceeds this
+      throttle_time = "auto", -- minimum amount of time in milliseconds
+    },
   },
   {
     "AckslD/nvim-FeMaco.lua",

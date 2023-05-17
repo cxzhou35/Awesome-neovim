@@ -5,6 +5,7 @@ local opt = vim.opt
 local api = vim.api
 local g = vim.g
 local o = vim.o
+local utils = require("utils")
 
 g.mapleader = " "
 g.maplocalleader = " "
@@ -46,6 +47,19 @@ opt.smarttab = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.signcolumn = "yes"
+
+utils.set_indent_sizes({
+  go = 4,
+  python = 4,
+  rust = 4,
+  cpp = 4,
+  markdown = 4,
+  c = 4,
+  make = 4,
+  lua = 2,
+  yaml = 2,
+  json = 2,
+})
 
 -- Encoding
 vim.scriptencoding = "utf-8"

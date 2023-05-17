@@ -52,6 +52,9 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
+              telemetry = {
+                enable = false,
+              },
             },
           },
         },
@@ -61,9 +64,37 @@ return {
             python = {
               analysis = {
                 autoSearchPaths = true,
+                autoImportCompletions = true,
                 diagnosticMode = "workspace",
                 useLibraryCodeForTypes = true,
                 typeCheckingMode = "off",
+              },
+            },
+          },
+        },
+        -- texlab
+        texlab = {
+          settings = {
+            tex = {
+              build = {
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                executable = "xelatex",
+                forwardSearchAfter = false,
+                onSave = false,
+              },
+              chktex = {
+                onEdit = false,
+                onOpenAndSave = false,
+              },
+              -- diagnosticsDelay = 100,
+              formatterLineLength = 100,
+              forwardSearch = {
+                args = {},
+              },
+              latexFormatter = "latexindent",
+              bibtexFormatter = "texlab",
+              latexindent = {
+                modifyLineBreaks = false,
               },
             },
           },
@@ -82,9 +113,7 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)
-      -- setup autoformat
       require("lazyvim.plugins.lsp.format").autoformat = opts.autoformat
-      -- setup formatting and keymaps
       require("lazyvim.util").on_attach(function(client, buffer)
         require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
         require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
@@ -127,11 +156,12 @@ return {
       local ensure_installed = {
         "clangd",
         "vimls",
-        "marksman",
         "texlab",
         "gopls",
+        "tsserver",
         "lua_ls",
         "pyright",
+        "marksman",
       } ---@type string[]
       for server, server_opts in pairs(servers) do
         if server_opts then

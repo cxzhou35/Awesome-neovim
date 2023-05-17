@@ -131,6 +131,7 @@ return {
   diagnostics = {
     BoldError = "",
     Error = "",
+    Robot = "󰚩",
     BoldWarning = "",
     Warning = "",
     BoldInformation = "",
@@ -143,7 +144,6 @@ return {
     Trace = "✎",
   },
   misc = {
-    Robot = "󰚩",
     Squirrel = "",
     Tag = "",
     Watch = "",

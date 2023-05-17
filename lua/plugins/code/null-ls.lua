@@ -13,6 +13,8 @@ return {
         nls.builtins.formatting.clang_format,
         nls.builtins.formatting.shfmt,
         nls.builtins.formatting.markdownlint,
+        nls.builtins.formatting.prettier,
+        nls.builtins.formatting.latexindent,
       },
     }
   end,

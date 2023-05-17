@@ -39,4 +39,8 @@ return {
     },
   },
   { "rktjmp/lush.nvim" },
+  {
+    "wakatime/vim-wakatime",
+    event = "VeryLazy",
+  },
 }

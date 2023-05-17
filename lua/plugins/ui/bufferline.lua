@@ -12,7 +12,7 @@ return {
         mode = "buffers",
         separator_style = "thin",
 
-        always_show_bufferline = false, -- show bufferline always
+        always_show_bufferline = true, -- show bufferline always
         view = "multiwindow",
         themable = true,
 

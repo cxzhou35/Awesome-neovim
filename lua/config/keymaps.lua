@@ -14,7 +14,7 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- paste over currently selected text without yanking it
+-- Paste over currently selected text without yanking it
 map("v", "p", '"_dP', { silent = true })
 
 -- Select all
@@ -29,7 +29,7 @@ map({ "n", "v", "o" }, "K", "5k", { desc = "Use 'K' as '5k'" })
 -- Save with root permission (not working for now)
 -- vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
--- lazy
+-- Lazy menu
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- Buffer select
@@ -122,11 +122,8 @@ map("n", "<S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map("n", "<S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
--- Markdown Preview
-map({ "n" }, "<C-m>", "<Plug>MarkdownPreviewToggle", { silent = true, desc = "Markdown Preview" })
-
 -- Lazygit
-map("n", "<C-l>", function()
+map("n", "<leader>gl", function()
   Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false })
 end, { desc = "Lazygit (root dir)" })
 map("n", "<leader>gG", function()
@@ -160,6 +157,9 @@ end, { silent = true, desc = "Telescope Colorscheme" })
 map("n", ";l", function()
   builtin.reloader()
 end, { silent = true, desc = "Telescope Reloader" })
+map("n", ";k", function()
+  builtin.keymaps()
+end, { silent = true, desc = "Telescope keymaps" })
 
 map("n", ";t", "<cmd>TodoTelescope<CR>", { silent = true, desc = "Telescope Todos" })
 map("n", ";u", "<cmd>Telescope undo<CR>", { silent = true, desc = "Telescope Undo" })
