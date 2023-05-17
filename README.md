@@ -5,7 +5,10 @@ Here is my Neovim configuration. If you find it helpful, please giving me a star
 [![Stars](https://img.shields.io/github/stars/cxzhou35/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/cxzhou35/Awesome-neovim)
 > **Warning**
 > 
-> This config is based on [packer.nvim](https://github.com/wbthomason/packer.nvim), but now I prefer using [lazy.nvim](https://github.com/folke/lazy.nvim) as my plugin manager due to its high startup speed and efficiency, you can finf it in branch [*lazy](https://github.com/cxzhou35/Awesome-neovim/tree/lazy).
+> I used to rely on [packer.nvim](https://github.com/wbthomason/packer.nvim)
+ for this config, but now I prefer using [lazy.nvim](https://github.com/folke/lazy.nvim)
+ as my plugin manager because it has a faster startup speed and is more efficient. This branch will no longer be updated, you can find the latest config in the [*lazy](https://github.com/cxzhou35/Awesome-neovim/tree/lazy)
+ branch.
 
 ## Table of contents
 <!--toc:start-->
