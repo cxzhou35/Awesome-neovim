@@ -1,21 +1,22 @@
 # Awesome-neovim
 
-Here is my personal Neovim config. If this is helpful to you, please give me a star ⭐.
+Here is my Neovim configuration. If you find it helpful, please giving me a star ⭐.
 
 [![Stars](https://img.shields.io/github/stars/cxzhou35/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/cxzhou35/Awesome-neovim)
+> **Warning**
+> 
+> This config is based on [packer.nvim](https://github.com/wbthomason/packer.nvim), but now I prefer using [lazy.nvim](https://github.com/folke/lazy.nvim) as my plugin manager due to its high startup speed and efficiency, you can finf it in branch [*lazy](https://github.com/cxzhou35/Awesome-neovim/tree/lazy).
 
 ## Table of contents
 <!--toc:start-->
-- [Awesome-neovim](#awesome-neovim)
-  - [Table of contents](#table-of-contents)
-  - [🏞️ Screenshots](#🏞️-screenshots)
-  - [📂 File Structure](#📂-file-structure)
-  - [⚡️ Requirements](#⚡️-requirements)
-    - [Optional Tools](#optional-tools)
-  - [🛠️ Installation](#🛠️-installation)
-  - [✨ Features](#✨-features)
-  - [⌨️  Keymaps](#⌨️-keymaps)
-  - [📖 Wiki](#📖-wiki)
+1. [🏞️ Screenshots](#🏞️-screenshots)
+2. [📂 File Structure](#📂-file-structure)
+3. [⚡️ Requirements](#⚡️-requirements)
+    1. [Optional Tools](#optional-tools)
+4. [🛠️ Installation](#🛠️-installation)
+5. [✨ Features](#✨-features)
+6. [⌨️  Keymaps](#⌨️-keymaps)
+7. [📖 Wiki](#📖-wiki)
 <!--toc:end-->
 
 ## 🏞️ Screenshots
