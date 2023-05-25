@@ -123,12 +123,15 @@ map("n", "<S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window wi
 map("n", "<S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Lazygit
-map("n", "<leader>gl", function()
+map("n", "<C-l>", function()
   Util.float_term({ "lazygit" }, { cwd = Util.get_root(), esc_esc = false })
 end, { desc = "Lazygit (root dir)" })
-map("n", "<leader>gG", function()
+map("n", "<leader>gl", function()
   Util.float_term({ "lazygit" }, { esc_esc = false })
 end, { desc = "Lazygit (cwd)" })
+
+-- Joshuto
+map("n", "<C-r>", "<cmd>Joshuto<cr>", { desc = "Open joshuto in neovim" })
 
 -- Telescope
 local builtin = require("telescope.builtin")

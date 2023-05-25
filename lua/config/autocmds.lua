@@ -71,3 +71,15 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = augroup("tex"),
   pattern = { "*.tex", "*.bbl", "*.bib", "*.texx", "*.texb", "*.cls" },
 })
+
+-- auto detect git conflicts
+-- vim.api.nvim_create_autocommand("User", {
+--   pattern = "GitConflictDetected",
+--   callback = function()
+--     vim.notify("Conflict detected in " .. vim.fn.expand("<afile>"))
+--     vim.keymap.set("n", "cww", function()
+--       engage.conflict_buster()
+--       create_buffer_local_mappings()
+--     end)
+--   end,
+-- })

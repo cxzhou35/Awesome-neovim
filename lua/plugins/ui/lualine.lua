@@ -75,6 +75,7 @@ return {
               directory = "",
             },
           },
+          { getLspName },
           {
             "diagnostics",
             symbols = {
@@ -85,7 +86,6 @@ return {
               bug = icons.diagnostics.Bug,
             },
           },
-          { getLspName },
           -- stylua: ignore
           -- {
           --   function() return require("nvim-navic").get_location() end,

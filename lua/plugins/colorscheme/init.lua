@@ -4,6 +4,7 @@ return {
   opts = {
     -- colorscheme = "everforest",
     -- colorscheme = "nord",
+    -- colorscheme = "nordic",
     colorscheme = "catppuccin",
     -- colorscheme = "tokyonight",
   },

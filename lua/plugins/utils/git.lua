@@ -12,9 +12,9 @@ return {
         untracked = { text = "┆" },
       },
       signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-      numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+      numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
       linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-      word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
       watch_gitdir = { interval = 1000, follow_files = true },
       attach_to_untracked = true,
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
@@ -46,6 +46,20 @@ return {
         quit_blame = "q",
         -- Open file/folder in git repository
         browse = "<Leader>go",
+      },
+    },
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+    opts = {
+      default_mappings = true, -- disable buffer local mapping created by this plugin
+      default_commands = true, -- disable commands created by this plugin
+      disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+      highlights = { -- They must have background color, otherwise the default color will be used
+        incoming = "DiffAdd",
+        current = "DiffText",
       },
     },
   },

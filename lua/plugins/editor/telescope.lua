@@ -67,10 +67,22 @@ return {
           diff_context_lines = vim.o.scrolloff,
         },
         file_browser = {
-          theme = "dropdown",
+          cwd_to_path = false,
+          grouped = false,
+          files = true,
+          add_dirs = true,
+          depth = 1,
+          auto_depth = false,
+          select_buffer = false,
+          hidden = { file_browser = false, folder_browser = false },
+          dir_icon_hl = "Default",
+          display_stat = { date = true, size = true, mode = true },
+          use_fd = true,
+          git_status = true,
           -- disables netrw and use telescope-file-browser in its place
-          hijack_netrw = true,
+          hijack_netrw = false,
           prompt_prefix = "Dirs> ",
+          theme = "dropdown",
           mappings = {
             -- your custom insert mode mappings
             ["i"] = {

@@ -3,8 +3,9 @@ return {
   config = function()
     require("satellite").setup({
       current_only = false,
-      winblend = 50, -- default value: 50
+      winblend = 20, -- default value: 50
       zindex = 40, -- default value: 40
+      width = 2,
       excluded_filetypes = {
         "TelescopePrompt",
         "help",
@@ -21,7 +22,6 @@ return {
         "neo-tree-popup",
       },
       excluded_buftypes = { "terminal", "nofile", "toggleterm" },
-      width = 2,
       handlers = {
         search = {
           enable = true,
