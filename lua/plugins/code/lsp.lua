@@ -115,7 +115,8 @@ return {
     config = function(_, opts)
       require("lazyvim.plugins.lsp.format").autoformat = opts.autoformat
       require("lazyvim.util").on_attach(function(client, buffer)
-        require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
+        -- FIX: error line here(L:119)
+        -- require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
         require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 

@@ -83,6 +83,12 @@ The files under config will be **automatically loaded at the appropriate time**,
     npm install -g neovim
     ```
 
+- A terminal that support true color and undercurl:
+    - kitty **(Linux & Macos)**
+    - wezterm **(Linux, Macos & Windows)**
+    - alacritty **(Linux, Macos & Windows)**
+    - iterm2 **(Macos)**
+
 > **Note**
 >
 > Once you have installed all the necessary requirements, relaunch Neovim and type `:checkhealth` to ensure that your system is up-to-date.
@@ -131,11 +137,11 @@ The files under config will be **automatically loaded at the appropriate time**,
 
 ## ✨ Features
 
-- Transform your Neovim into a full-fledged IDE
-- Easily customize and extend your config by yourself
-- Blazingly fast
-- Sane default settings for options, autocmds, and keymaps
-- Comes with a wealth of plugins pre-configured and ready to use
+- 🔥 Transform your Neovim into a full-fledged IDE
+- 💤 Easily customize and extend your config with lazy.nvim
+- 🚀 Blazingly fast
+- 🧹 Sane default settings for options, autocmds, and keymaps
+- 📦 Comes with a wealth of plugins pre-configured and ready to use
 
 ## ⌨️  Keymaps
 
