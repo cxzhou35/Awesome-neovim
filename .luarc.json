@@ -5,6 +5,7 @@
     "diagnostics.globals": [
         "reineken",
         "sds",
-        "repeat"
+        "repeat",
+        "vim"
     ]
 }

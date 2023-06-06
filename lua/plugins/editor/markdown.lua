@@ -60,29 +60,40 @@ return {
       },
     },
   },
+  -- {
+  --   "toppair/peek.nvim",
+  --   event = { "BufRead", "BufNewFile" },
+  --   build = "deno task --quiet build:fast",
+  --   ft = "markdown",
+  --   keys = {
+  --     { "<C-m>", "<cmd>lua require'peek'.open()<cr>", desc = "Open peek preview" },
+  --   },
+  --   opts = {
+  --     auto_load = false, -- whether to automatically load preview when
+  --     close_on_bdelete = true, -- close preview window on buffer delete
+  --     syntax = true, -- enable syntax highlighting, affects performance
+  --     theme = "dark", -- 'dark' or 'light'
+  --     app = "browser",
+  --     update_on_change = true,
+  --     throttle_at = 200000, -- start throttling when file exceeds this
+  --     throttle_time = "auto", -- minimum amount of time in milliseconds
+  --   },
+  -- },
   {
-    "toppair/peek.nvim",
-    event = { "BufRead", "BufNewFile" },
-    build = "deno task --quiet build:fast",
+    "iamcco/markdown-preview.nvim",
     ft = "markdown",
-    keys = {
-      { "<C-m>", "<cmd>lua require'peek'.open()<cr>", desc = "Open peek preview" },
-    },
-    -- config = function()
-    --   require("peek").setup()
-    --   vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-    --   vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-    -- end,
-    opts = {
-      auto_load = false, -- whether to automatically load preview when
-      close_on_bdelete = true, -- close preview window on buffer delete
-      syntax = true, -- enable syntax highlighting, affects performance
-      theme = "dark", -- 'dark' or 'light'
-      app = "browser",
-      update_on_change = true,
-      throttle_at = 200000, -- start throttling when file exceeds this
-      throttle_time = "auto", -- minimum amount of time in milliseconds
-    },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_theme = "dark"
+      vim.g.vim_markdown_folding_disabled = 1
+      vim.g.vim_markdown_toc_autofit = 1
+      vim.g.vim_markdown_math = 1
+      vim.g.vim_markdown_json_frontmatter = 1
+      vim.g.vim_markdown_strikethrough = 1
+    end,
   },
   {
     "AckslD/nvim-FeMaco.lua",

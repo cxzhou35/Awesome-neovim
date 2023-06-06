@@ -1,6 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
+  optional = true,
   keys = {
     {
       "<F2>",
@@ -33,6 +34,7 @@ return {
     end
   end,
   opts = {
+    open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "edgy" },
     filesystem = {
       bind_to_cwd = false,
       follow_current_file = true,

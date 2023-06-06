@@ -27,6 +27,35 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- show cursor line only in active window
+vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+  callback = function()
+    local ok, cl = pcall(vim.api.nvim_win_get_var, 0, "auto-cursorline")
+    if ok and cl then
+      vim.wo.cursorline = true
+      vim.api.nvim_win_del_var(0, "auto-cursorline")
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+  callback = function()
+    local cl = vim.wo.cursorline
+    if cl then
+      vim.api.nvim_win_set_var(0, "auto-cursorline", cl)
+      vim.wo.cursorline = false
+    end
+  end,
+})
+
+-- Fix conceallevel for json & help files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.wo.spell = false
+    vim.wo.conceallevel = 0
+  end,
+})
+
 -- don't auto commenting new lines
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "",
@@ -39,7 +68,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown", "tex" },
   callback = function()
     vim.opt_local.wrap = true
-    vim.opt_local.spell = true
   end,
 })
 
@@ -49,19 +77,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   callback = ":Lazy sync",
 })
 
--- check spelling in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "gitcommit", "markdown", "tex" },
-  callback = function()
-    vim.opt_local.spell = true
-  end,
-})
-
 -- Disable autoformat for lua files
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "markdown", "tex" },
+  pattern = { "gitcommit", "markdown", "tex" },
   callback = function()
     vim.b.autoformat = false
+    vim.opt_local.spell = true
   end,
 })
 
@@ -72,14 +93,34 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.tex", "*.bbl", "*.bib", "*.texx", "*.texb", "*.cls" },
 })
 
--- auto detect git conflicts
--- vim.api.nvim_create_autocommand("User", {
---   pattern = "GitConflictDetected",
---   callback = function()
---     vim.notify("Conflict detected in " .. vim.fn.expand("<afile>"))
---     vim.keymap.set("n", "cww", function()
---       engage.conflict_buster()
---       create_buffer_local_mappings()
---     end)
---   end,
--- })
+-- fix treesitter slow on very big files
+local cmp = require("cmp")
+local default_cmp_sources = cmp.config.sources({
+  { name = "nvim_lsp", keyword_length = 2 },
+  { name = "luasnip", keyword_length = 2 },
+  { name = "buffer", keyword_length = 2 },
+  { name = "path", keyword_length = 2 },
+  { name = "nvim_lua", keyword_length = 2 },
+})
+
+local bufIsBig = function(bufnr)
+  local max_filesize = 100 * 1024 -- 100 KB
+  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  if ok and stats and stats.size > max_filesize then
+    return true
+  else
+    return false
+  end
+end
+
+vim.api.nvim_create_autocmd("BufReadPre", {
+  callback = function(t)
+    local sources = default_cmp_sources
+    if not bufIsBig(t.buf) then
+      sources[#sources + 1] = { name = "treesitter", group_index = 2 }
+    end
+    cmp.setup.buffer({
+      sources = sources,
+    })
+  end,
+})

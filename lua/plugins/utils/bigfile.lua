@@ -1,5 +1,6 @@
 return {
   "LunarVim/bigfile.nvim",
+  lazy = true,
   opts = {
     filesize = 10, -- size of the file in MiB, the plugin round file sizes to the closest MiB
     pattern = { "*" }, -- autocmd pattern

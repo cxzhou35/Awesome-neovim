@@ -35,7 +35,14 @@ opt.clipboard = { "unnamed", "unnamedplus" }
 -- Chars
 opt.list = true
 opt.listchars = { extends = "❯", precedes = "❮", trail = "·", tab = "▸ " }
-opt.fillchars = { eob = " " }
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
 
 -- Tab & Indent
 opt.autoindent = true

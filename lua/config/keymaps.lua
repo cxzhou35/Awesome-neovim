@@ -67,7 +67,9 @@ map("n", "<leader>-", "<C-x>")
 
 -- File
 map("n", "<C-n>", "<cmd>enew<cr>", { desc = "New File" })
-map("n", "<C-q>", "<cmd>bdelete<CR>")
+map("n", "<C-q>", function()
+  require("mini.bufremove").delete(0, false)
+end, { desc = "Delete Buffer" })
 map("n", "<S-s>", "<nop>")
 map("n", "fq", "<cmd>q!<CR>")
 map("n", "fw", "<cmd>wa<CR>")
@@ -98,14 +100,14 @@ map("n", "ga", "<cmd>Lspsaga code_action<CR>", opts) -- Code Action
 map("n", "ge", "<cmd>Lspsaga lsp_finder<CR>", opts) -- Finder
 map("n", "gr", "<cmd>Lspsaga rename<CR>", opts) -- Rename
 map("n", "go", "<cmd>Lspsaga outline<CR>", opts) -- Outline
-map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts) -- Hover Doc
+-- map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts) -- Hover Doc
 map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts) -- Peek Definition
 map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts) -- Goto Definition
 map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- Show line diagnostics
-map("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- Show cursor diagnostic
+-- map("n", "gS", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- Show cursor diagnostic
 map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- Diagnsotic jump
 map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- Diagnsotic jump
-map("n", "gS", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- Signature Help
+map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- Signature Help
 map("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true }) -- Format
 
 -- Hop
@@ -132,6 +134,9 @@ end, { desc = "Lazygit (cwd)" })
 
 -- Joshuto
 map("n", "<C-r>", "<cmd>Joshuto<cr>", { desc = "Open joshuto in neovim" })
+
+-- Markdown
+map("n", "<C-m>", "<Plug>MarkdownPreviewToggle", { desc = "Markdown Preview" })
 
 -- Telescope
 local builtin = require("telescope.builtin")

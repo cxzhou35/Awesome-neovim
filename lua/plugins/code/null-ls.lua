@@ -15,6 +15,7 @@ return {
         nls.builtins.formatting.markdownlint,
         nls.builtins.formatting.prettier,
         nls.builtins.formatting.latexindent,
+        -- nls.builtins.code_actions.gitsigns,
       },
     }
   end,

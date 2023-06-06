@@ -18,6 +18,6 @@ local get_visual = function(args, parent)
 end
 
 return {
-  s({ trig = "mi", snippetType = "autosnippet" }, fmta("$<>$", i(1))),
-  s({ trig = "mb", snippetType = "autosnippet" }, fmta("$$\n<>\n$$", i(1))),
+  s({ trig = ";mi", snippetType = "autosnippet" }, fmta("$<>$", i(1))),
+  s({ trig = ";mb", snippetType = "autosnippet" }, fmta("$$\n<>\n$$", i(1))),
 }

@@ -22,7 +22,7 @@ return {
       preview_window = false,
       title = true,
     })
-    vim.keymap.set("n", "<leader>k", require("hover").hover, { desc = "Hover" })
+    vim.keymap.set("n", "gh", require("hover").hover, { desc = "Hover" })
     vim.keymap.set("n", "<leader>gk", require("hover").hover_select, { desc = "Select Hover" })
   end,
 }

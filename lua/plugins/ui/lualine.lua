@@ -86,11 +86,6 @@ return {
               bug = icons.diagnostics.Bug,
             },
           },
-          -- stylua: ignore
-          -- {
-          --   function() return require("nvim-navic").get_location() end,
-          --   cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-          -- },
         },
         lualine_x = {
           -- stylua: ignore
@@ -125,8 +120,20 @@ return {
               return " " .. os.date("%R")
             end,
           },
+          -- battery status
           { nvim_battery },
-          { require("copilot_status").status_string },
+          -- copilot
+          {
+            function()
+              local icon = require("lazyvim.config").icons.kinds.Copilot
+              local status = require("copilot.api").status.data
+              return icon .. (status.message or "")
+            end,
+            cond = function()
+              local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
+              return ok and #clients > 0
+            end,
+          },
         },
       },
       extensions = { "neo-tree", "lazy" },

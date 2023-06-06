@@ -52,7 +52,6 @@ return {
         dashboard.button("b", " " .. " File browser", ":Joshuto <CR>"),
         dashboard.button("r", "󰄉 " .. " Recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        -- dashboard.button("s", "󰁯 " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }

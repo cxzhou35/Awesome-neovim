@@ -24,14 +24,14 @@ return {
       return snip.env.TM_SELECTED_TEXT[1] or {}
     end, {}) })
   ),
-  s({ trig = "li", wordTrig = false, snippetType = "autosnippet" }, t("---")),
+  s({ trig = ";l", wordTrig = false, snippetType = "autosnippet" }, t("---")),
   s({ trig = ";b", snippetType = "autosnippet" }, fmta("**<>**", i(1))),
   s({ trig = ";i", snippetType = "autosnippet" }, fmta("*<>*", i(1))),
   s({ trig = ";d", snippetType = "autosnippet" }, fmta("~~<>~~", i(1))),
   s({ trig = ";h", snippetType = "autosnippet" }, fmta("==<>==", i(1))),
   s({ trig = ";c", snippetType = "autosnippet" }, fmta("`<>`", i(1))),
   s(
-    { trig = "cb", snippetType = "autosnippet" },
+    { trig = ";cb", snippetType = "autosnippet" },
     fmta(
       [[
       ```<>

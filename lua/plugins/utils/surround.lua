@@ -6,7 +6,7 @@ return {
       delete = "sd",
       find = "sf",
       find_left = "sF",
-      highlight = "gsh",
+      -- highlight = "gsh",
       replace = "sr",
       update_n_lines = "sn",
     },

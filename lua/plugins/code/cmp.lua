@@ -9,6 +9,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-emoji",
     "kdheepak/cmp-latex-symbols",
+    -- "hrsh7th/cmp-nvim-lsp-signature-help",
   },
   opts = function()
     local cmp = require("cmp")
@@ -45,16 +46,16 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         -- ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<S-CR>"] = cmp.mapping.confirm({
+        ["<S-CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
+          select = false, -- default:true
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- they way you will only jump inside the snippet region
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- they way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
@@ -80,6 +81,7 @@ return {
         { name = "path" },
         { name = "copilot" },
         { name = "emoji" },
+        -- { name = "nvim_lsp_signature_help" },
         {
           name = "latex_symbols",
           option = {
