@@ -7,15 +7,14 @@ return {
     return {
       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
       sources = {
-        -- add sources if you want
-        nls.builtins.formatting.autopep8,
+        -- add sources
         nls.builtins.formatting.stylua,
         nls.builtins.formatting.clang_format,
         nls.builtins.formatting.shfmt,
         nls.builtins.formatting.markdownlint,
         nls.builtins.formatting.prettier,
+        nls.builtins.formatting.black,
         nls.builtins.formatting.latexindent,
-        -- nls.builtins.code_actions.gitsigns,
       },
     }
   end,

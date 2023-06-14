@@ -40,19 +40,20 @@ return {
         },
       },
       mapping = cmp.mapping.preset.insert({
-        -- ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        -- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         -- ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<S-CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm({
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<S-CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
-          select = false, -- default:true
+          select = true, -- default:true
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
+          local suggestion = require("copilot.suggestion")
+          if suggestion.is_visible() then
+            suggestion.accept()
+          elseif cmp.visible() then
             cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- they way you will only jump inside the snippet region
@@ -79,7 +80,6 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "copilot" },
         { name = "emoji" },
         -- { name = "nvim_lsp_signature_help" },
         {

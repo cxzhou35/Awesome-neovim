@@ -122,18 +122,6 @@ return {
           },
           -- battery status
           { nvim_battery },
-          -- copilot
-          {
-            function()
-              local icon = require("lazyvim.config").icons.kinds.Copilot
-              local status = require("copilot.api").status.data
-              return icon .. (status.message or "")
-            end,
-            cond = function()
-              local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
-              return ok and #clients > 0
-            end,
-          },
         },
       },
       extensions = { "neo-tree", "lazy" },

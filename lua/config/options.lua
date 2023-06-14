@@ -27,14 +27,23 @@ opt.undofile = true
 opt.wildmenu = true
 opt.wildmode = "longest:list,full"
 opt.cmdheight = 0
+opt.laststatus = 3
+opt.splitkeep = "screen"
 o.showtabline = 0
+o.scrolloff = 10
 
 -- Clipboard
 opt.clipboard = { "unnamed", "unnamedplus" }
 
 -- Chars
 opt.list = true
-opt.listchars = { extends = "❯", precedes = "❮", trail = "·", tab = "▸ " }
+opt.listchars = {
+  extends = "❯",
+  precedes = "❮",
+  trail = "·",
+  tab = "▸ ",
+  -- eol = "↴",
+}
 opt.fillchars = {
   foldopen = "",
   foldclose = "",

@@ -2,16 +2,21 @@ return {
   "williamboman/mason.nvim",
   opts = function(_, opts)
     vim.list_extend(opts.ensure_installed, {
+      -- lua
       "stylua",
       "luacheck",
+      -- shell
       "shellcheck",
       "shfmt",
-      "black",
-      "flake8",
-      "pyright",
+      -- c/cpp
       "clangd",
+      -- markdown
       "marksman",
+      -- latex
       "texlab",
+      -- python
+      "pyright",
+      "black",
     })
   end,
   keys = { { "<leader>m", "<cmd>Mason<cr>", desc = "Mason" } },

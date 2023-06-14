@@ -42,31 +42,31 @@ return {
     )
   ),
   s(
-    { trig = "sb", snippetType = "autosnippet" },
+    { trig = ";sb", snippetType = "autosnippet" },
     fmta("**<>**", {
       d(1, get_visual),
     })
   ),
   s(
-    { trig = "si", snippetType = "autosnippet" },
+    { trig = ";si", snippetType = "autosnippet" },
     fmta("*<>*", {
       d(1, get_visual),
     })
   ),
   s(
-    { trig = "sh", snippetType = "autosnippet" },
+    { trig = ";sh", snippetType = "autosnippet" },
     fmta("==<>==", {
       d(1, get_visual),
     })
   ),
   s(
-    { trig = "sc", snippetType = "autosnippet" },
+    { trig = ";sc", snippetType = "autosnippet" },
     fmta("`<>`", {
       d(1, get_visual),
     })
   ),
   s(
-    { trig = "sw", snippetType = "autosnippet" },
+    { trig = ";sw", snippetType = "autosnippet" },
     fmta("[[<>]]", {
       d(1, get_visual),
     })
