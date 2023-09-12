@@ -38,8 +38,10 @@ map("n", "<C-j>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 
 -- Split window
 map("n", "s", "<nop>")
-map("n", "ss", "<cmd>split<Return><C-w>w", { silent = true, desc = "split" })
-map("n", "sv", "<cmd>vsplit<Return><C-w>w", { silent = true, desc = "vsplit" })
+map("n", "<leader>sh", "<cmd>split<Return><C-w>w", { silent = true, desc = "split" })
+map("n", "<leader>sv", "<cmd>vsplit<Return><C-w>w", { silent = true, desc = "vsplit" })
+map("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- Change window
 map({ "n", "v", "o" }, "sh", "<C-w>h")
@@ -96,27 +98,27 @@ map("n", "<leader>at", "<cmd>ToggleAlternate<CR>", { desc = "Toggle Alternate" }
 -- Lspsaga
 local opts = { silent = true, noremap = true }
 
-map("n", "ga", "<cmd>Lspsaga code_action<CR>", opts) -- Code Action
-map("n", "ge", "<cmd>Lspsaga lsp_finder<CR>", opts) -- Finder
-map("n", "gr", "<cmd>Lspsaga rename<CR>", opts) -- Rename
-map("n", "go", "<cmd>Lspsaga outline<CR>", opts) -- Outline
--- map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts) -- Hover Doc
-map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts) -- Peek Definition
-map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts) -- Goto Definition
-map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- Show line diagnostics
+map("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)              -- Code Action
+map("n", "gf", "<cmd>Lspsaga finder<CR>", opts)                   -- Finder
+-- map("n", "gr", "<cmd>Lspsaga rename<CR>", opts)                   -- Rename
+map("n", "go", "<cmd>Lspsaga outline<CR>", opts)                  -- Outline
+map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts)                -- Hover Doc
+map("n", "gt", "<cmd>Lspsaga term_toggle<CR>", opts)              -- Float Terminal
+map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)          -- Peek Definition
+map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)          -- Goto Definition
+map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)    -- Show line diagnostics
 -- map("n", "gS", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- Show cursor diagnostic
-map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- Diagnsotic jump
-map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- Diagnsotic jump
+map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)     -- Diagnsotic jump
+map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)     -- Diagnsotic jump
 map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- Signature Help
-map("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true }) -- Format
 
 -- Hop
-map("n", "<leader>h", "<cmd>HopWord<CR>", opts)
-map("n", "<leader>1", "<cmd>HopChar1<CR>", opts)
-map("n", "<leader>2", "<cmd>HopChar2<CR>", opts)
-map("n", "<leader>p", "<cmd>HopPattern<CR>", opts)
-map("n", "<leader>l", "<cmd>HopLineStart<CR>", opts)
-map("n", "<leader>v", "<cmd>HopVertical<CR>", opts)
+map("n", "<leader>hw", "<cmd>HopWord<CR>", opts)
+map("n", "<leader>h1", "<cmd>HopChar1<CR>", opts)
+map("n", "<leader>h2", "<cmd>HopChar2<CR>", opts)
+map("n", "<leader>hp", "<cmd>HopPattern<CR>", opts)
+map("n", "<leader>hl", "<cmd>HopLineStart<CR>", opts)
+map("n", "<leader>hv", "<cmd>HopVertical<CR>", opts)
 
 -- Resize window using arrow keys
 map("n", "<S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -138,6 +140,12 @@ map("n", "<C-r>", "<cmd>Joshuto<cr>", { desc = "Open joshuto in neovim" })
 -- Markdown
 map("n", "<C-m>", "<Plug>MarkdownPreviewToggle", { desc = "Markdown Preview" })
 
+-- Oil file manager
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- NerdIcons
+map("n", "<leader>ni", "<cmd>NerdIcons<CR>", { desc = "NerdIcons" })
+
 -- Telescope
 local builtin = require("telescope.builtin")
 
@@ -153,9 +161,6 @@ end, { silent = true, desc = "Telescope Buffers" })
 map("n", ";o", function()
   builtin.oldfiles()
 end, { silent = true, desc = "Telescope Old Files" })
-map("n", ";;", function()
-  builtin.resume()
-end, { silent = true, desc = "Telescope Resume" })
 map("n", ";e", function()
   builtin.diagnostics()
 end, { silent = true, desc = "Telescope Diagnostics" })

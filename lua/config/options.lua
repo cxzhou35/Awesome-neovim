@@ -12,6 +12,7 @@ g.maplocalleader = " "
 
 -- General
 opt.relativenumber = true
+opt.number = true
 opt.ruler = false
 opt.autowrite = true
 opt.cul = true
@@ -29,6 +30,9 @@ opt.wildmode = "longest:list,full"
 opt.cmdheight = 0
 opt.laststatus = 3
 opt.splitkeep = "screen"
+opt.cursorline = true
+opt.splitright = true
+opt.splitbelow = true
 o.showtabline = 0
 o.scrolloff = 10
 
@@ -52,6 +56,10 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
+
+-- Spell
+opt.spell = true
+opt.spelllang = { "en_us" }
 
 -- Tab & Indent
 opt.autoindent = true

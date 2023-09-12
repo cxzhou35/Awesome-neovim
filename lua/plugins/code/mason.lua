@@ -5,15 +5,20 @@ return {
       -- lua
       "stylua",
       "luacheck",
+
       -- shell
       "shellcheck",
       "shfmt",
+
       -- c/cpp
       "clangd",
+
       -- markdown
       "marksman",
+
       -- latex
       "texlab",
+
       -- python
       "pyright",
       "black",

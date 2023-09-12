@@ -1,6 +1,6 @@
 return {
   "catppuccin/nvim",
-  lazy = true,
+  lazy = false,
   name = "catppuccin",
   priority = 1000,
   build = ":CatppuccinCompile",

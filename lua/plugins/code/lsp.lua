@@ -4,7 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim", opts = {} },
+      { "folke/neodev.nvim",  opts = {} },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
@@ -55,6 +55,10 @@ return {
             Lua = {
               workspace = {
                 checkThirdParty = false,
+                library = {
+                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                  [vim.fn.stdpath("config") .. "/lua"] = true,
+                },
               },
               diagnostics = {
                 -- Get the language server to recognize the `vim` global
@@ -140,14 +144,14 @@ return {
 
       if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
         opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
-          or function(diagnostic)
-            local icons = require("lazyvim.config").icons.diagnostics
-            for d, icon in pairs(icons) do
-              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-                return icon
+            or function(diagnostic)
+              local icons = require("lazyvim.config").icons.diagnostics
+              for d, icon in pairs(icons) do
+                if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                  return icon
+                end
               end
             end
-          end
       end
 
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
@@ -217,123 +221,8 @@ return {
     end,
   },
   {
-    "glepnir/lspsaga.nvim",
-    event = "LspAttach",
-    opts = {
-      ui = {
-        -- Currently, only the round theme exists
-        theme = "round",
-        -- This option only works in Neovim 0.9
-        title = true,
-        -- Border type can be single, double, rounded, solid, shadow.
-        border = "rounded",
-        winblend = 0,
-        expand = "",
-        collapse = "",
-        preview = " ",
-        code_action = "💡",
-        diagnostic = "🐞",
-        incoming = "󰏷 ",
-        outgoing = "󰏻 ",
-        hover = " ",
-        colors = require("catppuccin.groups.integrations.lsp_saga").custom_colors(),
-        -- kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-      },
-      -- winbar config
-      symbol_in_winbar = {
-        enable = true,
-        show_file = true,
-        separator = "  ",
-        hide_keyword = false,
-        folder_level = 2,
-        respect_root = false,
-        color_mode = true,
-      },
-      -- lightbulb config
-      lightbulb = {
-        enable = true,
-        enable_in_insert = false,
-        sign = true,
-        sign_priority = 40,
-        virtual_text = false,
-      },
-      -- diagnostic config
-      diagnostic = {
-        show_code_action = true,
-        show_source = true,
-        jump_num_shortcut = true,
-        -- 1 is max
-        max_width = 0.7,
-        custom_fix = nil,
-        custom_msg = nil,
-        text_hl_follow = false,
-        keys = { exec_action = "o", quit = "q", go_action = "g" },
-      },
-      -- finder icons
-      finder_icons = { def = "  ", ref = "󰵚 ", link = "󰴜 " },
-      -- finder config
-      finder = {
-        jump_to = "p",
-        edit = { "o", "<CR>" },
-        tabe = "t",
-        quit = { "q", "<ESC>" },
-      },
-      -- show outline
-      outline = {
-        win_position = "right",
-        win_with = "",
-        win_width = 30,
-        auto_enter = true,
-        auto_preview = false,
-        virt_text = "┃",
-        keys = { jump = "o", expand_collapse = "u", quit = "q" },
-        -- auto refresh when change buffer
-        auto_refresh = true,
-      },
-      -- difinition config
-      definition = {
-        edit = "<S-c>o",
-        vsplit = "<S-c>v",
-        split = "<S-c>i",
-        tabe = "<S-c>t",
-        quit = "q",
-        close = "<Esc>",
-      },
-      -- code action config
-      code_action = {
-        num_shortcut = true,
-        keys = {
-          -- string | table type
-          quit = "q",
-          exec = "<CR>",
-        },
-      },
-      request_timeout = 3000,
-    },
-  },
-  {
     "simrat39/symbols-outline.nvim",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
-  },
-  -- inlay hints
-  {
-    "lvimuser/lsp-inlayhints.nvim",
-    branch = "anticonceal",
-    event = "LspAttach",
-    opts = {},
-    config = function(_, opts)
-      require("lsp-inlayhints").setup(opts)
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("LspAttach_inlayhints", {}),
-        callback = function(args)
-          if not (args.data and args.data.client_id) then
-            return
-          end
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          require("lsp-inlayhints").on_attach(client, args.buf)
-        end,
-      })
-    end,
   },
 }

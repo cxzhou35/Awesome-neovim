@@ -1,14 +1,23 @@
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    build = ":Copilot auth",
-    module = "copilot",
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
+  "zbirenbaum/copilot.lua",
+  opts = {
+    suggestion = {
+      enabled = true,
+      auto_trigger = true,
+      debounce = 150,
+      keymap = {
+        accept = "<C-;>",
+        accept_word = false,
+        accept_line = false,
+        next = "<C-]>",
+        prev = "<C-[>",
+        dismiss = "<C-'>",
+      },
       filetypes = {
+        python = true,
+        lua = true,
+        -- disable file types
+        tex = false,
         yaml = false,
         markdown = false,
         help = false,
@@ -17,24 +26,8 @@ return {
         hgcommit = false,
         svn = false,
         cvs = false,
+        ["."] = false,
       },
     },
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = "copilot.lua",
-    event = { "InsertEnter", "LspAttach" },
-    fix_pairs = true,
-    config = function(_, opts)
-      local copilot_cmp = require("copilot_cmp")
-      copilot_cmp.setup(opts)
-      -- attach cmp source whenever copilot attaches
-      -- fixes lazy-loading issues with the copilot cmp source
-      require("lazyvim.util").on_attach(function(client)
-        if client.name == "copilot" then
-          copilot_cmp._on_insert_enter({})
-        end
-      end)
-    end,
   },
 }

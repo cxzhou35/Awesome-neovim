@@ -11,6 +11,14 @@ return {
   event = "VeryLazy",
   opts = function()
     local icons = require("lazyvim.config").icons
+    local Util = require("lazyvim.util")
+
+    local colors = {
+      [""] = Util.fg("Special"),
+      ["Normal"] = Util.fg("Special"),
+      ["Warning"] = Util.fg("DiagnosticError"),
+      ["InProgress"] = Util.fg("DiagnosticWarn"),
+    }
 
     local function fg(name)
       return function()
@@ -99,6 +107,24 @@ return {
             function() return require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
             color = fg("Constant") ,
+          },
+          {
+            function()
+              local icon = require("lazyvim.config").icons.kinds.Copilot
+              local status = require("copilot.api").status.data
+              return icon .. (status.message or "")
+            end,
+            cond = function()
+              local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
+              return ok and #clients > 0
+            end,
+            color = function()
+              if not package.loaded["copilot"] then
+                return
+              end
+              local status = require("copilot.api").status.data
+              return colors[status.status] or colors[""]
+            end,
           },
           { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
           {

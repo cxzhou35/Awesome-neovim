@@ -50,16 +50,23 @@ return {
     },
   },
   {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
+    "sindrets/diffview.nvim",
     opts = {
-      default_mappings = true, -- disable buffer local mapping created by this plugin
-      default_commands = true, -- disable commands created by this plugin
-      disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
-      highlights = { -- They must have background color, otherwise the default color will be used
-        incoming = "DiffAdd",
-        current = "DiffText",
+      diff_binaries = false, -- Show diffs for binaries
+      enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
+      git_cmd = { "git" }, -- The git executable followed by default args.
+      hg_cmd = { "hg" }, -- The hg executable followed by default args.
+      use_icons = true, -- Requires nvim-web-devicons
+      show_help_hints = true, -- Show hints for how to open the help panel
+      watch_index = true, -- Update views and index buffers when the git index changes.
+      icons = { -- Only applies when use_icons is true.
+        folder_closed = "",
+        folder_open = "",
+      },
+      signs = {
+        fold_closed = "",
+        fold_open = "",
+        done = "✓",
       },
     },
   },

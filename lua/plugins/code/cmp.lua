@@ -9,6 +9,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-emoji",
     "kdheepak/cmp-latex-symbols",
+    "rafamadriz/friendly-snippets", -- useful snippets
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
   },
   opts = function()
@@ -22,7 +23,7 @@ return {
 
     return {
       completion = {
-        completeopt = "menu,menuone,noinsert",
+        completeopt = "menu,menuone,noinsert,preview",
       },
       snippet = {
         expand = function(args)
@@ -50,10 +51,7 @@ return {
           select = true, -- default:true
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<Tab>"] = cmp.mapping(function(fallback)
-          local suggestion = require("copilot.suggestion")
-          if suggestion.is_visible() then
-            suggestion.accept()
-          elseif cmp.visible() then
+          if cmp.visible() then
             cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- they way you will only jump inside the snippet region
@@ -97,6 +95,8 @@ return {
           end
           return item
         end,
+        maxwidth = 80,
+        ellipsis_char = "...",
       },
       experimental = {
         ghost_text = {

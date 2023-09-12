@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- Disable autoformat for lua files
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown", "tex" },
+  pattern = { "gitcommit", "markdown", "tex", "cu" },
   callback = function()
     vim.b.autoformat = false
     vim.opt_local.spell = true
