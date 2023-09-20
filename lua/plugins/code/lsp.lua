@@ -4,7 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim",  opts = {} },
+      { "folke/neodev.nvim", opts = {} },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       {
@@ -24,9 +24,6 @@ return {
           spacing = 4,
           source = "if_many",
           prefix = "●",
-          -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-          -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-          -- prefix = "icons",
         },
         severity_sort = true,
       },
@@ -37,6 +34,9 @@ return {
       -- Enable this to show formatters used in a notification
       -- Useful for debugging formatter issues
       format_notify = false,
+      inlay_hints = {
+        enabled = true,
+      },
       -- options for vim.lsp.buf.format
       -- `bufnr` and `filter` is handled by the LazyVim formatter,
       -- but can be also overridden when specified
@@ -67,10 +67,15 @@ return {
               },
               completion = {
                 workspaceWord = true,
-                callSnippet = "Both",
+                -- callSnippet = "Both",
+                callSnippet = "Replace",
               },
               telemetry = {
                 enable = false,
+              },
+              -- TODO: add hint config
+              hint = {
+                enable = true,
               },
             },
           },
@@ -80,15 +85,71 @@ return {
           settings = {
             python = {
               analysis = {
+                typeCheckingMode = "basic", -- off, basic, strict
                 autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
                 autoImportCompletions = true,
                 diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
-                typeCheckingMode = "off",
+                diagnosticSeverityOverrides = {
+                  strictListInference = true,
+                  strictDictionaryInference = true,
+                  strictSetInference = true,
+                  reportUnusedImport = "warning",
+                  reportUnusedClass = "warning",
+                  reportUnusedFunction = "warning",
+                  reportUnusedVariable = "warning",
+                  reportUnusedCoroutine = "warning",
+                  reportDuplicateImport = "warning",
+                  reportPrivateUsage = "warning",
+                  reportUnusedExpression = "warning",
+                  reportConstantRedefinition = "error",
+                  reportIncompatibleMethodOverride = "error",
+                  reportMissingImports = "error",
+                  reportUndefinedVariable = "error",
+                  reportAssertAlwaysTrue = "error",
+                },
               },
             },
           },
         },
+        -- clangd
+        clangd = {
+          keys = {
+            { "<leader>cR", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          },
+          root_dir = function(fname)
+            return require("lspconfig.util").root_pattern(
+              "Makefile",
+              "configure.ac",
+              "configure.in",
+              "config.h.in",
+              "meson.build",
+              "meson_options.txt",
+              "build.ninja"
+            )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
+              fname
+            ) or require("lspconfig.util").find_git_ancestor(fname)
+          end,
+          capabilities = {
+            offsetEncoding = { "utf-16" },
+          },
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--fallback-style=llvm",
+          },
+          init_options = {
+            usePlaceholders = true,
+            completeUnimported = true,
+            clangdFileStatus = true,
+            fallback_flags = { "-std=c++17" },
+          },
+        },
+
         -- texlab
         texlab = {
           settings = {
@@ -122,7 +183,9 @@ return {
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
         clangd = function(_, opts)
-          opts.capabilities.offsetEncoding = { "utf-16" }
+          local clangd_ext_opts = require("lazyvim.util").opts("clangd_extensions.nvim")
+          require("clangd_extensions").setup(vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = opts }))
+          return false
         end,
       },
     },
@@ -144,17 +207,20 @@ return {
 
       if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
         opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
-            or function(diagnostic)
-              local icons = require("lazyvim.config").icons.diagnostics
-              for d, icon in pairs(icons) do
-                if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-                  return icon
-                end
+          or function(diagnostic)
+            local icons = require("lazyvim.config").icons.diagnostics
+            for d, icon in pairs(icons) do
+              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                return icon
               end
             end
+          end
       end
 
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+
+      --- Toggle inlay hints for a buffer
+      -- vim.lsp.inlay_hint(0)
 
       local servers = opts.servers
       local capabilities = vim.tbl_deep_extend(
@@ -210,19 +276,6 @@ return {
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
       end
-
-      if Util.lsp_get_config("denols") and Util.lsp_get_config("tsserver") then
-        local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-        Util.lsp_disable("tsserver", is_deno)
-        Util.lsp_disable("denols", function(root_dir)
-          return not is_deno(root_dir)
-        end)
-      end
     end,
-  },
-  {
-    "simrat39/symbols-outline.nvim",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
   },
 }

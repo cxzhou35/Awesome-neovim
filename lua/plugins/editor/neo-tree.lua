@@ -34,10 +34,29 @@ return {
     end
   end,
   opts = {
-    open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "edgy" },
+    sources = {
+      "filesystem",
+      "buffers",
+      "git_status",
+      "document_symbols",
+    },
+    -- TODO: add source selector config
+    source_selector = {
+      winbar = false,
+      statusline = false,
+    },
+    open_files_do_not_replace_types = {
+      "terminal",
+      "Trouble",
+      "qf",
+      "edgy",
+    },
     filesystem = {
       bind_to_cwd = false,
-      follow_current_file = true,
+      follow_current_file = {
+        enabled = true,
+      },
+      use_libuv_file_watcher = true,
       -- hide_dotfiles = false,
       hide_gitignored = false,
       hide_by_name = {
@@ -47,6 +66,15 @@ return {
         ".DS_Store",
         "thumbs.db",
       },
+    },
+    buffers = {
+      follow_current_file = {
+        enabled = true, -- This will find and focus the file in the active buffer every time
+        --              -- the current file is changed while the tree is open.
+        leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+      },
+      group_empty_dirs = true, -- when true, empty folders will be grouped together
+      show_unloaded = true,
     },
     window = {
       position = "left",
@@ -91,6 +119,11 @@ return {
         default = "*",
         highlight = "NeoTreeFileIcon",
       },
+      name = {
+        trailing_slash = false,
+        use_git_status_colors = true,
+        highlight = "NeoTreeFileName",
+      },
       git_status = {
         symbols = {
           -- Change type
@@ -107,15 +140,8 @@ return {
         },
       },
       indent = {
+        padding = 1, -- extra padding on left hand side
         indent_size = 2,
-        with_markers = true,
-        indent_marker = "│",
-        last_indent_marker = "└",
-        highlight = "NeoTreeIndentMarker",
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = "",
-        expander_expanded = "",
-        expander_highlight = "NeoTreeExpander",
       },
       event_handlers = {
         {
@@ -144,4 +170,15 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+    vim.api.nvim_create_autocmd("TermClose", {
+      pattern = "*lazygit",
+      callback = function()
+        if package.loaded["neo-tree.sources.git_status"] then
+          require("neo-tree.sources.git_status").refresh()
+        end
+      end,
+    })
+  end,
 }

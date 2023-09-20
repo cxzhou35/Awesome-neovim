@@ -1,5 +1,6 @@
 return {
   "glepnir/nerdicons.nvim",
+  event = "VeryLazy",
   cmd = "NerdIcons",
   config = function()
     require("nerdicons").setup({

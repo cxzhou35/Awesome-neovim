@@ -11,7 +11,7 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- General
-opt.relativenumber = true
+opt.relativenumber = false
 opt.number = true
 opt.ruler = false
 opt.autowrite = true

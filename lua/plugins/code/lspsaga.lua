@@ -4,7 +4,7 @@ return {
     event = "LspAttach",
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons",     -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
     },
     opts = {
       ui = {
@@ -71,9 +71,10 @@ return {
         win_with = "",
         win_width = 30,
         auto_enter = true,
+        detail = false,
         auto_preview = false,
         virt_text = "┃",
-        keys = { jump = "o", expand_collapse = "u", quit = "q" },
+        keys = { jump = "o", toggle_or_jump = "f", quit = "q" },
         -- auto refresh when change buffer
         auto_refresh = true,
       },

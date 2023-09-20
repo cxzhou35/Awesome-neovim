@@ -9,8 +9,13 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = {} },
+
+    -- copilot
     -- { import = "lazyvim.plugins.extras.coding.copilot" },
+
+    -- better ui edge
     { import = "lazyvim.plugins.extras.ui.edgy" },
+
     -- import/override with your plugins
     { import = "plugins.ui" },
     { import = "plugins.code" },

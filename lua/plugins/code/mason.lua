@@ -15,6 +15,7 @@ return {
 
       -- markdown
       "marksman",
+      "cbfmt",
 
       -- latex
       "texlab",

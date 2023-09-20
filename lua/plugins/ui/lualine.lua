@@ -48,6 +48,24 @@ return {
       return "  " .. msg
     end
 
+    local function getWords()
+      if vim.fn.getfsize(vim.fn.expand("%")) > 200000 then
+        return ""
+      end
+
+      if vim.fn.wordcount().visual_words == 1 then
+        return "1 word"
+      elseif not (vim.fn.wordcount().visual_words == nil) then
+        return tostring(vim.fn.wordcount().visual_words) .. " words"
+      else
+        if vim.fn.wordcount().words == 1 then
+          return "1 word"
+        else
+          return tostring(vim.fn.wordcount().words) .. " words"
+        end
+      end
+    end
+
     return {
       options = {
         theme = "auto",
@@ -73,7 +91,11 @@ return {
           },
           {
             "filename",
-            path = 1,
+            path = 0, -- 0: Just the filename
+            -- 1: Relative path
+            -- 2: Absolute path
+            -- 3: Absolute path, with tilde as the home directory
+            -- 4: Filename and parent dir, with tilde as the home directory
             symbols = {
               added = "󱪞",
               removed = "󱪜",
@@ -106,7 +128,7 @@ return {
           {
             function() return require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = fg("Constant") ,
+            color = fg("Constant"),
           },
           {
             function()
@@ -137,10 +159,11 @@ return {
           },
         },
         lualine_y = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
+          { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
+          { getWords },
           {
             function()
               return " " .. os.date("%R")

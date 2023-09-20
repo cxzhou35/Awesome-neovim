@@ -1,9 +1,5 @@
 return {
   "lewis6991/hover.nvim",
-  -- keys = {
-  --   { "<leader>k", require("hover").hover, { desc = "hover.nvim" } },
-  --   { "<leader>gk", require("hover").hover_select, { desc = "hover.nvim (select)" } },
-  -- },
   config = function()
     require("hover").setup({
       init = function()

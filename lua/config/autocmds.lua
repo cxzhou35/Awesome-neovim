@@ -20,10 +20,34 @@ vim.api.nvim_create_autocmd("FileType", {
     "startuptime",
     "tsplayground",
     "checkhealth",
+    "Outline",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
+-- Disable ufo fold
+-- See https://github.com/kevinhwang91/nvim-ufo/issues/33#issuecomment-1664656433
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "outline",
+    "neo-tree",
+    "notify",
+    "noice",
+    "lspinfo",
+    "help",
+    "man",
+    "startuptime",
+    "checkhealth",
+    "Trouble",
+    "sagaoutline",
+    "Outline",
+  },
+  callback = function()
+    require("ufo").detach()
+    vim.opt_local.foldenable = false
   end,
 })
 
@@ -65,7 +89,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown", "tex" },
+  pattern = {
+    "gitcommit",
+    "markdown",
+    "tex",
+  },
   callback = function()
     vim.opt_local.wrap = true
   end,
@@ -79,7 +107,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- Disable autoformat for lua files
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown", "tex", "cu" },
+  pattern = {
+    "gitcommit",
+    "markdown",
+    "tex",
+    "cu",
+  },
   callback = function()
     vim.b.autoformat = false
     vim.opt_local.spell = true
@@ -90,7 +123,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "setlocal filetype=tex",
   group = augroup("tex"),
-  pattern = { "*.tex", "*.bbl", "*.bib", "*.texx", "*.texb", "*.cls" },
+  pattern = {
+    "*.tex",
+    "*.bbl",
+    "*.bib",
+    "*.texx",
+    "*.texb",
+    "*.cls",
+  },
 })
 
 -- fix treesitter slow on very big files

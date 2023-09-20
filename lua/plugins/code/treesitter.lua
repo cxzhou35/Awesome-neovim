@@ -23,7 +23,6 @@ return {
       },
       ensure_installed = {
         "bash",
-        "c",
         "json",
         "lua",
         "luadoc",
