@@ -18,7 +18,7 @@ Here is my Neovim configuration based on [LazyVim](https://github.com/LazyVim/La
 
 ## 🏞️ Screenshots
 
-<div align=center><img src="./assets/screenshot.png" style="zoom:40%" alt="fig"></div>
+<div align=center><img src="./assets/workspace.png" style="zoom:40%" alt="fig"></div>
 
 
 ## 📂 File Structure
