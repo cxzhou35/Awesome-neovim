@@ -20,7 +20,6 @@ Here is my Neovim configuration based on [LazyVim](https://github.com/LazyVim/La
 
 <div align=center><img src="./assets/workspace.png" style="zoom:40%" alt="fig"></div>
 
-
 ## 📂 File Structure
 
 The files under config will be **automatically loaded at the appropriate time**, so you don't need to require those files manually.
@@ -84,10 +83,10 @@ The files under config will be **automatically loaded at the appropriate time**,
     ```
 
 - A terminal that support true color and undercurl:
-    - kitty **(Linux & Macos)**
-    - wezterm **(Linux, Macos & Windows)**
-    - alacritty **(Linux, Macos & Windows)**
-    - iterm2 **(Macos)**
+  - kitty **(Linux & Macos)**
+  - wezterm **(Linux, Macos & Windows)**
+  - alacritty **(Linux, Macos & Windows)**
+  - iterm2 **(Macos)**
 
 > **Note**
 >

@@ -3,16 +3,7 @@
 -- Add any additional keymaps here
 local Util = require("lazyvim.util")
 
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
+local map = Util.safe_keymap_set
 
 -- Paste over currently selected text without yanking it
 map("v", "p", '"_dP', { silent = true })
@@ -27,17 +18,19 @@ map({ "n", "v", "o" }, "J", "5j", { desc = "Quick j move" })
 
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-map("n", "<leader>L", Util.changelog, { desc = "LazyVim Changelog" })
+map("n", "<leader>L", function()
+  Util.news.changelog()
+end, { desc = "LazyVim Changelog" })
 
 -- Buffers
 if Util.has("bufferline.nvim") then
-  map("n", "<leader>bk", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-  map("n", "<leader>bj", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+  map("n", "<leader>1", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+  map("n", "<leader>2", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
   map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
   map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 else
-  map("n", "<leader>bk", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-  map("n", "<leader>bj", "<cmd>bnext<cr>", { desc = "Next buffer" })
+  map("n", "<leader>1", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+  map("n", "<leader>2", "<cmd>bnext<cr>", { desc = "Next buffer" })
   map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
   map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 end
@@ -174,6 +167,11 @@ map("n", "<leader>ni", "<cmd>NerdIcons<CR>", { desc = "NerdIcons" })
 
 -- Calngd
 map("n", "<leader>ci", "<cmd>ClangdToggleInlayHints<CR>", { desc = "Calngd Toggle Inlay Hints" })
+
+-- Formatting
+-- map({ "n", "v" }, "<leader>cf", function()
+--   Util.format({ force = true })
+-- end, { desc = "Format" })
 
 -- Telescope
 local builtin = require("telescope.builtin")

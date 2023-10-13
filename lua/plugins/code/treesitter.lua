@@ -5,10 +5,10 @@ return {
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-      { "JoosepAlviste/nvim-ts-context-commentstring" },
+      { "JoosepAlviste/nvim-ts-context-commentstring", "nvim-treesitter/nvim-treesitter-textobjects" },
     },
     keys = {
-      { "<c-space>", desc = "Increment selection" },
+      { "<M-space>", desc = "Increment selection" },
       { "<bs>", desc = "Decrement selection", mode = "x" },
     },
     ---@type TSConfig
@@ -44,8 +44,8 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
+          init_selection = "<M-space>",
+          node_incremental = "<M-space>",
           scope_incremental = false,
           node_decremental = "<bs>",
         },

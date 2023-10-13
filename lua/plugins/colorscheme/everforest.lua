@@ -1,6 +1,6 @@
 return {
   "sainnhe/everforest",
-  lazy = false,
+  priority = 1000,
   config = function()
     -- Themes everforest
     vim.g.everforest_diagnostic_line_highlight = 1

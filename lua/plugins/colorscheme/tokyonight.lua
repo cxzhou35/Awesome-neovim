@@ -1,6 +1,6 @@
 return {
   "folke/tokyonight.nvim",
-  lazy = true,
+  priority = 1000,
   opts = {
     style = "night",
     transparent = true,
@@ -14,7 +14,7 @@ return {
       variables = {},
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = "transparent", -- style for sidebars
-      floats = "transparent", -- style for floating windows
+      floats = "transparent",   -- style for floating windows
     },
     sidebars = { "qf", "vista_kind", "terminal", "packer" },
     lualine_bold = true,

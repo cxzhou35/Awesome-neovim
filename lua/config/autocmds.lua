@@ -164,3 +164,14 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     })
   end,
 })
+
+-- fix sapce padding of symbol outlines
+local _ft = vim.api.nvim_create_augroup("FileTypeSettings", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "Outline",
+  callback = function()
+    vim.wo.signcolumn = "no"
+    vim.wo.foldcolumn = "0" -- '0' is not bad
+  end,
+  group = _ft,
+})

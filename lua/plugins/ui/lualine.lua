@@ -11,7 +11,7 @@ return {
   event = "VeryLazy",
   opts = function()
     local icons = require("lazyvim.config").icons
-    local Util = require("lazyvim.util")
+    local Util = require("lazyvim.util").ui
 
     local colors = {
       [""] = Util.fg("Special"),
@@ -159,7 +159,7 @@ return {
           },
         },
         lualine_y = {
-          { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
+          { "progress", separator = " ", padding = { left = 1, right = 0 } },
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {

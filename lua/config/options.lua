@@ -33,6 +33,7 @@ opt.splitkeep = "screen"
 opt.cursorline = true
 opt.splitright = true
 opt.splitbelow = true
+opt.conceallevel = 0
 o.showtabline = 0
 o.scrolloff = 10
 

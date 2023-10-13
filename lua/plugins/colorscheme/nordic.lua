@@ -1,6 +1,5 @@
 return {
   "AlexvZyl/nordic.nvim",
-  lazy = false,
   priority = 1000,
   opts = {
     -- Available themes: 'nordic', 'onedark'.
