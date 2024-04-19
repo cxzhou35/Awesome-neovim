@@ -1,8 +1,6 @@
 return {
   {
     "goolord/alpha-nvim",
-    lazy = true,
-    event = "VimEnter",
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
       local logo = [[
@@ -48,10 +46,10 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-        dashboard.button("g", "󰷾 " .. " Find text", ":Telescope live_grep <CR>"),
         dashboard.button("b", " " .. " File browser", ":Joshuto <CR>"),
         dashboard.button("r", "󰄉 " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+        dashboard.button("c", " " .. " Config", "<cmd> lua require('lazyvim.util').telescope.config_files()() <cr>"),
+        dashboard.button("x", " " .. " Lazy Extras", "<cmd> LazyExtras <cr>"),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
@@ -87,7 +85,7 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           local version = "  󰥱 v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
-          local plugins = "⚡Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+          local plugins = "⚡Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
           local footer = version .. "\t" .. plugins .. "\n"
           dashboard.section.footer.val = footer
           pcall(vim.cmd.AlphaRedraw)

@@ -1,22 +1,34 @@
 return {
-  {
-    -- TODO: add btop/ranger supports
-    "akinsho/toggleterm.nvim",
-    version = "v2.*",
-    config = true,
-    opts = {
-      open_mapping = [[<C-\>]],
-      shell = vim.o.shell,
-      hide_numbers = true,
-      direction = "horizontal",
-      size = 15,
-      float_opts = { border = "single", width = 110 },
-      winbar = {
-        enabled = true,
-        name_formatter = function(term) --  term: Terminal
-          return term.name
-        end,
-      },
+
+  "akinsho/toggleterm.nvim",
+  version = "*",
+  opts = {
+    highlights = {
+      Normal = { link = "Normal" },
+      NormalNC = { link = "NormalNC" },
+      NormalFloat = { link = "NormalFloat" },
+      FloatBorder = { link = "FloatBorder" },
+      StatusLine = { link = "StatusLine" },
+      StatusLineNC = { link = "StatusLineNC" },
+      WinBar = { link = "WinBar" },
+      WinBarNC = { link = "WinBarNC" },
+    },
+    open_mapping = [[<C-\>]],
+    size = 10,
+    shade_terminals = true,
+    shading_factor = 2,
+    start_in_insert = true,
+    on_create = function()
+      vim.opt.foldcolumn = "0"
+      vim.opt.signcolumn = "no"
+    end,
+    direction = "float",
+    float_opts = { border = "rounded" },
+    winbar = {
+      enabled = false,
+      name_formatter = function(term) --  term: Terminal
+        return term.name
+      end,
     },
   },
 }

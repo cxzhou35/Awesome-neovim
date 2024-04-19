@@ -1,7 +1,7 @@
 return {
   -- Themes nord
   "shaunsingh/nord.nvim",
-  priority = 1000,
+  lazy = true,
   config = function()
     vim.g.nord_contrast = true
     vim.g.nord_borders = true

@@ -1,17 +1,7 @@
 return {
-  -- {
-  --   "rafamadriz/friendly-snippets",
-  --   enabled = false,
-  -- },
-  { "nvimtools/none-ls.nvim", enabled = false },
-  { "nvimdev/guard.nvim", enabled = false },
-  { "nvimdev/guard-collection", enabled = false },
-
+  -- add the plugin name here to disable it
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
-  {
-    "nvim-pack/nvim-spectre",
-    enabled = false,
-  },
-  { "hrsh7th/cmp-nvim-lsp-signature-help", enabled = false },
-  { "abecodes/tabout.nvim", enabled = false },
+  { "hrsh7th/cmp-cmdline", enabled = false }, -- startup time: 19.79ms
+  { "gbprod/yanky.nvim", enabled = false },
+  { "mawkler/modicator.nvim", enabled = true },
 }

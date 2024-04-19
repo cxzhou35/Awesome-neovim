@@ -5,7 +5,6 @@ local opt = vim.opt
 local api = vim.api
 local g = vim.g
 local o = vim.o
-local utils = require("utils")
 
 g.mapleader = " "
 g.maplocalleader = " "
@@ -23,11 +22,11 @@ opt.backspace = { "start", "eol", "indent" }
 opt.title = true
 opt.completeopt = "menu,menuone,noselect"
 opt.backup = false
-opt.ignorecase = true
 opt.undofile = true
 opt.wildmenu = true
 opt.wildmode = "longest:list,full"
 opt.cmdheight = 0
+opt.showcmd = false
 opt.laststatus = 3
 opt.splitkeep = "screen"
 opt.cursorline = true
@@ -39,6 +38,10 @@ o.scrolloff = 10
 
 -- Clipboard
 opt.clipboard = { "unnamed", "unnamedplus" }
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
 
 -- Chars
 opt.list = true
@@ -59,8 +62,9 @@ opt.fillchars = {
 }
 
 -- Spell
-opt.spell = true
-opt.spelllang = { "en_us" }
+-- Loading slowly
+-- opt.spell = true
+-- opt.spelllang = { "en_us" }
 
 -- Tab & Indent
 opt.autoindent = true
@@ -73,19 +77,6 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.signcolumn = "yes"
 
-utils.set_indent_sizes({
-  go = 4,
-  python = 4,
-  rust = 4,
-  cpp = 4,
-  markdown = 4,
-  c = 4,
-  make = 4,
-  lua = 2,
-  yaml = 2,
-  json = 2,
-})
-
 -- Encoding
 vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
@@ -95,6 +86,7 @@ opt.termencoding = "utf-8"
 -- Color
 o.pumblend = 0
 o.winblend = 0
+o.cursorlineopt = "number"
 opt.termguicolors = true
 
 -- Turn off paste mode when leaving insert

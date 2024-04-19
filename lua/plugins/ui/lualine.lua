@@ -67,12 +67,6 @@ return {
     end
 
     return {
-      options = {
-        theme = "auto",
-        icons_enabled = true,
-        globalstatus = true,
-        disabled_filetypes = { statusline = { "dashboard", "alpha" } },
-      },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },

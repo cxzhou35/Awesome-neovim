@@ -8,9 +8,7 @@ return {
     },
     opts = {
       ui = {
-        -- Currently, only the round theme exists
         theme = "round",
-        -- This option only works in Neovim 0.9
         title = true,
         -- Border type can be single, double, rounded, solid, shadow.
         border = "rounded",
@@ -24,7 +22,6 @@ return {
         outgoing = "󰏻 ",
         hover = " ",
         colors = require("catppuccin.groups.integrations.lsp_saga").custom_colors(),
-        -- kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
       },
       -- winbar config
       symbol_in_winbar = {

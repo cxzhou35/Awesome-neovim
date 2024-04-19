@@ -1,25 +1,26 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
+
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  -- bootstrap lazy.nvim
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = {} },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- better ui edge
-    { import = "lazyvim.plugins.extras.ui.edgy" },
-    { import = "lazyvim.plugins.extras.ui.alpha" },
-    { import = "lazyvim.plugins.extras.util.dot" },
+    -- import any extras modules use :LazyVim Extras
 
     -- import/override with your plugins
-    { import = "plugins.ui" },
-    { import = "plugins.code" },
-    { import = "plugins.utils" },
-    { import = "plugins.editor" },
     { import = "plugins.colorscheme" },
+    { import = "plugins.code" },
+    { import = "plugins.ui" },
+    { import = "plugins.editor" },
+    { import = "plugins.lang" },
+    { import = "plugins.utils" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -30,7 +31,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { missing = true, colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "catppucin", "habamax" } },
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
   change_detection = {
     enabled = true,
@@ -47,8 +48,8 @@ require("lazy").setup({
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        "matchit",
-        "matchparen",
+        -- "matchit",
+        -- "matchparen",
         "netrwPlugin",
         "rplugin",
         "tarPlugin",
@@ -58,4 +59,5 @@ require("lazy").setup({
       },
     },
   },
+  debug = false,
 })

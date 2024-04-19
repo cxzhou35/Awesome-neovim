@@ -1,12 +1,33 @@
 return {
   "nvim-telescope/telescope.nvim",
+  keys = {
+    { ";b", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+    { ";c", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" },
+    { ";h", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+    { ";k", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+    { ";f", LazyVim.telescope("files"), desc = "Find Files (Root Dir)" },
+    { ";F", LazyVim.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+    { ";o", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { ";O", LazyVim.telescope("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+    { ";r", LazyVim.telescope("live_grep"), desc = "Grep (Root Dir)" },
+    { ";R", LazyVim.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+    { ";e", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+    -- extensions
+    { ";u", "<cmd>Telescope undo<cr>", desc = "Undo History" },
+    { ";a", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", desc = "Grep With Args" },
+    -- { ";y", "<cmd>Telescope yank_history<cr>", desc = "Yank History" },
+  },
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "debugloop/telescope-undo.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
+    { "debugloop/telescope-undo.nvim" },
+    { "nvim-telescope/telescope-file-browser.nvim" },
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      -- This will not install any breaking changes.
+      -- For major updates, this must be adjusted manually.
+      version = "^1.0.0",
+    },
     {
       "gbprod/yanky.nvim",
-      enabled = true,
       event = { "VeryLazy" },
       opts = {
         ring = {
@@ -100,6 +121,7 @@ return {
     })
     require("telescope").load_extension("undo")
     require("telescope").load_extension("file_browser")
-    require("telescope").load_extension("yank_history")
+    require("telescope").load_extension("live_grep_args")
+    -- require("telescope").load_extension("yank_history")
   end,
 }

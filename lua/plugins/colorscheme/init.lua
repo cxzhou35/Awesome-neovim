@@ -2,10 +2,8 @@ return {
   -- Configure LazyVim to load theme
   "LazyVim/LazyVim",
   opts = {
-    -- colorscheme = "everforest",
-    -- colorscheme = "nord",
-    -- colorscheme = "nordic",
+    -- set colorscheme
+    -- ["everforest", "nord", "catppuccin", "tokyonight", "kanagawa"]
     colorscheme = "catppuccin",
-    -- colorscheme = "tokyonight",
   },
 }

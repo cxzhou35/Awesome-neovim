@@ -1,21 +1,16 @@
 return {
   "folke/todo-comments.nvim",
-  cmd = { "TodoTrouble", "TodoTelescope" },
-  event = { "BufReadPost", "BufNewFile" },
-  config = true,
-  -- stylua: ignore
-  keys = {
-    { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-    { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-    { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-    { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-    { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-    { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
-  },
   opts = {
+    -- TODO:
+    -- BUG:
+    -- PERF:
+    -- FIX:
+    -- WARN:
+    -- HACK:
+    -- NOTE:
+    -- TEST:
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
-    -- keywords recognized as todo comments
     keywords = {
       Fix = {
         icon = " ", -- icon used for the sign, and in search results
@@ -43,10 +38,6 @@ return {
       bg = "BOLD", -- The gui style to use for the bg highlight group.
     },
     merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-    -- highlighting of the line containing the todo comment
-    -- * before: highlights before the keyword (typically comment characters)
-    -- * keyword: highlights of the keyword
-    -- * after: highlights after the keyword (todo text)
     highlight = {
       multiline = true, -- enable multine todo comments
       multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
@@ -59,8 +50,6 @@ return {
       max_line_len = 400, -- ignore lines longer than this
       exclude = {}, -- list of file types to exclude highlighting
     },
-    -- list of named colors where we try to extract the guifg from the
-    -- list of highlight groups or use the hex color if hl not found as a fallback
     colors = {
       error = { "DiagnosticError", "ErrorMsg", "#9d2933" },
       warning = { "DiagnosticWarn", "WarningMsg", "#f0c239" },
@@ -78,10 +67,7 @@ return {
         "--line-number",
         "--column",
       },
-      -- regex that will be used to match keywords.
-      -- don't replace the (KEYWORDS) placeholder
       pattern = [[\b(KEYWORDS):]], -- ripgrep regex
-      -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
     },
   },
 }

@@ -1,21 +1,16 @@
 return {
   "catppuccin/nvim",
-  lazy = false,
+  lazy = true,
   name = "catppuccin",
   priority = 1000,
   build = ":CatppuccinCompile",
   opts = {
     flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
     background = { light = "latte", dark = "mocha" },
-    dim_inactive = {
-      enabled = false,
-      shade = "dark",
-      percentage = 0.15,
-    },
     transparent_background = true,
     show_end_of_buffer = false,
     term_colors = true,
-    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
+    -- compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     styles = {
       comments = { "italic" },
       functions = { "bold" },
@@ -60,9 +55,9 @@ return {
       markdown = true,
       mason = true,
       mini = false,
-      neogit = false,
+      neogit = true,
       neotree = { enabled = true, show_root = true, transparent_panel = true },
-      noice = false,
+      noice = true,
       notify = true,
       telescope = true,
       treesitter_context = false,
