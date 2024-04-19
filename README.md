@@ -5,15 +5,18 @@ Here is my Neovim configuration based on [LazyVim](https://github.com/LazyVim/La
 [![Stars](https://img.shields.io/github/stars/cxzhou35/Awesome-neovim.svg?label=Stars&style=social)](https://github.com/cxzhou35/Awesome-neovim)
 
 ## Table of contents
+
 <!--toc:start-->
-1. [🏞️ Screenshots](#🏞️-screenshots)
-2. [📂 File Structure](#📂-file-structure)
-3. [⚡️ Requirements](#⚡️-requirements)
-    1. [Optional Tools](#optional-tools)
-4. [🛠️ Installation](#🛠️-installation)
-5. [✨ Features](#✨-features)
-6. [⌨️  Keymaps](#⌨️-keymaps)
-7. [📖 Wiki](#📖-wiki)
+- [Awesome-neovim](#awesome-neovim)
+  - [Table of contents](#table-of-contents)
+  - [🏞️ Screenshots](#🏞️-screenshots)
+  - [📂 File Structure](#📂-file-structure)
+  - [⚡️ Requirements](#️-requirements)
+    - [Optional Tools](#optional-tools)
+  - [🛠️ Installation](#🛠️-installation)
+  - [✨ Features](#features)
+  - [⌨️  Keymaps](#️-keymaps)
+  - [📖 Wiki](#📖-wiki)
 <!--toc:end-->
 
 ## 🏞️ Screenshots
@@ -154,4 +157,4 @@ The files under config will be **automatically loaded at the appropriate time**,
 
 Suggestions are always welcome! If you encounter any issues, please contact [Zicx](https://github.com/cxzhou35) or raise an [issue](https://github.com/cxzhou35/Awesome-neovim/issues).
 
-Neovim is worth a try! 😺
+Neovim is worth to try! 😺
