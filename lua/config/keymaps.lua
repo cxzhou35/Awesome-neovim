@@ -4,6 +4,7 @@ discipline.cowboy()
 
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
+local unmap = vim.keymap.del
 local opts = { silent = true, noremap = true }
 
 -- Paste over currently selected text without yanking it
@@ -107,7 +108,8 @@ map("n", "yw", "yaw")
 
 -- Lazy
 -- BUG: Lazy keymap delete not work now
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
+unmap("n", "<leader>l", { desc = "Lazy" })
+map("n", "<leader>la", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
 
 map("n", "<leader>L", function()
   Util.news.changelog()

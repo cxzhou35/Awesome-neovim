@@ -1,19 +1,31 @@
 {
   "metadata": {
-    "prefix": "meta",
+    "prefix": "mkmeta",
     "body": ["---", "comments: false", "statistics: false", "---"],
     "description": "Add metadata for mkdocs post"
   },
   "callout-show": {
-    "prefix": "cos",
+    "prefix": "mkcos",
     "body": ["!!! ${1} \"${2}\"", "    ${3}", "${0}"]
   },
   "callout-option": {
-    "prefix": "coo",
+    "prefix": "mkcoo",
     "body": ["???+ ${1} \"${2}\"", "    ${3}", "${0}"]
   },
   "callout-hidden": {
-    "prefix": "coh",
+    "prefix": "mkcoh",
     "body": ["??? ${1} \"${2}\"", "    ${3}", "${0}"]
+  },
+  "quote-template": {
+    "prefix": "mkqt",
+    "body": [
+      "???+ quote \"${1}\"",
+      "    :material-calendar: ${2} &nbsp;",
+      "    :fontawesome-solid-user-pen: ${3} &nbsp;",
+      "    :octicons-link-16: [${4}](${5}) &nbsp;",
+      "    :octicons-tag-16: #${6} &nbsp;\n",
+      "    > ${7}",
+      "${0}"
+    ]
   }
 }
