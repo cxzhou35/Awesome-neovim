@@ -160,7 +160,13 @@
           "markdown",
           "rmd"
         ],
-        "path": "./user/markdown.json"
+        "path": "./user/markdown/markdown.json"
+      },
+      {
+        "language": [
+          "markdown"
+        ],
+        "path": "./user/markdown/mkdocs.json"
       },
       {
         "language": [

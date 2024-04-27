@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "prefix": "meta",
+    "body": ["---", "comments: false", "statistics: false", "---"],
+    "description": "Add metadata for mkdocs post"
+  },
+  "callout-show": {
+    "prefix": "cos",
+    "body": ["!!! ${1} \"${2}\"", "    ${3}", "${0}"]
+  },
+  "callout-option": {
+    "prefix": "coo",
+    "body": ["???+ ${1} \"${2}\"", "    ${3}", "${0}"]
+  },
+  "callout-hidden": {
+    "prefix": "coh",
+    "body": ["??? ${1} \"${2}\"", "    ${3}", "${0}"]
+  }
+}
