@@ -10,6 +10,7 @@ return {
       ui = {
         theme = "round",
         title = true,
+        kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
         -- Border type can be single, double, rounded, solid, shadow.
         border = "rounded",
         winblend = 0,

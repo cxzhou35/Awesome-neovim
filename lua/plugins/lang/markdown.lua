@@ -18,7 +18,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        marksman = {},
+        marksman = { settings = { markdown = {} } },
       },
     },
   },
@@ -45,7 +45,11 @@ return {
       vim.cmd([[do FileType]])
     end,
   },
-
+  {
+    "junegunn/vim-easy-align",
+    ft = { "markdown", "tex" },
+    cmd = { "EasyAlign" },
+  },
   {
     "lukas-reineke/headlines.nvim",
     ft = { "markdown" },

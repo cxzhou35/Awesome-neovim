@@ -28,7 +28,7 @@ return {
       left_trunc_marker = "",
       right_trunc_marker = "",
 
-      show_close_icon = true,
+      show_close_icon = false,
       close_icon = "",
 
       show_buffer_close_icons = false,
@@ -53,7 +53,6 @@ return {
     },
   },
   config = function(_, opts)
-    highlights = require("catppuccin.groups.integrations.bufferline").get()
     require("bufferline").setup(opts)
     -- Fix bufferline when restoring a session
     vim.api.nvim_create_autocmd("BufAdd", {

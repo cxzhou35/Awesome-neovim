@@ -4,6 +4,14 @@ return {
     event = { "UIEnter" },
     config = function()
       require("hlchunk").setup({
+        -- experimental
+        context = {
+          enable = false,
+          use_treesitter = false,
+          chars = {
+            "┃", -- Box Drawings Heavy Vertical
+          },
+        },
         chunk = {
           enable = true,
           notify = false,
@@ -15,10 +23,6 @@ return {
             left_bottom = "╰",
             right_arrow = ">",
           },
-          style = {
-            { fg = "#9079ad" },
-            { fg = "#c21f30" }, -- 这个高亮是用来标志错误的代码块
-          },
           textobject = "",
           max_file_size = 1024 * 1024,
           error_sign = true,
@@ -29,22 +33,17 @@ return {
           chars = {
             "│",
           },
-          style = {
-            { fg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") },
-          },
         },
         line_num = {
           enable = false,
           use_treesitter = false,
-          style = "#698aab",
+          style = "#806d9c",
         },
         blank = {
           enable = false,
+          use_treesitter = true,
           chars = {
             "․",
-          },
-          style = {
-            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
           },
         },
       })

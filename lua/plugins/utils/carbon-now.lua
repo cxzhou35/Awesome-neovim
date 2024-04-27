@@ -1,6 +1,7 @@
 return {
   "ellisonleao/carbon-now.nvim",
   event = "BufRead",
+  keys = { { "<leader>cn", "<cmd>CarbonNow<CR>", mode = { "v", "n" }, desc = "Carbon Now" } },
   opts = {
     base_url = "https://carbon.now.sh/",
     open_cmd = "open -a 'Google Chrome'",

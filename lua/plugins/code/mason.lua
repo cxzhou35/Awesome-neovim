@@ -3,6 +3,7 @@ return {
   keys = { { "<leader>m", "<cmd>Mason<cr>", desc = "Mason" } },
   opts = {
     ensure_installed = {
+      "lua-language-server",
       "stylua",
       "luacheck",
 
@@ -10,6 +11,8 @@ return {
       "shfmt",
 
       "black",
+
+      "yaml-language-server",
     },
   },
 }

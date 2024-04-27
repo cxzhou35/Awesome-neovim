@@ -48,13 +48,15 @@ return {
             show_path = "relative", -- "none", "relative", "absolute"
           },
         },
+        ["s"] = "noop",
         ["d"] = "delete",
         ["r"] = "rename",
         ["h"] = "toggle_hidden",
         ["<C-l>"] = "clear_filter",
         ["/"] = "fuzzy_finder",
         ["?"] = "show_help",
-        ["A"] = "add_directory",
+        ["o"] = "open_vsplit",
+        ["n"] = "add_directory",
         ["Y"] = {
           function(state)
             local node = state.tree:get_node()

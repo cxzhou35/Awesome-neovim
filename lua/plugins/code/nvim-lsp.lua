@@ -27,8 +27,8 @@ return {
     servers = {
       lua_ls = {
         -- mason = false, -- set to false if you don't want this server to be installed with mason
-        ---@type LazyKeysSpec[]
         -- keys = {},
+        single_file_support = true,
         settings = {
           Lua = {
             workspace = {
@@ -36,38 +36,38 @@ return {
               library = {
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
               },
-              codeLens = {
-                enable = true,
+            },
+            codeLens = {
+              enable = true,
+            },
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = { "vim" },
+              disable = { "incomplete-signature-doc", "trailing-space" },
+              groupSeverity = {
+                strong = "Warning",
+                strict = "Warning",
               },
-              diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-                disable = { "incomplete-signature-doc", "trailing-space" },
-                groupSeverity = {
-                  strong = "Warning",
-                  strict = "Warning",
-                },
-                unusedLocalExclude = { "_*" },
-                -- library = vim.api.nvim_get_runtime_file("", true),
-              },
-              completion = {
-                workspaceWord = true,
-                callSnippet = "Replace",
-              },
-              hint = {
-                enable = true,
-                setType = false,
-                paramType = true,
-                paramName = "Disable",
-                semicolon = "Disable",
-                arrayIndex = "Disable",
-              },
-              doc = {
-                privateName = { "^_" },
-              },
-              type = {
-                castNumberToInteger = true,
-              },
+              unusedLocalExclude = { "_*" },
+              -- library = vim.api.nvim_get_runtime_file("", true),
+            },
+            completion = {
+              workspaceWord = true,
+              callSnippet = "Replace",
+            },
+            hint = {
+              enable = true,
+              setType = false,
+              paramType = true,
+              paramName = "Disable",
+              semicolon = "Disable",
+              arrayIndex = "Disable",
+            },
+            doc = {
+              privateName = { "^_" },
+            },
+            type = {
+              castNumberToInteger = true,
             },
           },
         },

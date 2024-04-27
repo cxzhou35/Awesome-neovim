@@ -14,13 +14,20 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- Disable autoformat for lua files
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   pattern = { "lua" },
---   callback = function()
---     vim.b.autoformat = false
---   end,
--- })
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "set nopaste",
+})
+
+-- Disable the concealing in some file formats
+-- The default conceallevel is 3 in LazyVim
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc", "markdown" },
+  callback = function()
+    vim.opt.conceallevel = 0
+  end,
+})
 
 -- Show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
@@ -56,7 +63,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
   pattern = { "gitcommit", "markdown" },
   callback = function()
-    vim.opt_local.wrap = true
+    vim.opt_local.wrap = false
     vim.opt_local.spell = false
   end,
 })
@@ -90,10 +97,4 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.foldcolumn = "0" -- '0' is not bad
   end,
   group = _ft,
-})
-
--- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  command = "set nopaste",
 })

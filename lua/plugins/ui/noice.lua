@@ -1,21 +1,33 @@
 return {
   "folke/noice.nvim",
   keys = { { "<c-f>", false }, { "<c-b>", false } },
-  opts = {
-    routes = {
-      {
-        filter = {
-          event = "msg_show",
-          any = {
-            { find = "%d+L, %d+B" },
-            { find = "; after #%d+" },
-            { find = "; before #%d+" },
-          },
-        },
-        view = "mini",
+  opts = function(_, opts)
+    table.insert(opts.routes, {
+      filter = {
+        event = "notify",
+        find = "No information available",
       },
-    },
-    cmdline = {
+      opts = { skip = true },
+    })
+    table.insert(opts.routes, {
+      filter = {
+        event = "notify",
+        find = "Toggling hidden files",
+      },
+      opts = { skip = true },
+    })
+    opts.commands = {
+      all = {
+        -- options for the message history that you get with `:Noice`
+        view = "split",
+        opts = { enter = true, format = "details" },
+        filter = {},
+      },
+    }
+
+    opts.presets.lsp_doc_border = true
+    opts.routes.view = "mini"
+    opts.cmdline = {
       format = {
         cmdline = { pattern = "^:", icon = "", lang = "vim" },
         search_down = {
@@ -35,6 +47,6 @@ return {
         help = { pattern = "^:%s*he?l?p?%s+", icon = "󰋖" },
         input = {}, -- Used by input()
       },
-    },
-  },
+    }
+  end,
 }
