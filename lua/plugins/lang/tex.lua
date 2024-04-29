@@ -27,13 +27,14 @@ return {
   {
     "lervag/vimtex",
     lazy = false, -- lazy-loading will disable inverse search
+    ft = { "tex" },
     config = function()
       vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
       vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
     end,
   },
 
-  { "let-def/texpresso.vim" },
+  { "let-def/texpresso.vim", ft = { "tex" } },
 
   -- Correctly setup lspconfig for LaTeX 🚀
   {

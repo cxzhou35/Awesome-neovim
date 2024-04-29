@@ -15,7 +15,7 @@ return {
         chunk = {
           enable = true,
           notify = false,
-          use_treesitter = true,
+          use_treesitter = false,
           chars = {
             horizontal_line = "─",
             vertical_line = "│",
@@ -31,8 +31,14 @@ return {
           enable = true,
           use_treesitter = true,
           chars = {
-            "│",
+            -- "│",
+            "¦",
+            -- "┆",
+            -- "┊",
           },
+          -- style = {
+          -- "#8B81C3",
+          -- },
         },
         line_num = {
           enable = false,
