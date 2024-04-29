@@ -1,8 +1,5 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
 local opt = vim.opt
-local api = vim.api
+local wo = vim.wo
 local g = vim.g
 local o = vim.o
 
@@ -10,9 +7,9 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- General
+opt.confirm = true
 opt.relativenumber = false
 opt.number = true
-opt.ruler = false
 opt.autowrite = true
 opt.cul = true
 opt.iskeyword:append("-")
@@ -21,20 +18,30 @@ opt.showmode = false
 opt.backspace = { "start", "eol", "indent" }
 opt.title = true
 opt.completeopt = "menu,menuone,noselect"
-opt.backup = false
 opt.undofile = true
 opt.wildmenu = true
 opt.wildmode = "longest:list,full"
 opt.cmdheight = 0
 opt.showcmd = false
 opt.laststatus = 3
-opt.splitkeep = "screen"
 opt.cursorline = true
+opt.conceallevel = 0
+o.scrolloff = 10
+
+-- Window
+opt.splitkeep = "screen"
 opt.splitright = true
 opt.splitbelow = true
-opt.conceallevel = 0
+
+-- Backup
+o.backup = false
+o.writebackup = false
+o.swapfile = false
+
+-- UI
 o.showtabline = 0
-o.scrolloff = 10
+wo.colorcolumn = "100"
+opt.ruler = true
 
 -- Clipboard
 opt.clipboard = { "unnamed", "unnamedplus" }
@@ -51,6 +58,7 @@ opt.listchars = {
   trail = "·",
   tab = "»·",
   nbsp = "+",
+  -- space = "·",
   -- eol = "↴",
 }
 opt.fillchars = {
@@ -71,11 +79,12 @@ opt.fillchars = {
 opt.autoindent = true
 opt.smartindent = true
 opt.breakindent = true
-opt.softtabstop = 0
 opt.expandtab = true
 opt.smarttab = true
+opt.shiftround = true
 opt.tabstop = 2
 opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.signcolumn = "yes"
 
 -- Encoding

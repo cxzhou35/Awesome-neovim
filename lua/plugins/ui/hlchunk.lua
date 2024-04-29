@@ -29,7 +29,7 @@ return {
         },
         indent = {
           enable = true,
-          use_treesitter = false,
+          use_treesitter = true,
           chars = {
             "│",
           },

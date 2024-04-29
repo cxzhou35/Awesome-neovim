@@ -39,6 +39,11 @@
     "body": ["<${1}> ${0}"],
     "description": "Add urls"
   },
+  "Spaces": {
+    "prefix": "nbsp",
+    "body": ["&nbsp;"],
+    "description": "Add blanks"
+  },
   "Images": {
     "prefix": "img",
     "body": ["![${1}](${2}) ${0}"],

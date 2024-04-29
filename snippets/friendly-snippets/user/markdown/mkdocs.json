@@ -1,22 +1,41 @@
 {
-  "metadata": {
-    "prefix": "mkmeta",
+  "mkdocs metadata index page": {
+    "prefix": "mkmip",
     "body": ["---", "comments: false", "statistics: false", "---"],
-    "description": "Add metadata for mkdocs post"
+    "description": "Add metadata for mkdocs index page"
   },
-  "callout-show": {
+  "mkdocs metadata post page": {
+    "prefix": "mkmpp",
+    "body": ["---", "comments: true", "---"],
+    "description": "Add metadata for mkdocs post page"
+  },
+  "mkdocs image": {
+    "prefix": "mkimg",
+    "body": [
+      "<figure markdown>",
+      "  ![](${1}){width = ${2}}",
+      "  <figcaption>${3}</figcaption>",
+      "</figure>"
+    ],
+    "description": "Add image"
+  },
+
+  "mkdocs callout-show": {
     "prefix": "mkcos",
-    "body": ["!!! ${1} \"${2}\"", "    ${3}", "${0}"]
+    "body": ["!!! ${1} \"${2}\"", "    ${3}", "${0}"],
+    "description": "Add mkdocs expanded admonitions"
   },
-  "callout-option": {
+  "mkdocs callout-option": {
     "prefix": "mkcoo",
-    "body": ["???+ ${1} \"${2}\"", "    ${3}", "${0}"]
+    "body": ["???+ ${1} \"${2}\"", "    ${3}", "${0}"],
+    "description": "Add mkdocs optional admonitions"
   },
-  "callout-hidden": {
+  "mkdocs callout-hidden": {
     "prefix": "mkcoh",
-    "body": ["??? ${1} \"${2}\"", "    ${3}", "${0}"]
+    "body": ["??? ${1} \"${2}\"", "    ${3}", "${0}"],
+    "description": "Add mkdocs unexpanded admonitions"
   },
-  "quote-template": {
+  "mkdocs quote-template": {
     "prefix": "mkqt",
     "body": [
       "???+ quote \"${1}\"",
@@ -26,6 +45,7 @@
       "    :octicons-tag-16: #${6} &nbsp;\n",
       "    > ${7}",
       "${0}"
-    ]
+    ],
+    "description": "Add mkdocs templates for quotes"
   }
 }

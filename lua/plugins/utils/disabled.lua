@@ -1,7 +1,9 @@
 return {
-  -- add the plugin name here to disable it
-  { "lukas-reineke/indent-blankline.nvim", enabled = false },
-  { "hrsh7th/cmp-cmdline", enabled = false }, -- startup time: 19.79ms
-  { "mawkler/modicator.nvim", enabled = true },
+  -- utils
+  { "hrsh7th/cmp-cmdline", enabled = false },
   { "rmagatti/auto-session", enabled = false },
+  -- ui
+  { "mawkler/modicator.nvim", enabled = true },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
+  { "echasnovski/mini.indentscope", enabled = false },
 }

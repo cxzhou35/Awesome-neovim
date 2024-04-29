@@ -22,6 +22,7 @@ return {
 
     return {
       auto_brackets = {}, -- configure any filetype to auto add brackets
+      preselect = cmp.PreselectMode.None,
       completion = {
         completeopt = "menu,menuone,noinsert,preview",
       },
@@ -31,14 +32,8 @@ return {
         end,
       },
       window = {
-        completion = {
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-          winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:CmpSearch",
-        },
-        documentation = {
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-          winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:CmpSearch",
-        },
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.scroll_docs(-4),
