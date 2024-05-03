@@ -1,5 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
+  init = function()
+    local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    -- disable keymaps for LSP
+    keys[#keys + 1] = { "K", false }
+  end,
   opts = {
     diagnostics = {
       underline = true,
@@ -35,7 +40,7 @@ return {
             workspace = {
               checkThirdParty = false,
               library = {
-                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                 unpack(vim.api.nvim_get_runtime_file("", true)),
               },
             },

@@ -66,7 +66,9 @@ return {
       function()
         local telescope = require("telescope")
 
-        local function telescope_buffer_dir() return vim.fn.expand("%:p:h") end
+        local function telescope_buffer_dir()
+          return vim.fn.expand("%:p:h")
+        end
 
         telescope.extensions.file_browser.file_browser({
           path = "%:p:h",
@@ -167,7 +169,9 @@ return {
           mappings = {
             -- your custom insert mode mappings
             ["i"] = {
-              ["<C-w>"] = function() vim.cmd("normal vbd") end,
+              ["<C-w>"] = function()
+                vim.cmd("normal vbd")
+              end,
             },
             ["n"] = {
               -- your custom normal mode mappings
@@ -179,7 +183,9 @@ return {
               ["m"] = require("telescope").extensions.file_browser.actions.move,
               ["<PageUp>"] = require("telescope.actions").preview_scrolling_up,
               ["<PageDown>"] = require("telescope.actions").preview_scrolling_down,
-              ["/"] = function() vim.cmd("startinsert") end,
+              ["/"] = function()
+                vim.cmd("startinsert")
+              end,
             },
           },
         },

@@ -21,10 +21,9 @@ map("n", "<C-m>", "<C-i>", opts)
 map("n", "<C-a>", "gg<S-v>G", { desc = "use 'C-a' to select all" })
 
 -- Move cursor
-map({ "n", "v", "o" }, "H", "^", { desc = "Use 'H' as '^'" })
-map({ "n", "v", "o" }, "L", "g_", { desc = "Use 'L' as 'g_'" })
+map({ "n", "v", "o" }, "H", "^", { desc = "Jump to the start of line" })
+map({ "n", "v", "o" }, "L", "g_", { desc = "Jump to the end of line" })
 map({ "n", "v", "o" }, "J", "7j", { desc = "Quick forward" })
-map({ "n", "v", "o" }, "K", "<nop>")
 map({ "n", "v", "o" }, "K", "7k", { desc = "Quick backward" })
 
 -- Disable continuations
@@ -89,7 +88,9 @@ map("n", "<leader>-", "<C-x>")
 
 -- File
 map("n", "<C-n>", "<cmd>enew<cr>", { desc = "New File" })
-map("n", "<C-q>", function() require("mini.bufremove").delete(0, false) end, { desc = "Delete Buffer" })
+map("n", "<C-q>", function()
+  require("mini.bufremove").delete(0, false)
+end, { desc = "Delete Buffer" })
 map("n", "<leader>fq", "<cmd>q!<CR>")
 map("n", "<leader>fw", "<cmd>wa<CR>")
 map("n", "<leader>fa", "<cmd>wqa<CR>")
@@ -107,10 +108,11 @@ map("n", "yw", "yaw")
 
 -- Lazy
 -- BUG: Lazy keymap delete not work now
-unmap("n", "<leader>l", { desc = "Lazy" })
 map("n", "<leader>la", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
 
-map("n", "<leader>L", function() Util.news.changelog() end, { desc = "LazyVim Changelog" })
+map("n", "<leader>L", function()
+  Util.news.changelog()
+end, { desc = "LazyVim Changelog" })
 
 -- Joshuto
 map("n", "<leader>ra", "<cmd>Joshuto<cr>", { desc = "Open joshuto in neovim" })
