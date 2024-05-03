@@ -8,7 +8,7 @@ g.maplocalleader = " "
 
 -- General
 opt.confirm = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.number = true
 opt.autowrite = true
 opt.cul = true
@@ -91,7 +91,7 @@ opt.signcolumn = "yes"
 vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
 opt.fileencodings = { "utf-8", "gbk", "gb2312" }
-opt.termencoding = "utf-8"
+-- opt.termencoding = "utf-8"
 
 -- Color
 o.pumblend = 0

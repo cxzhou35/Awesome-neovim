@@ -20,6 +20,16 @@ return {
       end,
       desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
     },
+    {
+      ";n",
+      function()
+        local builtin = require("telescope.builtin")
+        builtin.find_files({
+          cwd = vim.fn.stdpath("config"),
+        })
+      end,
+      desc = "Search for Neovim config files",
+    },
     { ";R", LazyVim.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
     {
       ";t",
@@ -56,9 +66,7 @@ return {
       function()
         local telescope = require("telescope")
 
-        local function telescope_buffer_dir()
-          return vim.fn.expand("%:p:h")
-        end
+        local function telescope_buffer_dir() return vim.fn.expand("%:p:h") end
 
         telescope.extensions.file_browser.file_browser({
           path = "%:p:h",
@@ -159,9 +167,7 @@ return {
           mappings = {
             -- your custom insert mode mappings
             ["i"] = {
-              ["<C-w>"] = function()
-                vim.cmd("normal vbd")
-              end,
+              ["<C-w>"] = function() vim.cmd("normal vbd") end,
             },
             ["n"] = {
               -- your custom normal mode mappings
@@ -173,9 +179,7 @@ return {
               ["m"] = require("telescope").extensions.file_browser.actions.move,
               ["<PageUp>"] = require("telescope.actions").preview_scrolling_up,
               ["<PageDown>"] = require("telescope.actions").preview_scrolling_down,
-              ["/"] = function()
-                vim.cmd("startinsert")
-              end,
+              ["/"] = function() vim.cmd("startinsert") end,
             },
           },
         },

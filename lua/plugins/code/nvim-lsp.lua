@@ -31,14 +31,13 @@ return {
         single_file_support = true,
         settings = {
           Lua = {
+            runtime = { version = "LuaJIT" },
             workspace = {
               checkThirdParty = false,
               library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                unpack(vim.api.nvim_get_runtime_file("", true)),
               },
-            },
-            codeLens = {
-              enable = true,
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
@@ -55,12 +54,13 @@ return {
               workspaceWord = true,
               callSnippet = "Replace",
             },
+            codeLens = {
+              enable = false,
+            },
             hint = {
-              enable = true,
+              enable = false,
               setType = false,
               paramType = true,
-              paramName = "Disable",
-              semicolon = "Disable",
               arrayIndex = "Disable",
             },
             doc = {
@@ -76,6 +76,7 @@ return {
         settings = {
           python = {
             analysis = {
+              logLevel = "Warning",
               typeCheckingMode = "basic", -- off, basic, strict
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
@@ -99,6 +100,15 @@ return {
                 reportUndefinedVariable = "error",
                 reportAssertAlwaysTrue = "error",
               },
+            },
+          },
+        },
+      },
+      jsonls = {
+        settings = {
+          json = {
+            format = {
+              enable = true,
             },
           },
         },

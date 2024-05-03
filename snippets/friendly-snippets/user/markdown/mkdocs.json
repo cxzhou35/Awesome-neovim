@@ -17,7 +17,7 @@
       "  <figcaption>${3}</figcaption>",
       "</figure>"
     ],
-    "description": "Add image"
+    "description": "Add mkdocs markdown image"
   },
 
   "mkdocs callout-show": {

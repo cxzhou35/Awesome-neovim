@@ -21,10 +21,11 @@ map("n", "<C-m>", "<C-i>", opts)
 map("n", "<C-a>", "gg<S-v>G", { desc = "use 'C-a' to select all" })
 
 -- Move cursor
-map({ "n", "v", "o" }, "<S-h>", "^", { desc = "Use 'H' as '^'" })
-map({ "n", "v", "o" }, "<S-l>", "g_", { desc = "Use 'L' as 'g_'" })
-map({ "n", "v", "o" }, "<S-j>", "7j", { desc = "Quick forward" })
-map({ "n", "v", "o" }, "<S-k>", "7k", { desc = "Quick backward" })
+map({ "n", "v", "o" }, "H", "^", { desc = "Use 'H' as '^'" })
+map({ "n", "v", "o" }, "L", "g_", { desc = "Use 'L' as 'g_'" })
+map({ "n", "v", "o" }, "J", "7j", { desc = "Quick forward" })
+map({ "n", "v", "o" }, "K", "<nop>")
+map({ "n", "v", "o" }, "K", "7k", { desc = "Quick backward" })
 
 -- Disable continuations
 map("n", "<Leader>o", "o<Esc>^Da", opts)
@@ -88,12 +89,10 @@ map("n", "<leader>-", "<C-x>")
 
 -- File
 map("n", "<C-n>", "<cmd>enew<cr>", { desc = "New File" })
-map("n", "<C-q>", function()
-  require("mini.bufremove").delete(0, false)
-end, { desc = "Delete Buffer" })
+map("n", "<C-q>", function() require("mini.bufremove").delete(0, false) end, { desc = "Delete Buffer" })
 map("n", "<leader>fq", "<cmd>q!<CR>")
 map("n", "<leader>fw", "<cmd>wa<CR>")
-map("n", "<leader>fwq", "<cmd>wqa<CR>")
+map("n", "<leader>fa", "<cmd>wqa<CR>")
 
 -- Surround
 map("n", "vw", "vaw")
@@ -111,9 +110,7 @@ map("n", "yw", "yaw")
 unmap("n", "<leader>l", { desc = "Lazy" })
 map("n", "<leader>la", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
 
-map("n", "<leader>L", function()
-  Util.news.changelog()
-end, { desc = "LazyVim Changelog" })
+map("n", "<leader>L", function() Util.news.changelog() end, { desc = "LazyVim Changelog" })
 
 -- Joshuto
 map("n", "<leader>ra", "<cmd>Joshuto<cr>", { desc = "Open joshuto in neovim" })

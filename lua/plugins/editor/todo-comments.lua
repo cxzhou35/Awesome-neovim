@@ -3,11 +3,14 @@ return {
   opts = {
     -- TODO:
     -- BUG:
-    -- PERF:
     -- FIX:
+    -- FIXME:
+    -- ISSUE:
+    -- PERF:
     -- WARN:
     -- HACK:
     -- NOTE:
+    -- Note:
     -- TEST:
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
@@ -26,7 +29,7 @@ return {
         color = "default",
         alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" },
       },
-      Note = { icon = "󰍩 ", color = "hint", alt = { "INFO" } },
+      Note = { icon = "󰍩 ", color = "hint", alt = { "INFO", "NOTE" } },
       Test = {
         icon = "⏲ ",
         color = "test",
