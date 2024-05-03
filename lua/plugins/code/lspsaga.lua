@@ -6,6 +6,18 @@ return {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional
     },
+    keys = {
+      { "ga", "<cmd>Lspsaga code_action<CR>", desc = "Lspsaga Code Action" },
+      { "gf", "<cmd>Lspsaga finder<CR>", desc = "Lspsaga Finder" },
+      { "go", "<cmd>Lspsaga outline<CR>", desc = "Lspsaga Outline" },
+      { "gh", "<cmd>Lspsaga hover_doc<CR>", desc = "Lspsaga Hover" },
+      { "gt", "<cmd>Lspsaga term_toggle<CR>", desc = "Lspsaga Float Terminal" },
+      { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Lspsaga Peek Definition" },
+      { "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "Lspsaga Goto Definition" },
+      { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Lspsaga Show Line Diagnostics" },
+      { "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Lspsaga Diagnsotic Jump Next" },
+      { "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Lspsaga Diagnsotic Jump Previous" },
+    },
     opts = {
       ui = {
         theme = "round",

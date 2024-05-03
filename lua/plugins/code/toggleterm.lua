@@ -2,6 +2,11 @@ return {
 
   "akinsho/toggleterm.nvim",
   version = "*",
+  keys = {
+    { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm Float Window" },
+    { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm Vertical Split" },
+    { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm Horizontal Split" },
+  },
   opts = {
     highlights = {
       Normal = { link = "Normal" },

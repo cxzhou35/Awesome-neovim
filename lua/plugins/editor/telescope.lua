@@ -39,7 +39,7 @@ return {
       end,
       desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
     },
-    { ";e", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+    { ";e", "<cmd>Telescope diagnostics bufnr=2<cr>", desc = "Document Diagnostics" },
     -- extensions
     { ";u", "<cmd>Telescope undo<cr>", desc = "Undo History" },
     { ";a", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", desc = "Grep With Args" },

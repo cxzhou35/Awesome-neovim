@@ -110,33 +110,10 @@ map("n", "yw", "yaw")
 -- BUG: Lazy keymap delete not work now
 map("n", "<leader>la", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
 
-map("n", "<leader>L", function()
-  Util.news.changelog()
-end, { desc = "LazyVim Changelog" })
-
--- Joshuto
-map("n", "<leader>ra", "<cmd>Joshuto<cr>", { desc = "Open joshuto in neovim" })
-
--- Lspsaga
-map("n", "ga", "<cmd>Lspsaga code_action<CR>", opts) -- Code Action
-map("n", "gf", "<cmd>Lspsaga finder<CR>", opts) -- Finder
-map("n", "go", "<cmd>Lspsaga outline<CR>", opts) -- Outline
-map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts) -- Hover Doc
--- map("n", "<leader>gh", "vim.lsp.buf.hover", opts) -- Hover Doc
-map("n", "gt", "<cmd>Lspsaga term_toggle<CR>", opts) -- Float Terminal
-map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts) -- Peek Definition
-map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts) -- Goto Definition
-map("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- Show line diagnostics
-map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- Diagnsotic jump
-map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- Diagnsotic jump
-map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- Signature Help
-map("n", "gb", "<cmd>Telescope diagnostics bufnr=2<CR>", opts) -- show diagnostics for file
-map("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-
--- Toggleterm
-map("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "ToggleTerm horizontal split" })
-map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm float" })
-map("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" })
+-- Lsp
+-- map("n", "<leader>gh", "vim.lsp.buf.hover", opts)
+map("n", "<leader>rs", ":LspRestart<CR>", opts)
+map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
 -- Easy Align
 map({ "n", "v", "o" }, "ge", "<Plug>(EasyAlign)", { desc = "Easy Align" })
