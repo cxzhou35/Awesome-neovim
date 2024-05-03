@@ -10,7 +10,6 @@ return {
       ["z"] = { name = "+fold" },
       ["]"] = { name = "+next" },
       ["["] = { name = "+prev" },
-      ["<leader><tab>"] = { name = "+tabs" },
       ["<leader>a"] = { name = "+toggle" },
       ["<leader>b"] = { name = "+buffer" },
       ["<leader>c"] = { name = "+code" },

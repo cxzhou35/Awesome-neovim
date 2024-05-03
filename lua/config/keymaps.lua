@@ -42,15 +42,17 @@ map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Tabs
-map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
-map("n", "<leader><tab>h", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-map("n", "<leader><tab>j", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-map("n", "<leader><tab>k", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-map("n", "<leader><tab>n", "<cmd>tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader><tab>q", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "t", "<Nop>")
+map("n", "T", "<Nop>")
+map("n", "tl", "<cmd>tablast<cr>", { desc = "Last Tab", silent = true })
+map("n", "th", "<cmd>tabfirst<cr>", { desc = "First Tab", silent = true })
+map("n", "tj", "<cmd>tabnext<cr>", { desc = "Next Tab", silent = true })
+map("n", "tk", "<cmd>tabprevious<cr>", { desc = "Previous Tab", silent = true })
+map("n", "tn", "<cmd>tabnew<cr>", { desc = "New Tab", silent = true })
+map("n", "tq", "<cmd>tabclose<cr>", { desc = "Close Tab", silent = true })
 
-map("n", "s", "<nop>")
 -- Split window
+map("n", "s", "<Nop>")
 map("n", "ss", "<cmd>split<Return><C-w>w", { silent = true, desc = "split" })
 map("n", "sv", "<cmd>vsplit<Return><C-w>w", { silent = true, desc = "vsplit" })
 map("n", "se", "<C-w>=", { desc = "Make splits equal size" })
@@ -107,8 +109,10 @@ map("n", "yw", "yaw")
 ------------- Plugins -------------
 
 -- Lazy
--- BUG: Lazy keymap delete not work now
-map("n", "<leader>la", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>`", function()
+  require("lazy").profile()
+end)
 
 -- Lsp
 -- map("n", "<leader>gh", "vim.lsp.buf.hover", opts)

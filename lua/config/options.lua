@@ -49,6 +49,8 @@ opt.clipboard = { "unnamed", "unnamedplus" }
 -- Search
 opt.ignorecase = true
 opt.smartcase = true
+opt.infercase = true
+opt.hlsearch = false
 
 -- Chars
 opt.list = true
