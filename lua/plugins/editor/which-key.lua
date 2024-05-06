@@ -1,6 +1,10 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
   opts = {
     plugins = { spelling = true },
     defaults = {
@@ -15,6 +19,7 @@ return {
       ["<leader>c"] = { name = "+code" },
       ["<leader>f"] = { name = "+file/find" },
       ["<leader>g"] = { name = "+git" },
+      ["<leader>gh"] = { name = "+hunks" },
       ["<leader>h"] = { name = "+hop" },
       ["<leader>q"] = { name = "+quit/session" },
       ["<leader>r"] = { name = "+misc" },
@@ -23,7 +28,6 @@ return {
       ["<leader>u"] = { name = "+ui" },
       ["<leader>w"] = { name = "+windows" },
       ["<leader>x"] = { name = "+diagnostics/quickfix" },
-      -- ["<leader>gh"] = { name = "+hunks" },
     },
   },
   config = function(_, opts)

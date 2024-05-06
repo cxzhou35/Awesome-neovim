@@ -177,9 +177,12 @@ return {
               -- your custom normal mode mappings
               ["n"] = require("telescope").extensions.file_browser.actions.create,
               ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
-              ["d"] = require("telescope").extensions.file_browser.actions.remove,
+              ["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
+              ["o"] = require("telescope").extensions.file_browser.actions.open,
               ["r"] = require("telescope").extensions.file_browser.actions.rename,
               ["y"] = require("telescope").extensions.file_browser.actions.copy,
+              ["s"] = require("telescope").extensions.file_browser.actions.sort_by_size,
+              ["d"] = require("telescope").extensions.file_browser.actions.remove,
               ["m"] = require("telescope").extensions.file_browser.actions.move,
               ["<PageUp>"] = require("telescope.actions").preview_scrolling_up,
               ["<PageDown>"] = require("telescope.actions").preview_scrolling_down,
