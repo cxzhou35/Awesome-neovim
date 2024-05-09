@@ -1,19 +1,8 @@
-# OSX store file
-*.DS_Store
-
-# Compiled Lua sources
-luac.out
-
-
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
-
-# Precompiled Headers
-*.gch
-*.pch
-
-*.sh
-
-plugin/*
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data

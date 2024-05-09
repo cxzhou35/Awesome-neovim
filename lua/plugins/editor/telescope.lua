@@ -116,7 +116,9 @@ return {
         prompt_prefix = string.format("%s ", ""),
         selection_caret = string.format("%s ", ""),
         path_display = { "truncate" },
+        initial_mode = "insert",
         sorting_strategy = "ascending",
+        color_devicons = true,
         dynamic_preview_title = true,
         mappings = {
           i = {
@@ -139,6 +141,15 @@ return {
           width = 0.87,
           height = 0.80,
           -- preview_cutoff = 120,
+        },
+      },
+      pickers = {
+        diagnostics = {
+          theme = "ivy",
+          initial_mode = "normal",
+          layout_config = {
+            preview_cutoff = 9999,
+          },
         },
       },
       extensions = {

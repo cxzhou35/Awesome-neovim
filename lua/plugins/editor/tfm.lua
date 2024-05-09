@@ -3,7 +3,7 @@ return {
   lazy = true,
   keys = {
     {
-      "<leader>v",
+      "<leader>y",
       function()
         require("tfm").open()
       end,

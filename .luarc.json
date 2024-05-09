@@ -1,11 +1,12 @@
 {
-    "diagnostics.disable": [
-        "undefined-field"
-    ],
+    "completion.autoRequire": false,
     "diagnostics.globals": [
-        "reineken",
-        "sds",
-        "repeat",
-        "vim"
+        "dasda",
+        "transparent"
+    ],
+    "diagnostics.disable": [
+        "param-type-mismatch",
+        "inject-field",
+        "missing-fields"
     ]
 }

@@ -7,41 +7,40 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- General
+o.scrolloff = 10
 opt.confirm = true
-opt.relativenumber = true
-opt.number = true
 opt.autowrite = true
-opt.cul = true
 opt.iskeyword:append("-")
-opt.swapfile = false
-opt.showmode = false
 opt.backspace = { "start", "eol", "indent" }
-opt.title = true
 opt.completeopt = "menu,menuone,noselect"
-opt.undofile = true
 opt.wildmenu = true
 opt.wildmode = "longest:list,full"
-opt.cmdheight = 0
-opt.showcmd = false
 opt.laststatus = 3
-opt.cursorline = true
 opt.conceallevel = 0
-o.scrolloff = 10
 
 -- Window
-opt.splitkeep = "screen"
+opt.title = true
 opt.splitright = true
 opt.splitbelow = true
+opt.splitkeep = "screen"
 
 -- Backup
 o.backup = false
 o.writebackup = false
 o.swapfile = false
+opt.undofile = false
 
 -- UI
 o.showtabline = 0
 wo.colorcolumn = "100"
+opt.cmdheight = 0
+opt.wrap = false
+opt.showcmd = false
+opt.showmode = false
+opt.cursorline = true
 opt.ruler = true
+opt.number = true
+opt.relativenumber = false
 
 -- Clipboard
 opt.clipboard = { "unnamed", "unnamedplus" }
@@ -78,16 +77,17 @@ opt.fillchars = {
 -- opt.spelllang = { "en_us" }
 
 -- Tab & Indent
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.autoindent = true
 opt.smartindent = true
 opt.breakindent = true
 opt.expandtab = true
 opt.smarttab = true
 opt.shiftround = true
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.softtabstop = 2
 opt.signcolumn = "yes"
+opt.inccommand = "split"
 
 -- Encoding
 vim.scriptencoding = "utf-8"
@@ -101,15 +101,12 @@ o.winblend = 0
 o.cursorlineopt = "number"
 opt.termguicolors = true
 
--- Undercurl
--- vim.cmd([[let &t_Cs = "\e[4:3m"]])
--- vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
 -- Add asterisks in block comments
 opt.formatoptions:append({ "r" })
 
 -- Wildfire
 g.wildfire_objects = { "i'", 'i"', "i)", "i]", "i}", "ip", "it", "i`", "i*" }
+opt.wildignore:append({ ".aux", ".out", ".toc" })
 
 -- Disable nvim intro
 opt.shortmess:append("sI")

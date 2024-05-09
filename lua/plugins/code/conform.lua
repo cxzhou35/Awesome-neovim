@@ -19,7 +19,7 @@ return {
         cpp = { "clang_format" },
         -- markdown = { "markdownlint" },
         markdown = { "prettier" },
-        tex = { "latexindent" },
+        tex = { "latexindent", "bibtex-tidy" },
         sh = { "shfmt" },
       },
       ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
