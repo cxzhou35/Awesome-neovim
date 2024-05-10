@@ -34,10 +34,13 @@ return {
       vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
       vim.g.vimtex_quickfix_open_on_warning = 0
       vim.g.vimtex_syntax_enabled = 1
+      vim.g.vimtex_syntax_conceal_disable = 1
       vim.g.vimtex_view_method = "skim"
+      vim.g.vimtex_view_skim_sync = 1
       vim.g.vimtex_compiler_method = "latexmk"
       vim.g.vimtex_view_enabled = 1
       vim.g.vimtex_view_automatic = 0
+      vim.g.vimtex_compiler_silent = 1
       vim.g.vimtex_indent_on_ampersands = 0
       vim.g.vimtex_indent_enabled = 0
       vim.g.vimtex_syntax_conceal = {
@@ -65,8 +68,6 @@ return {
       }
     end,
   },
-
-  { "let-def/texpresso.vim", ft = { "tex" } },
 
   -- Correctly setup lspconfig for LaTeX 🚀
   {
