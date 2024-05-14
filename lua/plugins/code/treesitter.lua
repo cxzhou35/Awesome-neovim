@@ -22,8 +22,8 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<M-space>",
-          node_incremental = "<M-space>",
+          init_selection = "<M-enter>",
+          node_incremental = "<M-enter>",
           scope_incremental = false,
           node_decremental = "<bs>",
         },

@@ -7,10 +7,7 @@ return {
       "stylua",
       "luacheck",
 
-      "marksman",
       "shfmt",
-
-      "black",
 
       "yaml-language-server",
     },

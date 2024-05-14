@@ -77,47 +77,6 @@ return {
           },
         },
       },
-      pyright = {
-        settings = {
-          python = {
-            analysis = {
-              logLevel = "Warning",
-              typeCheckingMode = "basic", -- off, basic, strict
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              autoImportCompletions = true,
-              diagnosticMode = "workspace",
-              diagnosticSeverityOverrides = {
-                strictListInference = true,
-                strictDictionaryInference = true,
-                strictSetInference = true,
-                reportUnusedImport = "warning",
-                reportUnusedClass = "warning",
-                reportUnusedFunction = "warning",
-                reportUnusedVariable = "warning",
-                reportUnusedCoroutine = "warning",
-                reportDuplicateImport = "warning",
-                reportPrivateUsage = "warning",
-                reportUnusedExpression = "warning",
-                reportConstantRedefinition = "error",
-                reportIncompatibleMethodOverride = "error",
-                reportMissingImports = "error",
-                reportUndefinedVariable = "error",
-                reportAssertAlwaysTrue = "error",
-              },
-            },
-          },
-        },
-      },
-      jsonls = {
-        settings = {
-          json = {
-            format = {
-              enable = true,
-            },
-          },
-        },
-      },
     },
   },
 }

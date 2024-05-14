@@ -32,9 +32,12 @@ return {
     },
   },
   opts = {
+    continue = true,
+    jump = { nohlsearch = true },
     modes = {
       search = {
         enabled = false,
+        jump = { history = true, register = true, nohlsearch = true },
       },
       char = { jump_labels = true },
       treesitter_search = {

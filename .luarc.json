@@ -1,12 +1,10 @@
 {
-    "completion.autoRequire": false,
-    "diagnostics.globals": [
-        "dasda",
-        "transparent"
-    ],
-    "diagnostics.disable": [
-        "param-type-mismatch",
-        "inject-field",
-        "missing-fields"
-    ]
+  "completion.autoRequire": false,
+  "diagnostics.globals": ["dasda", "transparent"],
+  "diagnostics.disable": [
+    "param-type-mismatch",
+    "inject-field",
+    "duplicate-set-field"
+  ]
 }
+
