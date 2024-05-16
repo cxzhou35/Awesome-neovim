@@ -19,7 +19,8 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Disable the concealing in some file formats
 -- The default conceallevel is 3 in LazyVim
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "jsonc", "markdown" },
+  -- pattern = { "json", "jsonc", "markdown" },
+  pattern = { "json", "jsonc" },
   callback = function()
     vim.opt.conceallevel = 0
   end,
@@ -57,11 +58,17 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
-  pattern = { "tex" },
+  pattern = { "tex", "gitcommit", "markdown", "pandoc" },
   callback = function()
     vim.opt_local.wrap = true
-    vim.opt_local.spell = true
+    vim.opt_local.spell = false
   end,
+})
+
+vim.api.nvim_create_autocmd("filetype", {
+  -- group = augroup("wrap_spell"),
+  pattern = { "gitcommit", "markdown", "pandoc" },
+  command = "set nospell",
 })
 
 -- Auto sync plugins on save
@@ -101,4 +108,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.foldcolumn = "0" -- '0' is not bad
   end,
   group = _ft,
+})
+
+vim.api.nvim_create_autocmd({ "ExitPre" }, {
+  callback = function()
+    vim.opt.guicursor = "a:ver30-blinkon0"
+  end,
 })

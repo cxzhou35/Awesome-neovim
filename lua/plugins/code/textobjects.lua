@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   lazy = true,

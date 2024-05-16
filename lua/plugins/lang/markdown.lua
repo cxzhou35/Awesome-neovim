@@ -27,6 +27,7 @@ return {
   -- Markdown preview
   {
     "iamcco/markdown-preview.nvim",
+    event = "VeryLazy",
     ft = { "markdown" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
@@ -48,11 +49,13 @@ return {
   },
   {
     "junegunn/vim-easy-align",
+    event = "VeryLazy",
     ft = { "markdown", "tex" },
     cmd = { "EasyAlign" },
   },
   {
     "lukas-reineke/headlines.nvim",
+    event = "VeryLazy",
     ft = { "markdown" },
     opts = {
       markdown = {

@@ -1,6 +1,7 @@
 return {
   {
     "dfendr/clipboard-image.nvim",
+    event = "VeryLazy",
     opts = {
       -- You can create configuration for ceartain filetype by creating another field (markdown, in this case)
       -- If you're uncertain what to name your field to, you can run `lua print(vim.bo.filetype)`

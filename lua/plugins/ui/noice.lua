@@ -1,6 +1,7 @@
 return {
   "folke/noice.nvim",
   keys = { { "<c-f>", false }, { "<c-b>", false } },
+  event = "VeryLazy",
   opts = function(_, opts)
     table.insert(opts.routes, {
       filter = {
@@ -32,7 +33,6 @@ return {
       inc_rename = true,
       lsp_doc_border = true,
     }
-    opts.routes.view = "mini"
     opts.cmdline = {
       format = {
         cmdline = { pattern = "^:", icon = "", lang = "vim" },

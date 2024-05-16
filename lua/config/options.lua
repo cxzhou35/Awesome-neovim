@@ -16,7 +16,7 @@ opt.completeopt = "menu,menuone,noselect"
 opt.wildmenu = true
 opt.wildmode = "longest:list,full"
 opt.laststatus = 3
-opt.conceallevel = 0
+opt.conceallevel = 2
 
 -- Window
 opt.title = true

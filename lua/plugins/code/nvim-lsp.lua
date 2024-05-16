@@ -42,11 +42,12 @@ return {
               library = {
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                 unpack(vim.api.nvim_get_runtime_file("", true)),
+                [vim.fn.stdpath("config") .. "/lua"] = true,
               },
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = { "vim" },
+              globals = { "vim", "spec" },
               disable = { "incomplete-signature-doc", "trailing-space" },
               groupSeverity = {
                 strong = "Warning",

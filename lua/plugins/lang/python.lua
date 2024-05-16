@@ -85,6 +85,7 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
+    enabled = false,
     cmd = "VenvSelect",
     event = "VeryLazy",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
