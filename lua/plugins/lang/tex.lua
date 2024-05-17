@@ -1,14 +1,4 @@
 return {
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      defaults = {
-        ["<localLeader>l"] = { name = "+vimtex" },
-      },
-    },
-  },
-
   -- Add BibTeX/LaTeX to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -26,7 +16,7 @@ return {
 
   {
     "lervag/vimtex",
-    lazy = false, -- lazy-loading will disable inverse search
+    lazy = true, -- lazy-loading will disable inverse search
     ft = { "tex" },
     keys = { { "<leader>v", ":VimtexView<CR>", desc = "Vimtex Preview" } },
     config = function()

@@ -2,6 +2,26 @@ return {
   "hrsh7th/nvim-cmp",
   version = false, -- last release is way too old
   event = "InsertEnter",
+  dependencies = {
+    { "rafamadriz/friendly-snippets" },
+    { "saadparwaiz1/cmp_luasnip" },
+    {
+      "zbirenbaum/copilot-cmp",
+      dependencies = "copilot.lua",
+      opts = {},
+      config = function(_, opts)
+        local copilot_cmp = require("copilot_cmp")
+        copilot_cmp.setup(opts)
+        -- attach cmp source whenever copilot attaches
+        -- fixes lazy-loading issues with the copilot cmp source
+        LazyVim.lsp.on_attach(function(client)
+          if client.name == "copilot" then
+            copilot_cmp._on_insert_enter({})
+          end
+        end)
+      end,
+    },
+  },
   opts = function()
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require("cmp")
@@ -69,7 +89,8 @@ return {
         end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
-        { name = "copilot", group_index = 1, priority = 3000 },
+        { name = "copilot", group_index = 1, priority = 100 },
+        -- { name = "snippets" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },

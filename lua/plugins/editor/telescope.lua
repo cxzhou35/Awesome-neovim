@@ -51,7 +51,7 @@ return {
       end,
       desc = "Resume the previous telescope picker",
     },
-    { ";y", "<cmd>Telescope yank_history<cr>", desc = "Yank History" },
+    -- { ";y", "<cmd>Telescope yank_history<cr>", desc = "Yank History" },
     {
       "<leader>fp",
       function()
@@ -95,6 +95,7 @@ return {
     },
     {
       "gbprod/yanky.nvim",
+      enabled = false,
       event = { "VeryLazy" },
       opts = {
         ring = {
@@ -208,6 +209,6 @@ return {
     require("telescope").load_extension("undo")
     require("telescope").load_extension("file_browser")
     require("telescope").load_extension("live_grep_args")
-    require("telescope").load_extension("yank_history")
+    -- require("telescope").load_extension("yank_history")
   end,
 }

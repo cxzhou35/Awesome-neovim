@@ -20,6 +20,9 @@ map("n", "<C-m>", "<C-i>", opts)
 -- Select all
 map("n", "<C-a>", "gg<S-v>G", { desc = "use 'C-a' to select all" })
 
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+
 -- Move cursor
 map({ "n", "v", "o" }, "H", "^", { desc = "Jump to the start of line" })
 map({ "n", "v", "o" }, "L", "g_", { desc = "Jump to the end of line" })
@@ -90,9 +93,7 @@ map("n", "<leader>-", "<C-x>")
 
 -- File
 map("n", "<C-n>", "<cmd>enew<cr>", { desc = "New File" })
-map("n", "<C-q>", function()
-  require("mini.bufremove").delete(0, false)
-end, { desc = "Delete Buffer" })
+map("n", "<C-q>", "<cmd>bdelete<CR>", { desc = "Delete Buffer" })
 map("n", "<leader>fq", "<cmd>q!<CR>")
 map("n", "<leader>fw", "<cmd>wa<CR>")
 map("n", "<leader>fa", "<cmd>wqa<CR>")
@@ -109,7 +110,7 @@ map("n", "yw", "yaw")
 ------------- Plugins -------------
 
 -- Lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
 map("n", "<leader>`", function()
   require("lazy").profile()
 end)

@@ -16,11 +16,7 @@ return {
       },
       severity_sort = true,
     },
-    -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-    inlay_hints = {
-      enabled = false,
-    },
-    -- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
+    inlay_hints = { enabled = false },
     codelens = {
       enabled = false,
     },

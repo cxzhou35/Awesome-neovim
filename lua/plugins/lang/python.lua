@@ -75,9 +75,10 @@ return {
   },
   {
     "kmontocam/nvim-conda",
-    event = "VeryLazy",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = true,
     ft = { "python" },
+    -- event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       { "<leader>pc", "<cmd>CondaActivate<cr>", desc = "Activate Conda Env" },
       { "<leader>pd", "<cmd>CondaDeactivate<cr>", desc = "Deactivate Conda Env" },

@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- The default conceallevel is 3 in LazyVim
 vim.api.nvim_create_autocmd("FileType", {
   -- pattern = { "json", "jsonc", "markdown" },
-  pattern = { "json", "jsonc" },
+  pattern = { "json", "jsonc", "json5" },
   callback = function()
     vim.opt.conceallevel = 0
   end,
@@ -68,7 +68,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("filetype", {
   -- group = augroup("wrap_spell"),
   pattern = { "gitcommit", "markdown", "pandoc" },
-  command = "set nospell",
+  callback = function()
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+    vim.opt.softtabstop = 4
+  end,
 })
 
 -- Auto sync plugins on save

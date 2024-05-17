@@ -22,6 +22,8 @@ require("lazy").setup({
       },
     },
 
+    -- extra lazyvim plugins
+
     -- import/override with your plugins
     { import = "plugins.colorscheme" },
     { import = "plugins.code" },
@@ -53,13 +55,19 @@ require("lazy").setup({
         "gzip",
         "netrwPlugin",
         "rplugin",
+        "tar",
         "tarPlugin",
         "tohtml",
         "tutor",
+        "zip",
         "zipPlugin",
-        -- copy from https://github.com/sxyazi/dotfiles/blob/main/nvim/init.lua
+        "getscript",
+        "getscriptPlugin",
+        "vimball",
+        "vimballPlugin",
+        "logiPat",
+        "rrhelper",
         "health",
-        "man",
         "matchit",
         "matchparen",
       },
