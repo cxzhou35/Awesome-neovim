@@ -43,7 +43,8 @@ opt.number = true
 opt.relativenumber = false
 
 -- Clipboard
-opt.clipboard = { "unnamed", "unnamedplus" }
+-- opt.clipboard = { "unnamed", "unnamedplus" }
+opt.clipboard = "unnamedplus"
 
 -- Search
 opt.ignorecase = true
@@ -107,6 +108,7 @@ opt.formatoptions:append({ "r" })
 -- Wildfire
 g.wildfire_objects = { "i'", 'i"', "i)", "i]", "i}", "ip", "it", "i`", "i*" }
 opt.wildignore:append({ ".aux", ".out", ".toc" })
+opt.wildignorecase = true
 
 -- Disable nvim intro
 opt.shortmess:append("sI")

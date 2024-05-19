@@ -1,5 +1,6 @@
 return {
   "sindrets/diffview.nvim",
+  event = "LazyFile",
   opts = {
     diff_binaries = false, -- Show diffs for binaries
     enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'

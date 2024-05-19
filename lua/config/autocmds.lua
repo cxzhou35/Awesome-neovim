@@ -65,13 +65,22 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("filetype", {
+vim.api.nvim_create_autocmd("FileType", {
   -- group = augroup("wrap_spell"),
   pattern = { "gitcommit", "markdown", "pandoc" },
   callback = function()
     vim.opt.tabstop = 4
     vim.opt.shiftwidth = 4
     vim.opt.softtabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "scheme", "lisp", "racket", "yaml", "json", "jsonc" },
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
   end,
 })
 

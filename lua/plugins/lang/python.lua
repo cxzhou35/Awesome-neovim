@@ -75,7 +75,7 @@ return {
   },
   {
     "kmontocam/nvim-conda",
-    lazy = true,
+    event = "VeryLazy",
     ft = { "python" },
     -- event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -86,7 +86,6 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
-    enabled = false,
     cmd = "VenvSelect",
     event = "VeryLazy",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },

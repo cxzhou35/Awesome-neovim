@@ -1,5 +1,4 @@
 return {
-  -- Add BibTeX/LaTeX to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -13,7 +12,6 @@ return {
       end
     end,
   },
-
   {
     "lervag/vimtex",
     lazy = true, -- lazy-loading will disable inverse search
@@ -58,8 +56,6 @@ return {
       }
     end,
   },
-
-  -- Correctly setup lspconfig for LaTeX 🚀
   {
     "neovim/nvim-lspconfig",
     optional = true,

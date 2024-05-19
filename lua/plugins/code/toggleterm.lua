@@ -1,5 +1,4 @@
 return {
-
   "akinsho/toggleterm.nvim",
   version = "*",
   keys = {

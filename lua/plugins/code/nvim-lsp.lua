@@ -16,7 +16,7 @@ return {
       },
       severity_sort = true,
     },
-    inlay_hints = { enabled = false },
+    inlay_hints = { enabled = true },
     codelens = {
       enabled = false,
     },
@@ -60,7 +60,7 @@ return {
               enable = false,
             },
             hint = {
-              enable = false,
+              enable = true,
               setType = false,
               paramType = true,
               arrayIndex = "Disable",
