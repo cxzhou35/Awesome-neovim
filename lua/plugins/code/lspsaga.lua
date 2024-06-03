@@ -83,7 +83,7 @@ return {
         detail = false,
         auto_preview = false,
         virt_text = "┃",
-        keys = { jump = "o", toggle_or_jump = "f", quit = "q" },
+        keys = { jump = "o", toggle_or_jump = "u", quit = "q" },
         -- auto refresh when change buffer
         auto_refresh = true,
       },

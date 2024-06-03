@@ -22,8 +22,6 @@ require("lazy").setup({
       },
     },
 
-    -- extra lazyvim plugins
-
     -- import/override with your plugins
     { import = "plugins.colorscheme" },
     { import = "plugins.code" },

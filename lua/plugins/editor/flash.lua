@@ -6,7 +6,7 @@ return {
     { "s", false },
     { "S", false },
     {
-      "fj",
+      "fa",
       mode = { "n", "x", "o" },
       function()
         require("flash").jump()
@@ -39,7 +39,7 @@ return {
         enabled = false,
         jump = { history = true, register = true, nohlsearch = true },
       },
-      char = { jump_labels = true },
+      char = { jump_labels = true, keys = { "f", "F", "t", "T" } },
       treesitter_search = {
         label = {
           rainbow = { enabled = true },

@@ -78,7 +78,7 @@ return {
       },
       ft = { "tex", "markdown" },
       keys = {
-        { "<leader>i", "<cmd>PasteImg<cr>", desc = "Paste image" },
+        { "<leader>ri", "<cmd>PasteImg<cr>", desc = "Paste image" },
       },
     },
   },

@@ -3,7 +3,7 @@ return {
   {
     "rmagatti/alternate-toggler",
     keys = {
-      { "<leader>at", "<cmd>ToggleAlternate<CR>", desc = "Toggle Alternate" },
+      { "<leader>i", "<cmd>ToggleAlternate<CR>", desc = "Toggle Alternate" },
     },
     opts = {
       alternates = {
@@ -29,16 +29,15 @@ return {
   { "max397574/better-escape.nvim", event = "InsertEnter", opts = { timeout = 100, keys = "<Esc>" } },
   {
     "ellisonleao/carbon-now.nvim",
-    event = "BufRead",
-    keys = { { "<leader>cn", "<cmd>CarbonNow<CR>", mode = { "v", "n" }, desc = "Carbon Now" } },
+    lazy = true,
+    -- event = "VeryLazy",
+    cmd = "CarbonNow",
     opts = {
-      base_url = "https://carbon.now.sh/",
-      open_cmd = "open -a 'Google Chrome'",
       options = {
         theme = "material",
         window_theme = "none",
         background_mode = "color",
-        bg = "white",
+        bg = "gray",
         background_color = "rgba(240, 231, 231, 1.0)",
         font_family = "Hack",
         font_size = "16px",
@@ -68,15 +67,18 @@ return {
   },
   {
     "LunarVim/bigfile.nvim",
-    opts = { filesize = 10 },
-    features = { -- features to disable
-      "illuminate",
-      "lsp",
-      "treesitter",
-      "syntax",
-      "matchparen",
-      "vimopts",
-      "filetype",
+    opts = {
+      filesize = 10,
+      pattern = { "*" },
+      features = { -- features to disable
+        "illuminate",
+        "lsp",
+        "treesitter",
+        "syntax",
+        "matchparen",
+        "vimopts",
+        "filetype",
+      },
     },
   },
   {
@@ -98,5 +100,17 @@ return {
   {
     "mg979/vim-visual-multi",
     branch = "master",
+  },
+  {
+    "axieax/urlview.nvim",
+    cmd = { "UrlView" },
+    event = "VeryLazy",
+    keys = {
+      { mode = { "n" }, "<leader>ru", "<cmd>UrlView<cr>", desc = "View buffer URLs" },
+      { mode = { "n" }, "<leader>rp", "<cmd>UrlView packer<cR>", desc = "View Packer plugin URLs" },
+    },
+    opts = {
+      default_picker = "telescope",
+    },
   },
 }

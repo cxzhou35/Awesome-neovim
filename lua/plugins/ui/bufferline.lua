@@ -43,6 +43,15 @@ return {
         return string.format("%s.", opts.ordinal)
       end,
 
+      offsets = {
+        {
+          filetype = "neo-tree",
+          text = " File Explorer",
+          highlight = "Directory",
+          separator = false,
+        },
+      },
+
       diagnostics = "nvim_lsp",
       diagnostics_indicator = function(_, _, diag)
         local icons = require("lazyvim.config").icons.diagnostics

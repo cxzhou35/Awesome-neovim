@@ -7,7 +7,6 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- General
-o.scrolloff = 10
 opt.confirm = true
 opt.autowrite = true
 opt.iskeyword:append("-")
@@ -17,6 +16,8 @@ opt.wildmenu = true
 opt.wildmode = "longest:list,full"
 opt.laststatus = 3
 opt.conceallevel = 2
+o.ttyfast = true
+o.scrolloff = 10
 
 -- Window
 opt.title = true

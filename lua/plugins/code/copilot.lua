@@ -12,4 +12,16 @@ return {
       cpp = true,
     },
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    keys = { { "<leader>cu", "<cmd>CopilotChatToggle<cr>", desc = "Toggle chat window" } },
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    opts = {
+      debug = false,
+    },
+  },
 }

@@ -2,11 +2,10 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
--- Disable new line auto comment
+-- Disable auto comment
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
   callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
+    vim.opt.formatoptions = { c = false, r = false, o = false }
   end,
 })
 

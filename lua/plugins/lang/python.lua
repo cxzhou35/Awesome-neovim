@@ -80,8 +80,8 @@ return {
     -- event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { "<leader>pc", "<cmd>CondaActivate<cr>", desc = "Activate Conda Env" },
-      { "<leader>pd", "<cmd>CondaDeactivate<cr>", desc = "Deactivate Conda Env" },
+      { "<leader>ac", "<cmd>CondaActivate<cr>", desc = "Activate Conda Env" },
+      { "<leader>ad", "<cmd>CondaDeactivate<cr>", desc = "Deactivate Conda Env" },
     },
   },
   {

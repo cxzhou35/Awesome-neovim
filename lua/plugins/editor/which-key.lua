@@ -9,7 +9,7 @@ return {
     plugins = { spelling = true },
     defaults = {
       mode = { "n", "v" },
-      ["<leader>a"] = { name = "+toggle" },
+      ["<leader>a"] = { name = "+conda env" },
       ["<leader>h"] = { name = "+hop" },
       ["<leader>r"] = { name = "+misc" },
       ["<leader>t"] = { name = "+terminal" },

@@ -24,10 +24,11 @@ return {
       show_unloaded = true,
     },
     filesystem = {
-      hide_gitignored = true,
+      hide_gitignored = false,
       hide_by_name = {
         "node_modules",
         "__pycache__",
+        ".git",
       },
       never_show = {
         ".DS_Store",

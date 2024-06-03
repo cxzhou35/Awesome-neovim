@@ -5,6 +5,7 @@
   "diagnostics.disable": [
     "param-type-mismatch",
     "inject-field",
-    "duplicate-set-field"
+    "duplicate-set-field",
+        "unused-local"
   ]
 }

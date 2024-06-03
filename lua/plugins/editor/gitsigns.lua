@@ -17,6 +17,13 @@ return {
     current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
     sign_priority = 6,
     yadm = { enable = false },
+    -- signs = {
+    --   add = { text = "+" },
+    --   change = { text = "~" },
+    --   delete = { text = "_" },
+    --   topdelete = { text = "‾" },
+    --   changedelete = { text = "~" },
+    -- },
     preview_config = {
       -- Options passed to nvim_open_win
       border = "single",

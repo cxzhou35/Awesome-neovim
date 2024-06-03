@@ -10,6 +10,7 @@ local opts = { silent = true, noremap = true }
 -- Paste over currently selected text without yanking it
 map("v", "p", '"_dP', { silent = true })
 map({ "n", "v" }, "<leader>y", [["+y]], { silent = true })
+map({ "n", "x" }, "<leader>p", '"0p', { silent = true })
 
 -- Delete without yanking
 map({ "n", "v" }, "<leader>d", [["_d]])
@@ -122,3 +123,6 @@ map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
 -- Easy Align
 map({ "n", "v", "o" }, "ge", "<Plug>(EasyAlign)", { desc = "Easy Align" })
+
+-- Carbon Now
+map("v", "<leader>cn", ":CarbonNow<CR>", { silent = true })

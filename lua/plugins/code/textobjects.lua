@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-fields
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
-  lazy = true,
+  event = "VeryLazy",
   config = function()
     require("nvim-treesitter.configs").setup({
       textobjects = {

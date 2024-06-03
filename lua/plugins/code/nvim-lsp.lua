@@ -16,19 +16,16 @@ return {
       },
       severity_sort = true,
     },
-    inlay_hints = { enabled = true },
+    inlay_hints = {
+      enabled = true,
+      exclude = {}, -- filetypes for which you don't want to enable inlay hints
+    },
     codelens = {
       enabled = false,
-    },
-    format = {
-      formatting_options = nil,
-      timeout_ms = nil,
     },
     -- LSP Server Settings
     servers = {
       lua_ls = {
-        -- mason = false, -- set to false if you don't want this server to be installed with mason
-        -- keys = {},
         single_file_support = true,
         settings = {
           Lua = {
@@ -37,7 +34,6 @@ return {
               checkThirdParty = false,
               library = {
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                unpack(vim.api.nvim_get_runtime_file("", true)),
                 [vim.fn.stdpath("config") .. "/lua"] = true,
               },
             },
@@ -63,6 +59,8 @@ return {
               enable = true,
               setType = false,
               paramType = true,
+              paramName = "Disable",
+              semicolon = "Disable",
               arrayIndex = "Disable",
             },
             doc = {
