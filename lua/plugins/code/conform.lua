@@ -3,9 +3,6 @@ return {
   dependencies = { "mason.nvim" },
   opts = function()
     local opts = {
-      format = {
-        timeout_ms = 3000,
-      },
       formatters_by_ft = {
         lua = { "stylua" },
         css = { "prettier" },

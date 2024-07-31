@@ -4,7 +4,7 @@ return {
   keys = {
     { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm Float Window" },
     { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm Vertical Split" },
-    { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm Horizontal Split" },
+    { "<leader>th", "<cmd>ToggleTerm size=15 direction=horizontal<cr>", desc = "ToggleTerm Horizontal Split" },
   },
   opts = {
     highlights = {
@@ -17,7 +17,7 @@ return {
       WinBar = { link = "WinBar" },
       WinBarNC = { link = "WinBarNC" },
     },
-    open_mapping = [[<C-\>]],
+    open_mapping = [[<C-//>]],
     size = 10,
     shade_terminals = true,
     shading_factor = 2,
@@ -26,7 +26,7 @@ return {
       vim.opt.foldcolumn = "0"
       vim.opt.signcolumn = "no"
     end,
-    direction = "float",
+    direction = "horizontal", -- 'vertical' | 'horizontal' | 'tab' | 'float'
     float_opts = { border = "rounded" },
     winbar = {
       enabled = false,

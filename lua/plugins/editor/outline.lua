@@ -1,7 +1,7 @@
 return {
   "hedyhli/outline.nvim",
   lazy = true,
-  keys = { { "<leader>cs", "<cmd>Outline<CR>", desc = "Outline Symbols", mode = { "n" } } },
+  keys = { { "<leader>co", "<cmd>Outline<CR>", desc = "Outline Symbols", mode = { "n" } } },
   opts = {
     outline_window = {
       position = "right",

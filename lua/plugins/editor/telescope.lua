@@ -2,26 +2,24 @@ return {
   "nvim-telescope/telescope.nvim",
   keys = {
     { ";b", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-    { ";c", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" },
+    { ";c", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" },
     { ";h", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { ";k", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-    { ";f", LazyVim.telescope("files"), desc = "Find Files (Root Dir)" },
-    { ";F", LazyVim.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+    { ";f", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    { ";F", LazyVim.pick("files", { cwd = false }), desc = "Find Files (cwd)" },
     { ";o", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
     { ";s", "<cmd>Telescope symbols<cr>", desc = "Symbols" },
     { ";w", "<cmd>Telescope grep_string<cr>", desc = "Grep Words" },
-    { ";O", LazyVim.telescope("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+    { ";O", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
     {
       ";r",
       function()
         local builtin = require("telescope.builtin")
-        builtin.live_grep({
-          additional_args = { "--hidden" },
-        })
+        builtin.live_grep()
       end,
       desc = "Search for a string in your current working directory",
     },
-    { ";R", LazyVim.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+    { ";R", LazyVim.pick("live_grep", { cwd = false }), desc = "Grep (cwd)" },
     {
       ";t",
       function()
