@@ -8,14 +8,6 @@ return {
       "luacheck",
 
       "shfmt",
-
-      "pyright",
-      "black",
-      "mypy",
-
-      "json-lsp",
-
-      "yaml-language-server",
     },
   },
 }

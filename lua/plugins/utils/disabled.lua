@@ -7,6 +7,7 @@ return {
   { "phaazon/hop.nvim", enabled = false },
   { "m4xshen/hardtime.nvim", enabled = true },
   { "axieax/urlview.nvim", enabled = false },
+  { "folke/persistence.nvim", enabled = false },
   -- cmp
   { "hrsh7th/cmp-cmdline", enabled = false },
   -- git

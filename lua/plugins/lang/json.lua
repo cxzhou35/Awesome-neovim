@@ -8,6 +8,13 @@ return {
     end,
   },
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "json-lsp", "yaml-language-server" })
+    end,
+  },
+  {
     "b0o/SchemaStore.nvim",
     lazy = true,
     version = false, -- last release is way too old

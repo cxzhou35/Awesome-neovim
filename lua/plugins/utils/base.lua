@@ -28,15 +28,6 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "max397574/better-escape.nvim", event = "InsertEnter", opts = { timeout = 100 } },
   {
-    "rmagatti/auto-session",
-    config = function()
-      require("auto-session").setup({
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Downloads" },
-      })
-    end,
-  },
-  {
     "LunarVim/bigfile.nvim",
     opts = {
       filesize = 10,
@@ -82,6 +73,12 @@ return {
     },
     opts = {
       default_picker = "telescope",
+    },
+  },
+  {
+    "szw/vim-maximizer",
+    keys = {
+      { "<leader>tm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split" },
     },
   },
 }

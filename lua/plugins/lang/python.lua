@@ -1,8 +1,4 @@
-if lazyvim_docs then
-  vim.g.lazyvim_python_lsp = "pyright"
-end
-
-local lsp = vim.g.lazyvim_python_lsp or "pyright"
+local lsp = vim.g.lazyvim_python_lsp or "basedpyright"
 
 return {
   {
@@ -17,49 +13,59 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "pyright", "black" })
+      vim.list_extend(opts.ensure_installed, { "basedpyright", "black", "mypy" })
     end,
   },
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {
-          settings = {
-            python = {
-              enabled = lsp == "pyright",
-              analysis = {
-                logLevel = "Warning",
-                typeCheckingMode = "basic", -- off, basic, strict
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                autoImportCompletions = true,
-                diagnosticMode = "workspace",
-                diagnosticSeverityOverrides = {
-                  strictListInference = true,
-                  strictDictionaryInference = true,
-                  strictSetInference = true,
-                  reportUnusedImport = "warning",
-                  reportUnusedClass = "warning",
-                  reportUnusedFunction = "warning",
-                  reportUnusedVariable = "warning",
-                  reportUnusedCoroutine = "warning",
-                  reportDuplicateImport = "warning",
-                  reportPrivateUsage = "warning",
-                  reportUnusedExpression = "warning",
-                  reportConstantRedefinition = "error",
-                  reportIncompatibleMethodOverride = "error",
-                  reportMissingImports = "error",
-                  reportUndefinedVariable = "error",
-                  reportAssertAlwaysTrue = "error",
-                },
-              },
-            },
-          },
-        },
         basedpyright = {
           enabled = lsp == "basedpyright",
+          analysis = {
+            autoSearchPaths = true,
+            autoImportCompletions = true,
+            diagnosticMode = "openFilesOnly",
+            useLibraryCodeForTypes = true,
+            reportMissingTypeStubs = false,
+            reportMissingImports = true,
+            typeCheckingMode = "basic",
+          },
         },
+        -- pyright = {
+        --   settings = {
+        --     python = {
+        --       -- enabled = lsp == "pyright",
+        --       enabled = false,
+        --       analysis = {
+        --         logLevel = "Warning",
+        --         typeCheckingMode = "basic", -- off, basic, strict
+        --         autoSearchPaths = true,
+        --         useLibraryCodeForTypes = true,
+        --         autoImportCompletions = true,
+        --         diagnosticMode = "workspace",
+        --         diagnosticSeverityOverrides = {
+        --           strictListInference = true,
+        --           strictDictionaryInference = true,
+        --           strictSetInference = true,
+        --           reportUnusedImport = "warning",
+        --           reportUnusedClass = "warning",
+        --           reportUnusedFunction = "warning",
+        --           reportUnusedVariable = "warning",
+        --           reportUnusedCoroutine = "warning",
+        --           reportDuplicateImport = "warning",
+        --           reportPrivateUsage = "warning",
+        --           reportUnusedExpression = "warning",
+        --           reportConstantRedefinition = "error",
+        --           reportIncompatibleMethodOverride = "error",
+        --           reportMissingImports = "error",
+        --           reportUndefinedVariable = "error",
+        --           reportAssertAlwaysTrue = "error",
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
         [lsp] = {
           enabled = true,
         },

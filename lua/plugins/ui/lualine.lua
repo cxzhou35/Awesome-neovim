@@ -11,22 +11,14 @@ return {
   event = "VeryLazy",
   opts = function()
     local icons = require("lazyvim.config").icons
-    local Util = require("lazyvim.util").ui
+    local util = LazyVim.ui
 
     local colors = {
-      [""] = Util.fg("Special"),
-      ["Normal"] = Util.fg("Special"),
-      ["Warning"] = Util.fg("DiagnosticError"),
-      ["InProgress"] = Util.fg("DiagnosticWarn"),
+      [""] = util.fg("Special"),
+      ["Normal"] = util.fg("Special"),
+      ["Warning"] = util.fg("DiagnosticError"),
+      ["InProgress"] = util.fg("DiagnosticWarn"),
     }
-
-    local function fg(name)
-      return function()
-        ---@type {foreground?:number}?
-        local hl = vim.api.nvim_get_hl_by_name(name, true)
-        return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-      end
-    end
 
     local function nvim_battery()
       return require("battery").get_status_line()
@@ -35,7 +27,7 @@ return {
     local function getLspName()
       local msg = "No Active Lsp"
       local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-      local clients = vim.lsp.get_active_clients()
+      local clients = vim.lsp.get_clients()
       if next(clients) == nil then
         return msg
       end
@@ -116,14 +108,15 @@ return {
           {
             function() return require("noice").api.status.command.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = fg("Statement")
+            color = util.fg("Statement")
           },
           -- stylua: ignore
           {
             function() return require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = fg("Constant"),
+            color = util.fg("Constant"),
           },
+          -- copilot status module
           {
             function()
               local icon = require("lazyvim.config").icons.kinds.Copilot
@@ -131,7 +124,7 @@ return {
               return icon .. (status.message or "")
             end,
             cond = function()
-              local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
+              local ok, clients = pcall(LazyVim.lsp.get_clients, { name = "copilot", bufnr = 0 })
               return ok and #clients > 0
             end,
             color = function()
@@ -142,7 +135,11 @@ return {
               return colors[status.status] or colors[""]
             end,
           },
-          { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = util.fg("Special"),
+          },
           {
             "diff",
             symbols = {

@@ -18,6 +18,7 @@ return {
     require("tokyonight").setup({
       style = "storm",
       transparent = transparent,
+      plugins = { markdown = true },
       styles = {
         sidebars = transparent and "transparent" or "dark",
         floats = transparent and "transparent" or "dark",
@@ -41,6 +42,6 @@ return {
       end,
     })
 
-    vim.cmd("colorscheme tokyonight")
+    -- vim.cmd("colorscheme tokyonight")
   end,
 }
